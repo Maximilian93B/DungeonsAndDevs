@@ -1,4 +1,4 @@
-const btn = document.getElementById('modal-btn');
+const modalImg = document.getElementById('modal-img');
 const span = document.getElementsByClassName('close')[0];
 
 
@@ -19,15 +19,14 @@ const closeModal = () => {
 }
 
 // Event listners for the button and span 
-btn.addEventListener('click', openModal);
+modalImg.addEventListener('click', openModal);
 span.addEventListener('click', closeModal);
 
 
 // close modal if use clicks out side the modal
-
 window.addEventListener('click', (event) => {
     const modal = document.getElementById('modal');
     if(event.target === modal) {
         closeModal();
     }
-});
+}); 
