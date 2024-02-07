@@ -39,8 +39,9 @@ app.get("/", (req, res)=> {
     res.send("Welcome to Dungeons and Devs")
 })
 
-app.listen(port, ()=> {
-    console.log("A Dragon Has AWAKENED on ${port}")
+app.listen(port, () => {
+    console.log(`A Dragon Has AWAKENED on ${port}`);
 });
+
 
 
