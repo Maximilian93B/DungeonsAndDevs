@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: url(../images/LoginBackground.png)no-repeat center center fixed;;
+    background-size: 100% auto ;
+ 
+   
+
+
+}
+
+.h1-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px; 
+    
+
+}
+
+h1{
+    color: #bab9b8;
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: 'MedievalSharp', cursive;
+    letter-spacing: 7px;
+    cursor: pointer
+  }
+  h1 span{
+    transition: .5s linear
+  }
+  h1:hover span:nth-child(1){
+    margin-right: 5px
+  }
+  h1:hover span:nth-child(1):after{
+    content: "";
+  }
+  h1:hover span:nth-child(2){
+    margin-left: 30px
+  }
+  h1:hover span{
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff, 
+                 0 0 40px #fff;
+  }
+
+.main-contianer{
+    position: relative;
+    top: 50%;
+    left: 50%;
+
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #f2e6d5; /* Semi-transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: 'MedievalSharp', cursive;
+    color: #3d3522;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8b4513; /* Golden yellow text color inspired by the One Ring */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #3d3522; /* White label text color */
+}
+
+.form-group input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #080808;
+    border-radius: 5px;
+    background-color: #f4f4f4; /* Light gray input background color */
+    margin-bottom: 10px; /* Add margin-bottom to create space below the input */
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #8b4513; /* Dark green button color inspired by forests of Middle-earth */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Add margin-top to create space above the button */
+}
+
+button[type="submit"]:hover {
+    background-color: #6e371f; /* Darker brown button color on hover */
+}
+
