@@ -7,7 +7,7 @@ const { User } = require('../../Models/User');
 
 // POST login - Handle the user login 
 router.post('/login', async (req, res) => {
-    const { username, password } = req.body; // Assuming the request sends these in lowercase
+    const { username, password } = req.body; // Issues with Case Sensitivity ?? --> ask in class 
 
     try {
         // Use the User Model to find one by username
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
         res.status(500).send('Server error during login.');
     }
 
-// NEED TO SEND USERS TO /DASHBAORD WHEN SUCCESSFUL SIGN IN 
+// NEED TO SEND USERS TO /DASHBAORD WHEN SUCCESSFUL LOG IN 
 
 });
 
