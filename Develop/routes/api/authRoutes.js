@@ -1,37 +1,34 @@
+ 
 // Import all Modules/Models needed for login auth 
-const express = require('express')
+const express = require('express');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 const { User } = require('../../Models/User');
 
-
-//POST login - Handle the user login 
-
-router.post('./login', async ( req, res) => {
-    const { Username , Password } = req.body;
+// POST login - Handle the user login 
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body; // Assuming the request sends these in lowercase
 
     try {
-        // Use the User Model to fine one by username
-        const user = await User.findOne({ where:{ Username: Username } });
+        // Use the User Model to find one by username
+        const user = await User.findOne({ where: { Username: username } });
         if (!user) {
             return res.status(401).send('Invalid User or Password');
         }
 
         // Use bcrypt to check the password 
-        const foundUser = await bcrypt.compare(Passwordassword, User.Password);
-            if(!foundUser) {
-                return res.status(401).send('Invalid User or Password'); // using user not found for passwrod to avoid maliscious activity. ask me why if you want to know reasonning. 
-            }
+        const isMatch = await bcrypt.compare(password, user.Password);
+        if (!isMatch) {
+            return res.status(401).send('Invalid User or Password'); // Same message for both errors for security
+        }
 
-        req.session.userID = user.userID;
+        req.session.userID = user.UserID; // session management 
         
-    
         res.send('Login Successful');
-
     } catch (error) {
-        console.error('hmm something is wrong', error);
-        res.status(500).send('Server errror during login.');
+        console.error('Something is wrong', error);
+        res.status(500).send('Server error during login.');
     }
 });
 
-module.exports = router;  
+module.exports = router;

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             };
 
             // Send the form data using fetch to our login endpoint
-            fetch('/api/auth/login', {
+            fetch('http://localhost:3303/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

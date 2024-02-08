@@ -7,6 +7,7 @@ const path = require('path');
 const port = process.env.PORT || 3303;
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true})); // to parsing our apps data 
 
 app.use(session({
     secret: 'Secretest-key-ever', // Consider using an environment variable for production
@@ -14,7 +15,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false, // set to true if using HTTPS
+        secure: false, // set to true if we want to use HTTPS 
         maxAge: 1000 * 60 * 60 * 24, // 24 hours
     }
 }));
@@ -27,14 +28,10 @@ const authRoutes = require('./Develop/routes/api/authRoutes');
 app.use('/api/auth', authRoutes);
 
 // Route to serve the login page
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Develop', 'public', 'login.html'));
-});
-
 app.get("/", (req, res) => {
-    res.send("Welcome to Dungeons and Devs");
-});
-
+        res.sendFile(path.join(__dirname, 'Develop', 'public', 'loginPage.html'));
+    });
+    
 app.listen(port, () => {
     console.log(`A Dragon Has AWAKENED on ${port}`);
 });
