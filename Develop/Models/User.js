@@ -21,11 +21,11 @@ User.init({
     unique: true,
     allowNull: false
   },
-  Email: {
-    type: DataTypes.STRING(50),
-    unique: true,
+  Password: {
+    type: DataTypes.STRING(60), // Adjusted length for bcrypt hash
     allowNull: false
   },
+  
   Password: {
     type: DataTypes.STRING(50),
     allowNull: false
