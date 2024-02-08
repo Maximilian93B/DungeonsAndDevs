@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href ="./css/loginStyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <title>DnDevLoginPage</title>
+</head>
+
+<body>
+   
+    <div class="modal-btn" id="modal-trigger">
+        <div class="image-container">
+            <img src="./images/DnDevCrest.png" alt="D&Devs crest" id="modal-img">
+        </div>
+    </div>
+    
+    <div class="h1-container">
+        <h1><span>Dungeons</span>&<span>Devs</span></h1>
+    </div>
+ 
+    <div class ="main-container">
+    <div class = 'login-container'>
+        <h2> Login </h2>
+        <form id = 'loginForm' action="../routes/api/authRoutes.js" method="POST">
+            <div class = 'form-group'>
+                <label for='username'>Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class = 'form-group'>
+                <label for='password'>Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>  
+        </form>    
+    </div>
+</div>
+
+
+
+
+
+
+<!-- The Modal -->
+<div id="modal" class="modal">
+  <!-- Modal Content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Welcome to Dungeons and Devs! This is a platform where developers and gaming enthusiasts come together to explore the intersection of technology and gaming.</p>
+    <p>Join us on our quest to discover new technologies, share coding adventures, and discuss the latest in gaming trends.</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="./js/login.js"></script>
+</body>
+</html>
