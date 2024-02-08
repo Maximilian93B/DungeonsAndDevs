@@ -29,6 +29,9 @@ router.post('/login', async (req, res) => {
         console.error('Something is wrong', error);
         res.status(500).send('Server error during login.');
     }
+
+// NEED TO SEND USERS TO /DASHBAORD WHEN SUCCESSFUL SIGN IN 
+
 });
 
-module.exports = router;
+module.exports = User;

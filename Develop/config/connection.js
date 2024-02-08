@@ -1,13 +1,17 @@
 
-const { DataTypes, Sequelize } = require('sequelize'); // Import DataTypes and use the Sequelize instance from the same import statement
-require("dotenv").config();
+const Sequelize = require('sequelize'); // Import sequelize 
+require("dotenv").config(); // import .env creds 
 
 
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+const sequelize = new Sequelize(   
+  process.env.DB_NAME, 
+  process.env.DB_USER, 
+  process.env.DB_PASSWORD,
+  {
   host: process.env.DB_HOST,
   dialect: 'mysql',
-  port: process.env.DB_PORT || 3306,
+  port: process.env.DB_PORT || 3303,
   pool: {
     max: 10, // Maximum number of connections in the pool
     min: 0, // Minimum number of connections in the pool

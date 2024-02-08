@@ -1,6 +1,6 @@
 // initDB.js
 
-const pool = require('./database');
+const pool = require('./connection');
 
 // Get a connection from the pool
 pool.getConnection((err, connection) => {
