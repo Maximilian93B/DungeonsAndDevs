@@ -1,6 +1,6 @@
 // initDB.js
 
-const pool = require('./connection');
+const pool = require('./database');
 
 // Get a connection from the pool
 pool.getConnection((err, connection) => {
@@ -11,13 +11,13 @@ pool.getConnection((err, connection) => {
   console.log('Connected to MySQL server');
 
   // Use the created database
-  connection.query('USE dnd_db', (err) => {
+  connection.query('USE mydatabase', (err) => {
     connection.release(); // Release the connection back to the pool
     if (err) {
       console.error('Error selecting database:', err);
       return;
     }
-    console.log('Using database: dnd_db');
+    console.log('Using database: mydatabase');
 
     // Do further database operations here if needed
 
