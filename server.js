@@ -3,20 +3,21 @@ const sequelize = require('./Develop/config/connection');
 const session = require('express-session'); 
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const path = require('path');
-const routes = require('./Develop/routes')
+const express = require('express')
+const authRoutes = require('./Develop/routes/api/authRoutes');
+const dashboardRoutes = require('./Develop/routes/api/dashboardRoute')
 
 
-const express = require("express");
+
 const app = express();
-
-
 const port = process.env.PORT || 3303;
+
 
 
 // Middleware 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true})); // to parsing our apps data 
-
+app.use(express.static(path.join(__dirname, 'Develop', 'public'))); // Serves all static files in the 'Public Folder'
 
 // Sessions management 
 app.use(session({
@@ -30,29 +31,27 @@ app.use(session({
     }
 }));
 
-//HTTP requests
 
-// Route to serve the 'HomePage' page
+// Routes
 app.get('/', (req, res) => {
+    console.log('login page accessed')
     res.sendFile(path.join(__dirname, 'Develop', 'public', 'loginPage.html'));
 });
 
-app.get('/') , (req , res) => {
-    ///logic for route 
-}
+// Authentication Routes
+app.use('/api/auth', authRoutes);
 
-app.get('/') , (req , res) => {
-    ///logic for route 
-}
-app.get('/') , (req , res) => {
-    ///logic for route 
-}
-// Serve static login.html file  from -->  'Develop/public/login.html'
-app.use(express.static(path.join(__dirname, 'Develop', 'public')));
 
-// Use the authRoute written in the api folder //// Route to serve the 'HomePage' page
-//app.use('/api/auth', authRoutes);
+// Dashboard after successful auth 
+app.use(dashboardRoutes);
 
+// TEST ROUTE FOR USER LOGIN --> When we test we will see 
+/*
+app.post('/api/auth/login', (req, res) => {
+    console.log("Login request received", req.body);
+    res.json({ success: true, message: "SHEEEESSSH we did it !! ." });
+});
+*/
     
 
 app.listen(port, () => {

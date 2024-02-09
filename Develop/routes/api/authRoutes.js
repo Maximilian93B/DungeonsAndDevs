@@ -7,31 +7,30 @@ const { User } = require('../../Models/User');
 
 // POST login - Handle the user login 
 router.post('/login', async (req, res) => {
-    const { username, password } = req.body; // Issues with Case Sensitivity ?? --> ask in class 
+    const { username, password } = req.body;
 
     try {
-        // Use the User Model to find one by username
         const user = await User.findOne({ where: { Username: username } });
         if (!user) {
-            return res.status(401).send('Invalid User or Password');
+            return res.status(401).json({ success: false, message: 'Invalid User or Password' });
         }
 
-        // Use bcrypt to check the password 
         const isMatch = await bcrypt.compare(password, user.Password);
         if (!isMatch) {
-            return res.status(401).send('Invalid User or Password'); // Same message for both errors for security
+            return res.status(401).json({ success: false, message: 'Invalid User or Password' });
         }
 
-        req.session.userID = user.UserID; // session management 
+        req.session.userID = user.UserID; // Session management
         
-        res.send('Login Successful');
+        res.json({ success: true, message: 'Login Successful' });
     } catch (error) {
-        console.error('Something is wrong', error);
-        res.status(500).send('Server error during login.');
+        console.error('Login error:', error);
+        res.status(500).json({ success: false, message: 'Server error during login.' });
     }
+});
 
 // NEED TO SEND USERS TO /DASHBAORD WHEN SUCCESSFUL LOG IN 
 
-});
 
-module.exports = User;
+
+module.exports = router;

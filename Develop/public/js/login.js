@@ -1,80 +1,78 @@
-
-// Form submission handling 
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Get loginForm from loginPage.html
+// Wait for the DOM to fully load before executing JavaScript
+document.addEventListener('DOMContentLoaded', async (event) => {
+    
     const loginForm = document.getElementById('loginForm');
 
-    // Check to see if form exists for error handling
+    // If the login form exists, set up an event listener for the form submission
     if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent the form from submitting by default
 
-            // Gather the form data inside the event listener
+            // Collect form data by grabbing the username and password input values
             const formData = {
                 username: document.getElementById('username').value,
                 password: document.getElementById('password').value,
             };
 
-            // Send the form data using fetch to our login endpoint
-            fetch('http://localhost:3303/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Login failed');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Success:', data);
-                // Handle Successful login, redirect to the 'dahsboard' 
-                window.location.href = '/dashboard'; // Adjust as necessary
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                // Implement error handling logic here
-            });
+            try {
+                // Perform an asynchronous fetch request to the login endpoint
+                const response = await fetch('http://localhost:3303/api/auth/login', {
+                    method: 'POST', // Specify the request method
+                    headers: {
+                        'Content-Type': 'application/json', // Indicate we're sending JSON data
+                    },
+                    body: JSON.stringify(formData), // Correctly use formData for JSON stringification
+                });
 
-            // Presuming closeModal is a function that closes your modal,
-            // you might want to call it only after a successful login,
-            // or conditionally based on the error/success of the operation.
+                // Parse JSON response from the server
+                const data = await response.json();
+
+                // Check if login was successful based on the server's response
+                if (data.success) {
+                    console.log('User login Successful');
+                    // Redirect the user to the dashboard page upon successful login
+                    window.location.href = '/dashboard';
+                } else {
+                    // Display an alert if login failed
+                    alert(data.message); // Show login failure message
+                }
+            } catch (error) {
+                // Log any errors that occur during the fetch operation
+                console.error('Fetch error:', error);
+            }
         });
     }
+
+
+
+    // Modal functionality 
+
+    
+    const modalImg = document.getElementById('modal-img');
+
+    const span = document.getElementsByClassName('close')[0];
+
+    // Function to open the modal
+    const openModal = () => {
+        const modal = document.getElementById('modal');
+        if (modal) modal.style.display = 'block'; // Only display the modal if it exists
+    };
+
+    // Function to close the modal
+    const closeModal = () => {
+        const modal = document.getElementById('modal');
+        if (modal) modal.style.display = 'none'; // Hide the modal if it exists
+    };
+
+    // Add event listeners to the modal trigger and close 
+    if (modalImg) modalImg.addEventListener('click', openModal);
+    if (span) span.addEventListener('click', closeModal);
+
+    // Close the modal if the user clicks outside of it
+    window.addEventListener('click', (event) => {
+        const modal = document.getElementById('modal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
 });
-
-
-// Handling Modal 
-
-const modalImg = document.getElementById('modal-img');
-const span = document.getElementsByClassName('close')[0];
-
-// Functio to open modal on login page 
-const openModal = () =>{
-    const modal = document.getElementById('modal');
-    modal.style.display = 'block';
-}
-
-//function to close modal 
-
-const closeModal = () => {
-    const modal = document.getElementById('modal'); 
-    modal.style.display = 'none'
-}
-
-// Event listners for the button and span with extra error handling (if) 
-if (modalImg) modalImg.addEventListener('click', openModal);
- if (span) span.addEventListener('click', closeModal);
-
-
-// close modal if use clicks out side the modal
-window.addEventListener('click', (event) => {
-    const modal = document.getElementById('modal');
-    if(event.target === modal) {
-        closeModal();
-    }
-}); 
