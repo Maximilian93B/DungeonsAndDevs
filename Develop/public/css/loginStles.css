@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: url(../images/LoginBackground.png)no-repeat center center fixed;;
+    background-size: 100% auto ;
+}
+
+.h1-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+
+}
+
+h1{
+    color: #f9f8f8;
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: 'MedievalSharp', cursive;
+    letter-spacing: 7px;
+    cursor: pointer
+    
+  }
+  h1 span{
+    transition: .5s linear
+  }
+  h1:hover span:nth-child(1){
+    margin-right: 5px
+  }
+  h1:hover span:nth-child(1):after{
+    content: "";
+  }
+  h1:hover span:nth-child(2){
+    margin-left: 30px
+  }
+  h1:hover span{
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff, 
+                 0 0 40px #fff;
+  }
+
+ 
+  
+.image-container{ 
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+   
+    
+}
+  
+  .image-container img {
+    width: 10%; /* Ensure the image fills its container */
+    max-width: 10%; /* Ensure the image doesn't exceed its container width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Limit the maximum height of the image */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for pulse effect */  
+}
+  
+.image-container img:hover {
+    transform: scale(1.1); /* Enlarge the image when hovered */
+}
+
+.main-contianer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+
+}
+
+.login-container {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #f2e6d5; /* Semi-transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: 'MedievalSharp', cursive;
+    color: #3d3522;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #8b4513; /* Golden yellow text color inspired by the One Ring */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #3d3522; /* White label text color */
+}
+
+.form-group input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #080808;
+    border-radius: 5px;
+    background-color: #f4f4f4; /* Light gray input background color */
+    margin-bottom: 10px; /* Add margin-bottom to create space below the input */
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #8b4513; /* Dark green button color inspired by forests of Middle-earth */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Add margin-top to create space above the button */
+}
+
+button[type="submit"]:hover {
+    background-color: #6e371f; /* Darker brown button color on hover */
+}
+
+/* Modal Style */
+
+.modal-text{
+    font-size: 1rem;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Positioning context for the modal */
+    z-index: 1; /* Ensure modal is displayed on top of other content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scrolling if modal content exceeds viewport */
+    background-color: rgba(0,0,0,0.4); /* Black background with opacity */
+  }
+  
+  .modal-content {
+    background-color: #fefefe; /* Modal content background */
+    margin: 15% auto; /* Center modal vertically and horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Set width of modal content */
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
