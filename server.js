@@ -5,7 +5,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const path = require('path');
 const express = require('express')
 const authRoutes = require('./Develop/routes/api/authRoutes');
-const dashboardRoutes = require('./Develop/routes/api/dashboardRoutes')
+const dashboardRoutes = require('./Develop/routes/api/dashboardRoute')
 
 
 
