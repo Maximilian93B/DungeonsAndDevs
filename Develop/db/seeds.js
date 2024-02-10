@@ -1,7 +1,8 @@
 // Seed data with hashed password 
-
+require('dotenv').config();
+const sequelize = require('../config/connection');
 const bcrypt = require('bcryptjs');
-const {User} = require('../Models/User');
+const User = require('../Models/User'); // Correct import path
 
 const seedUsers = async () => {
     try {
@@ -20,7 +21,7 @@ const seedUsers = async () => {
         };
 
         // Insert the new user into the database
-        await User.create(newUser);
+        await User.create(newUser); // Use User.create() to create a new user instance
 
         console.log('User seeded successfully');
     } catch (error) {
