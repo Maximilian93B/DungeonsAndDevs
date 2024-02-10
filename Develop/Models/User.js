@@ -1,10 +1,9 @@
-
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcryptjs');
 
 class User extends Model {
-  // Set method to verify passwords 
+  // Method to verify passwords
   validPassword(password) {
     return bcrypt.compareSync(password, this.Password);
   }
@@ -12,48 +11,57 @@ class User extends Model {
 
 User.init({
   // Define fields/columns on model
-  UserID: {
+  userID: {
     type: DataTypes.INTEGER,
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
+    field: 'user_id' // Specify the snake_case database field name
   },
-  Username: {
+  username: {
     type: DataTypes.STRING(50),
     unique: true,
-    allowNull: false
+    allowNull: false,
+    field: 'username' // Specify the snake_case database field name
   },
-  Password: {
-    type: DataTypes.STRING(60), // Adjusted length for bcrypt hash
-    allowNull: false
-  },
-  
-  Password: {
+  email: {
     type: DataTypes.STRING(50),
-    allowNull: false
+    unique: true,
+    allowNull: false,
+    field: 'email' // Specify the snake_case database field name
   },
-  Points: {
+  password: {
+    type: DataTypes.STRING(60), // Adjust the length according to your hashing algorithm's output
+    allowNull: false,
+    field: 'password' // Specify the snake_case database field name
+  },
+  points: {
     type: DataTypes.INTEGER,
-    defaultValue: 0
+    defaultValue: 0,
+    field: 'points' // Specify the snake_case database field name
   },
-  SignUpDate: {
-    type: DataTypes.DATE
+  sign_up_date: {
+    type: DataTypes.DATE,
+    field: 'sign_up_date' // Specify the snake_case database field name
   },
-  LastLogin: {
-    type: DataTypes.DATE
+  last_login: {
+    type: DataTypes.DATE,
+    field: 'last_login' // Specify the snake_case database field name
   },
-  Profile: {
-    type: DataTypes.TEXT
+  profile: {
+    type: DataTypes.TEXT,
+    field: 'profile' // Specify the snake_case database field name
   }
 }, {
   sequelize,
   modelName: 'User',
+  tableName: 'users',
   hooks: {
     beforeCreate: (user) => {
-      user.Password = bcrypt.hashSync(user.Password, bcrypt.genSaltSync(10));
+      user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10));
     },
     beforeUpdate: (user) => {
-      if (user.changed('Password')) {
-        user.Password = bcrypt.hashSync(user.Password, bcrypt.genSaltSync(10));
+      if (user.changed('password')) {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10));
       }
     }
   },
@@ -64,12 +72,12 @@ User.init({
 
 // Define associations
 User.associate = (models) => {
-  User.hasMany(models.UserProgress, { foreignKey: 'UserID' });
-  User.hasMany(models.UserAchievements, { foreignKey: 'UserID' });
-  User.hasMany(models.UserTerritories, { foreignKey: 'UserID' });
-  User.hasMany(models.UserQuizAttempts, { foreignKey: 'UserID' });
-  User.hasMany(models.Posts, { foreignKey: 'UserID' });
-  User.belongsToMany(models.LearningGroups, { through: models.GroupMembers, foreignKey: 'UserID' });
+  User.hasMany(models.UserProgress, { foreignKey: 'userID' }); // Use snake_case for foreign key
+  User.hasMany(models.UserAchievements, { foreignKey: 'userID' }); // Use snake_case for foreign key
+  User.hasMany(models.UserTerritories, { foreignKey: 'userID' }); // Use snake_case for foreign key
+  User.hasMany(models.UserQuizAttempts, { foreignKey: 'userID' }); // Use snake_case for foreign key
+  User.hasMany(models.Posts, { foreignKey: 'userID' }); // Use snake_case for foreign key
+  User.belongsToMany(models.LearningGroups, { through: models.GroupMembers, foreignKey: 'userID' }); // Use snake_case for foreign key
 };
 
-module.exports = User;
+module.exports = {User};
