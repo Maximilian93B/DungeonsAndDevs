@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: relative; /* Make the header a positioning context */
+    background-color: #dfd2c1;;
+    color: #000000;
+    padding: 40px;
+    text-align: center;
+    font-family: 'MedievalSharp', cursive;;
+}
+
+h1 {
+    margin: 0;
+}
+
+.logo {
+    position: absolute; /* Position the logo absolutely */
+    top: 50%; /* Align the top of the logo with the middle of the header */
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%); /* Center the logo vertically */
+}
+
+.logo img {
+    max-width: 100px; /* Adjust the max-width as needed */
+    height: auto;
+}
+
+
+
+#sidebar {
+    width: 250px; /* Adjust sidebar width as needed */
+    height: 100vh; /* Make sidebar full height of viewport */
+    background-color: #f2e6d5;
+    color: #fff;
+    position: fixed; /* Fixed position to keep sidebar in place */
+    left: 0;
+    top: 0;
+    border-right: 1px solid #666;
+}
+
+.sidebar-header {
+    background-color:#f2e6d5;;
+    padding: 10px;
+    border-bottom: 1px solid #666;
+    font-family: 'MedievalSharp', cursive;;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+}
+
+.sidebar-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.sidebar-content li {
+    padding: 10px;
+    font-family: 'MedievalSharp', cursive;;
+}
+
+.sidebar-content a {
+    color:#3d3522;
+    text-decoration: none;
+}
+
+.sidebar-content a:hover {
+    background-color: #555;
+}
+
+/* CSS for sidebar sections */
+.sidebar-section {
+    padding: 20px;
+    border-bottom: 1px solid #666; /* Add a border between sections */
+    margin-bottom: 20px;
+    height: 13%;
+    font-family: 'MedievalSharp', cursive;;;
+}
+
+.sidebar-section:last-child {
+    border-bottom: none; /* Remove border for the last section */
+}
+
+.sidebar-section h3 {
+    margin-top: 0; /* Remove top margin for the heading */
+    color: #3d3522;
+  
+}
+
+.sidebar-section p {
+    margin-bottom: 0; /* Remove bottom margin for the paragraph */
+    color: #3d3522;
+
+}
+
+/* Set background image for map container */
+#map-container {
+    margin-left: 250px; /* Adjust margin to make space for sidebar */
+    width: calc(100% - 250px); /* Subtract sidebar width from map container width */
+    height: 100vh; /* Make map container full height of viewport */
+    background-image: url('../images/LoginBackground.png'); /* Set background image */
+    background-size: cover; /* Cover the entire container */
+    background-position: center center; /* Center the image */
+}
+
+
+
+#map-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
