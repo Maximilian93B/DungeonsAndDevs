@@ -52,8 +52,19 @@ app.post('/api/auth/login', (req, res) => {
     res.json({ success: true, message: "SHEEEESSSH we did it !! ." });
 });
 */
-    
 
-app.listen(port, () => {
-    console.log(`A Dragon Has AWAKENED on ${port}`);
-});
+// At the top of your server.js file
+
+
+// Test the database connection
+sequelize.authenticate()
+    .then(() => {
+        console.log('Connected to the Dungeons');
+        // Start the server here to ensure it only runs with a successful DB connection
+        app.listen(port, () => {
+            console.log(`A Dragon Has AWAKENED on ${port}`);
+        });
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
