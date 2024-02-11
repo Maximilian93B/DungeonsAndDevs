@@ -11,45 +11,47 @@ class User extends Model {
 
 User.init({
   // Define fields/columns on model
-  userID: {
+  user_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    field: 'user_id' // Specify the snake_case database field name
+    field: 'user_id'
+    
   },
   username: {
     type: DataTypes.STRING(50),
     unique: true,
     allowNull: false,
-    field: 'username' // Specify the snake_case database field name
+    field:'username'
+   
   },
   email: {
     type: DataTypes.STRING(50),
     unique: true,
     allowNull: false,
-    field: 'email' // Specify the snake_case database field name
+    field:'email'
   },
   password: {
     type: DataTypes.STRING(60), // Adjust the length according to your hashing algorithm's output
     allowNull: false,
-    field: 'password' // Specify the snake_case database field name
+    field:'password'
   },
   points: {
     type: DataTypes.INTEGER,
     defaultValue: 0,
-    field: 'points' // Specify the snake_case database field name
+    field:'points'
   },
   sign_up_date: {
     type: DataTypes.DATE,
-    field: 'sign_up_date' // Specify the snake_case database field name
+    field:'sign_up_date'
   },
   last_login: {
     type: DataTypes.DATE,
-    field: 'last_login' // Specify the snake_case database field name
+    field:'last_login'
   },
   profile: {
     type: DataTypes.TEXT,
-    field: 'profile' // Specify the snake_case database field name
+    field:'profile'
   }
 }, {
   sequelize,
@@ -67,7 +69,6 @@ User.init({
   },
   timestamps: true,
   underscored: true,
-  tableName: 'Users'
 });
 
 // Define associations

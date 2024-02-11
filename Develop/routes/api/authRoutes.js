@@ -12,13 +12,14 @@ router.post('/login', async (req, res) => {
 
     try {
         // Try to find the user by their username
-        const user = await User.findOne({ where: { Username: username } });
+        const user = await User.findOne({ where: { username: username } });
+
         if (!user) {
             return res.status(401).json({ success: false, message: 'Invalid User or Password' });
         }
 
         // Use bcrypt to compare the submitted password with the hashed password in the database
-        const isMatch = await bcrypt.compare(password, user.Password); // Corrected
+        const isMatch = await bcrypt.compare(password, user.password); // Corrected
         if (!isMatch) {
             return res.status(401).json({ success: false, message: 'Invalid User or Password' });
         }

@@ -17,7 +17,7 @@ const sequelize = new Sequelize(
     acquire: 30000, // Maximum time (in milliseconds) that a connection can be idle before being released
     idle: 10000 // Maximum time (in milliseconds) that a connection can remain idle in the pool before being released
   },
-  logging: false, // Disable logging SQL queries (optional)
+  logging: false // Disable logging SQL queries (optional)
 });
 
 module.exports = sequelize;
