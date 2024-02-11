@@ -1,39 +1,41 @@
 // Import all Modules/Models needed for login auth 
 const express = require('express');
-const bcrypt = require('bcryptjs');
 const router = express.Router();
+const passport = require('passport')
 const { User } = require('../../Models/User'); 
-console.log(User)// Ensure this path is correct
+//console.log(User)// checking path  this path is correct
+const path = require('path');
 
-// POST login - Handle the user login 
-router.post('/login', async (req, res) => {
-    console.log('Inside login route, User:', User);
-    const { username, password } = req.body;
 
-    try {
-        // Try to find the user by their username
-        const user = await User.findOne({ where: { username: username } });
 
-        if (!user) {
-            return res.status(401).json({ success: false, message: 'Invalid User or Password' });
-        }
 
-        // Use bcrypt to compare the submitted password with the hashed password in the database
-        const isMatch = await bcrypt.compare(password, user.password); // Corrected
-        if (!isMatch) {
-            return res.status(401).json({ success: false, message: 'Invalid User or Password' });
-        }
-
-        // If the password matches, set the userID in the session for session management
-        req.session.userID = user.UserID;
-        
-        // Respond with a success message
-        res.json({ success: true, message: 'Login Successful' });
-    } catch (error) {
-        // Log and respond with any errors encountered during the process
-        console.error('Login error:', error);
-        res.status(500).json({ success: false, message: 'Server error during login.' });
-    }
+// disaply the login page 
+router.get('/', (req, res) => {
+    // Render or send the login page
+    res.sendFile(path.join(__dirname, 'Develop', 'public', 'loginPage.html'));; // Adjust path as necessary
 });
+
+
+// Handle Login -- Pass to passportConfig
+router.post ('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if(err) { // Handle error during login 
+      return next(err); // pass error to middlware 
+    }
+    if(!User) {
+      return res.status(401).json({sucess: false, message: 'Innvlaid user or password'});
+    }
+    req.login(user, (err)=> {
+      if (err) { 
+        return next(err); // pass error to middleware again 
+      }
+
+      return res.json({ success : true, message: 'Login Successful'});
+    });
+  })(req, res, next);
+});
+  
+  
+
 
 module.exports = router;

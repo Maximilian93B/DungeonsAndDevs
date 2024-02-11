@@ -1,80 +1,75 @@
-// Import alll modules 
-const sequelize = require('./Develop/config/connection');
-const session = require('express-session'); 
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
+// Import required modules
+const express = require('express');
+const session = require('express-session');
 const path = require('path');
-const express = require('express')
-const authRoutes = require('./Develop/routes/api/authRoutes');
-const dashboardRoutes = require('./Develop/routes/api/dashboardRoute')
-const getUsers = require('./Develop/routes/api/getUsers');
+const passport = require('passport'); // Import Passport
+const initializePassport = require('./Develop/config/passportConfig');
+const routes = require('./Develop/routes/routes')
+const sequelize = require('./Develop/config/connection');
+const flash = require('connect-flash');
+const mwLogger = require('./Develop/tools/middlewareLogger');
+// Initialize Passport
+initializePassport(passport);
 
-
+// Create Express app
 const app = express();
 const port = process.env.PORT || 3303;
 
-
-
-// Middleware 
+// Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true})); // to parsing our apps data 
-app.use(express.static(path.join(__dirname, 'Develop', 'public'))); // Serves all static files in the 'Public Folder'
-
-
-// Erro handling for middle ware 
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-  });
-  
-// Sessions management 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'Develop', 'public')));
 app.use(session({
-    secret: 'Secretest-key-ever', // Consider using an environment variable for production
-    store: new SequelizeStore({ db: sequelize }),
+    secret: 'session_secret',
     resave: false,
     saveUninitialized: false,
-    cookie: {
-        secure: false, // set to true if we want to use HTTPS 
-        maxAge: 1000 * 60 * 60 * 24, // 24 hours
-    }
 }));
+
+//Server Traffic logger --> tools/middlewareLogger
+app.use(mwLogger);
+
+
+// Flash 
+app.use(flash());
+
+// Passport 
+app.use(passport.initialize()); // Initialize Passport middleware
+app.use(passport.session()); // Enable session support for Passport
+
+// Import routes 
+app.use('./', routes)
+
+/*
+// Use other routes
+app.use('/login', authRoutes);
+app.use('/dashboard',dashboardRoutes);
+app.use('/users', getUsers);
+*/
 
 
 // Routes
 app.get('/', (req, res) => {
-    console.log('login page accessed')
-    res.sendFile(path.join(__dirname, 'Develop', 'public', 'loginPage.html'));
+    res.sendFile(path.join(__dirname, 'Develop', 'public', 'loginPage.html')); // Serve login page
 });
 
-app.use('/', getUsers)
-    console.log('getUsers accessed')
+app.get('/dashboard', (req ,res) => {
+    res.sendFile(path.join(__dirname,'Develop', 'public', 'mainPage.html'));
+})
 
-
-
-// Authentication Routes
-app.use('/api/auth', authRoutes);
-
-
-// Dashboard after successful auth 
-app.use(dashboardRoutes);
-
-// TEST ROUTE FOR USER LOGIN --> When we test we will see 
-/*
-app.post('/api/auth/login', (req, res) => {
-    console.log("Login request received", req.body);
-    res.json({ success: true, message: "SHEEEESSSH we did it !! ." });
-});
-*/
-
-// At the top of your server.js file
+// Handle login requests at the root route
+app.post('/login', passport.authenticate('local', {
+    successRedirect: '/dashboard', // Redirect to dashboard on successful login
+    failureRedirect: '/', // Redirect back to login page on failed login
+    failureFlash: true, // Enable flash messages for feedback
+}));
 
 
 // Test the database connection
 sequelize.authenticate()
     .then(() => {
         console.log('Connected to the Dungeons');
-        // Start the server here to ensure it only runs with a successful DB connection
         app.listen(port, () => {
-            console.log(`A Dragon Has AWAKENED on ${port}`);
+            console.log(`Enter " Our worlds name " http://localhost:${port}`);
         });
     })
     .catch(err => {

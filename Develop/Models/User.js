@@ -10,7 +10,7 @@ class User extends Model {
 }
 
 User.init({
-  // Define fields/columns on model
+  // Define fields/columns of User
   user_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -67,7 +67,7 @@ User.init({
       }
     }
   },
-  timestamps: true,
+  timestamps: false,
   underscored: true,
 });
 

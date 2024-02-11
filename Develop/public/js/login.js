@@ -16,14 +16,13 @@ document.addEventListener('DOMContentLoaded', async (event) => {
 
             try {
                 // Perform an asynchronous fetch request to the login endpoint
-                const response = await fetch('http://localhost:3303/api/auth/login', {
-                    method: 'POST', // Specify the request method
+                const response = await fetch('http://localhost:3303/login', {
+                    method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json', // Indicate we're sending JSON data
+                        'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(formData), // Correctly use formData for JSON stringification
+                    body: JSON.stringify(formData),
                 });
-
                 // Parse JSON response from the server
                 const data = await response.json();
 
