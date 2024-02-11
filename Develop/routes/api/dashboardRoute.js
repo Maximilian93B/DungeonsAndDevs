@@ -1,18 +1,16 @@
-// Route for Dashboard page 
-// to reach this endpoint the user must have successful login 
-
 const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-
-router.get('/dashboard', async (req ,res)=> {
-    if (!req.session.UserID) {
-        // add async Ops here --> What do we need it to do? 
-        return res.status(401).redirect('/loginPage.html');
+router.get('/dashboard', (req, res) => {
+    // Check if the user is authenticated
+    if (req.isAuthenticated()) {
+        // User is authenticated, send the main page HTML file
+        res.sendFile(path.join(__dirname, '..', 'public', 'mainPage.html'));
     } else {
-        res.sendFile(path.join(__dirname, 'Develop', 'public', 'dashboard.html'));
+        // User is not authenticated, redirect to the login page
+        res.redirect('/login');
     }
 });
 
-module.exports = router; 
+module.exports = router;

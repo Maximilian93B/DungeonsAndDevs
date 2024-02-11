@@ -1,6 +1,5 @@
-const Sequelize = require('sequelize'); // Import sequelize 
+const   { Sequelize }  = require('sequelize'); // Import sequelize 
 require("dotenv").config(); // import .env creds 
-
 
 
 const sequelize = new Sequelize(   
@@ -17,7 +16,9 @@ const sequelize = new Sequelize(
     acquire: 30000, // Maximum time (in milliseconds) that a connection can be idle before being released
     idle: 10000 // Maximum time (in milliseconds) that a connection can remain idle in the pool before being released
   },
-  logging: false // Disable logging SQL queries (optional)
+  logging: (msg) => {
+    console.log(msg);
+  } // Disable logging SQL queries (optional)
 });
 
-module.exports = sequelize;
+module.exports =  sequelize ;
