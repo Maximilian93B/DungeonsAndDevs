@@ -10,12 +10,13 @@ const flash = require('connect-flash');
 const mwLogger = require('./Develop/tools/middlewareLogger');
 
 
-// Initialize Passport
-initializePassport(passport);
 
 // Create Express app
 const app = express();
 const port = process.env.PORT || 3303;
+
+// Initialize Passport
+initializePassport(passport);
 
 // Middleware
 app.use(express.json());
@@ -30,7 +31,7 @@ app.use(session({
 //Server Traffic logger --> tools/middlewareLogger
 app.use(mwLogger);
 
-// Flash 
+// Flash --> for flash messages 
 app.use(flash());
 
 // Passport 
@@ -71,9 +72,6 @@ app.get('/dashboard', (req ,res) => {
     res.sendFile(path.join(__dirname,'Develop', 'public', 'mainPage.html'));
 })
 
-
-
-
 // Route error handling 
 app.use((req, res, next) => {
     res.status(404).json({ message: "Not found" });
@@ -83,7 +81,7 @@ app.use((req, res, next) => {
 // Test the database connection
 sequelize.authenticate()
     .then(() => {
-        console.log('Connected to the Dungeons');
+        console.log('Connected to the Dungeons..Database: dnddevs_db ');
         app.listen(port, () => {
             console.log(`Enter " Our worlds name " http://localhost:${port}`);
         });
