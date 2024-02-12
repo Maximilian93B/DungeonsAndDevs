@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
 
             try {
                 // Perform an asynchronous fetch request to the login endpoint
-                const response = await fetch('http://localhost:3303/login', {
+                const response = await fetch('/auth', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -45,8 +45,6 @@ document.addEventListener('DOMContentLoaded', async (event) => {
 
 
     // Modal functionality 
-
-    
     const modalImg = document.getElementById('modal-img');
 
     const span = document.getElementsByClassName('close')[0];
@@ -75,3 +73,10 @@ document.addEventListener('DOMContentLoaded', async (event) => {
         }
     });
 });
+
+
+// Register Button 
+
+document.getElementById('registrationBtn').addEventListener('click', function() {
+    window.location.href = 'registrationPage.html';
+})

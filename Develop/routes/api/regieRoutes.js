@@ -8,10 +8,16 @@ const {User} = require('../../Models/User');
 const router = express.Router();
 
 // Post route 
-router.post('/register', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         // Extract username , email , password from request body 
         const { username, email , password } = req.body 
+
+        // Check to see if User already exisits by checking email 
+        const existingUser = await User.findOne({ where: { Email: email } });
+            if (existingUser) {
+            return res.status(400).json({ success: false, message: 'User already exists' });
+        }
 
         // Validate input
         if(!username || !email || !password) {
