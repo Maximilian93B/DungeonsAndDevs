@@ -1,0 +1,85 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+    font-family:'MedievalSharp', cursive;
+}
+
+.header{
+    color: #f2e6d5;
+    font-family:'MedievalSharp', cursive;
+    font-size: 3rem;
+}
+
+form {
+    max-width: 30%;
+    margin: 250px auto;
+    padding: 20px;
+    background-color:#f2e6d5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #8b4513;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button[type="submit"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color:#8b4513;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 1px;
+}
+
+button[type="submit"]:hover {
+    background-color:#f2e6d5;
+}
+
+/* LOTR-themed styles */
+body {
+    background-image: url(../images/LoginBackground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h2 {
+    font-family: 'Georgia', serif;
+    font-size: 28px;
+    color: #8b4513;
+    text-align: center;
+}
+
+label {
+    color: #8b4513;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button[type="submit"] {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #8b4513;
+}
+
+button[type="submit"] {
+    background-color: #8b4513;
+    color: #fff;
+}

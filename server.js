@@ -8,6 +8,8 @@ const routes = require('./Develop/routes/routes')
 const sequelize = require('./Develop/config/connection');
 const flash = require('connect-flash');
 const mwLogger = require('./Develop/tools/middlewareLogger');
+
+
 // Initialize Passport
 initializePassport(passport);
 
@@ -46,15 +48,20 @@ app.use('/dashboard',dashboardRoutes);
 app.use('/users', getUsers);
 */
 
-
 // Routes
+
+//GET Routes 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'Develop', 'public', 'loginPage.html')); // Serve login page
 });
 
+// Serve dahsboard page when endpoint is reached 
 app.get('/dashboard', (req ,res) => {
     res.sendFile(path.join(__dirname,'Develop', 'public', 'mainPage.html'));
 })
+
+
+// POST Routes
 
 // Handle login requests at the root route
 app.post('/login', passport.authenticate('local', {
@@ -62,6 +69,14 @@ app.post('/login', passport.authenticate('local', {
     failureRedirect: '/', // Redirect back to login page on failed login
     failureFlash: true, // Enable flash messages for feedback
 }));
+
+
+// Serve the Registration from when endpoint is accessed. 
+app.post('/register', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Develop', 'public', 'registrationPage.html'));
+});
+
+
 
 
 // Test the database connection

@@ -10,8 +10,24 @@ const router = express.Router();
 // Post route 
 router.post('/register', async (req, res) => {
     try {
-        const { username, email, password } = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
+        // Extract username , email , password from request body 
+        const { username, email , password } = req.body 
+
+        // Validate input
+        if(!username || !email || !password) {
+            return res.status(400).json({ sucess: false, message: 'Please provide username, email and password'});
+        }
+
+        // Email validation 
+        // Used Regex email validation built into node.js
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({ success: false, message: 'Invalid email format' });
+        }
+
+        // validate Password with bcrpyt 
+        const hashedPassword = await bcrypt.hash(password,10)
+
 
         // Insert the new user into the database
         await User.create({
