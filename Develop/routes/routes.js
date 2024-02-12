@@ -13,7 +13,7 @@ const regieRoutes = require('./api/regieRoutes')
 
 
 // Add imported routes here  
-router.use('/login', authRoutes);
+router.use('/auth', authRoutes);
 router.use('/dashboard', dashboardRoute);
 router.use('/users', getUsers);
 router.use('/register', regieRoutes);

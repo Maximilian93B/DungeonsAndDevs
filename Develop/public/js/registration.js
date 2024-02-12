@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Check if registration was successful based on the server response
                 if (data.success) {
                     // If successful, redirect the user --> where do we want to go from here ?? 
-                    window.location.href = '/registration-success.html';
+                    window.location.href ='/loginPage.html';
                 } else {
                     // If registration fail
                     alert(data.message);

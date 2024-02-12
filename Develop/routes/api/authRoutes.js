@@ -1,8 +1,7 @@
-// Import all Modules/Models needed for login auth 
+// Import all Modules/Models needed for login auth --> Passing User Model to passport config 
 const express = require('express');
 const router = express.Router();
 const passport = require('passport')
-const { User } = require('../../Models/User'); 
 //console.log(User)// checking path  this path is correct
 const path = require('path');
 
@@ -17,13 +16,13 @@ router.get('/', (req, res) => {
 
 
 // Handle Login -- Pass to passportConfig
-router.post ('/login', (req, res, next) => {
+router.post ('/', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if(err) { // Handle error during login 
       return next(err); // pass error to middlware 
     }
-    if(!User) {
-      return res.status(401).json({sucess: false, message: 'Innvlaid user or password'});
+    if(!user) {
+      return res.status(401).json({success: false, message: 'Invalid user or password'});
     }
     req.login(user, (err)=> {
       if (err) { 
