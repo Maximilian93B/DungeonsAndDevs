@@ -47,6 +47,11 @@ app.post('/login', passport.authenticate('local', {
 // Import routes 
 app.use('/', routes);
 
+
+
+
+//MIDDLE WARE ENDS 
+
 /*
 app.use('/register', regieRoutes);// POST 
 app.use('/auth',authRoutes)// POST 
@@ -76,7 +81,6 @@ app.get('/dashboard', (req ,res) => {
 app.use((req, res, next) => {
     res.status(404).json({ message: "Not found" });
 });
-
 
 // Test the database connection
 sequelize.authenticate()
