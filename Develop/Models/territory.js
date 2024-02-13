@@ -32,4 +32,5 @@ Territory.init ({
     underscored: true,
 });
 
+
 module.exports = { Territory }; 
