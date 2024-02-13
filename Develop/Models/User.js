@@ -81,4 +81,4 @@ User.associate = (models) => {
   User.belongsToMany(models.LearningGroups, { through: models.GroupMembers, foreignKey: 'userID' }); // Use snake_case for foreign key
 };
 
-module.exports = {User};
+module.exports = { User };

@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     try {
         // Use the Sequelize `findAll` method to retrieve all territories
         const territories = await Territory.findAll();
-        console.log ('Fetched territories: ', territories);
+        console.log ('Fetched territories: ', territories)
         // Respond with the retrieved territories as JSON to use on the front end
         res.json(territories);
     } catch (error) {
