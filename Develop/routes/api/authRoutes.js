@@ -11,12 +11,13 @@ const path = require('path');
 // disaply the login page 
 router.get('/', (req, res) => {
     // Render or send the login page
-    res.sendFile(path.join(__dirname, 'Develop', 'public', 'loginPage.html'));; // Adjust path as necessary
+    res.sendFile(path.join(__dirname, '..', 'public', 'loginPage.html'));
 });
 
 
 // Handle Login -- Pass to passportConfig
 router.post ('/', (req, res, next) => {
+  // pass authen to passport 
   passport.authenticate('local', (err, user, info) => {
     if(err) { // Handle error during login 
       return next(err); // pass error to middlware 

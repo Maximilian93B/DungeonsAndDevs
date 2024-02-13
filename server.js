@@ -38,7 +38,7 @@ app.use(flash());
 app.use(passport.initialize()); // Initialize Passport middleware
 app.use(passport.session()); // Enable session support for Passport
 
-app.post('/login', passport.authenticate('local', {
+app.post('/auth', passport.authenticate('local', {
     successRedirect: '/dashboard', // Redirect to dashboard on successful login
     failureRedirect: '/', // Redirect back to login page on failed login
     failureFlash: true, // Enable flash messages for feedback
@@ -73,14 +73,16 @@ app.get('/', (req, res) => {
 });
 
 // Serve dahsboard page when endpoint is reached 
+
 app.get('/dashboard', (req ,res) => {
-    res.sendFile(path.join(__dirname,'Develop', 'public', 'mainPage.html'));
+res.sendFile(path.join(__dirname, '..', 'public', 'mainPage.html'));
 })
 
 // Route error handling 
 app.use((req, res, next) => {
     res.status(404).json({ message: "Not found" });
 });
+
 
 // Test the database connection
 sequelize.authenticate()

@@ -1,5 +1,5 @@
 // Wait for the DOM to fully load before executing JavaScript
-document.addEventListener('DOMContentLoaded', async (event) => {
+document.addEventListener('DOMContentLoaded', (event) => {
     
     const loginForm = document.getElementById('loginForm');
 
@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
             try {
                 // Perform an asynchronous fetch request to the login endpoint
                 const response = await fetch('/auth', {
+                   
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
             }
         });
     }
+});
 
 
 
@@ -72,7 +74,6 @@ document.addEventListener('DOMContentLoaded', async (event) => {
             closeModal();
         }
     });
-});
 
 
 // Register Button 
