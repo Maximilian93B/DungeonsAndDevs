@@ -16,6 +16,8 @@ CREATE TABLE territories (
     icon VARCHAR(50)
 );
 
+
+-- These are 'areas' in 'Territories' -- 
 CREATE TABLE provinces (
     province_id INT AUTO_INCREMENT PRIMARY KEY,
     territory_id INT,
@@ -24,6 +26,8 @@ CREATE TABLE provinces (
     FOREIGN KEY (territory_id) REFERENCES territories(territory_id)
 );
 
+
+-- These are 'Quests' in 'Areas' -- 
 CREATE TABLE cities (
     city_id INT AUTO_INCREMENT PRIMARY KEY,
     province_id INT,
@@ -33,6 +37,19 @@ CREATE TABLE cities (
     content_url VARCHAR(255),
     FOREIGN KEY (province_id) REFERENCES provinces(province_id)
 );
+
+-- These are our Challenges in 'Quests' 
+CREATE TABLE challenges (
+    challenge_id INT AUTO_INCREMENT PRIMARY KEY,
+    city_id INT,
+    type ENUM('quiz', 'coding'), -- Example types, adjust as needed
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    content TEXT, -- Can store questions, code snippets, etc.
+    solution TEXT, -- Optional: solution or answer key
+    FOREIGN KEY (city_id) REFERENCES cities(city_id)
+);
+
 
 CREATE TABLE user_progress (
     progress_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -61,21 +78,6 @@ CREATE TABLE user_territories (
     FOREIGN KEY (territory_id) REFERENCES territories(territory_id)
 );
 
-CREATE TABLE quizzes (
-    quiz_id INT AUTO_INCREMENT PRIMARY KEY,
-    city_id INT,
-    title VARCHAR(50) NOT NULL,
-    description TEXT,
-    FOREIGN KEY (city_id) REFERENCES cities(city_id)
-);
-
-CREATE TABLE quiz_questions (
-    question_id INT AUTO_INCREMENT PRIMARY KEY,
-    quiz_id INT,
-    question_text TEXT NOT NULL,
-    correct_answer VARCHAR(255) NOT NULL,
-    FOREIGN KEY (quiz_id) REFERENCES quizzes(quiz_id)
-);
 
 CREATE TABLE learning_groups (
     group_id INT AUTO_INCREMENT PRIMARY KEY,
