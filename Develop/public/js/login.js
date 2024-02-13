@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     body: JSON.stringify(formData),
                 });
                 // Parse JSON response from the server
+                console.log(response);
                 const data = await response.json();
+                console.log(data)
 
                 // Check if login was successful based on the server's response
                 if (data.success) {

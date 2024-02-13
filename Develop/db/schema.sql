@@ -9,6 +9,8 @@ CREATE TABLE users (
     profile TEXT
 );
 
+
+
 CREATE TABLE territories (
     territory_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,

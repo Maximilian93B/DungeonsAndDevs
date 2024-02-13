@@ -21,7 +21,7 @@ initializePassport(passport);
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'Develop', 'public')));
+app.use(express.static('./Develop/public'));
 app.use(session({
     secret: 'session_secret',
     resave: false,
