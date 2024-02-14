@@ -16,7 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(formData),
+                    body: JSON.stringify({
+                        username: document.getElementById('username').value.toLowerCase(), // Normalize if necessary
+                        password: document.getElementById('password').value
+                    }),
                 });
 
                 if (!response.ok) {

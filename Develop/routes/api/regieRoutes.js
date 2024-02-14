@@ -9,12 +9,13 @@ const router = express.Router();
 
 // Post route 
 router.post('/', async (req, res) => {
+    console.log(req.body);
     try {
         // Extract username , email , password from request body 
         const { username, email , password } = req.body 
 
         // Check to see if User already exisits by checking email 
-        const existingUser = await User.findOne({ where: { Email: email } });
+        const existingUser = await User.findOne({ where: { email: email } });
             if (existingUser) {
             return res.status(400).json({ success: false, message: 'User already exists' });
         }
@@ -33,15 +34,13 @@ router.post('/', async (req, res) => {
 
         // validate Password with bcrpyt 
         const hashedPassword = await bcrypt.hash(password,10)
-
-
         // Insert the new user into the database
         await User.create({
-            Username: username,
-            Email: email,
-            Password: hashedPassword,
-            SignUpDate: new Date(),
-            LastLogin: new Date(), // Adjust according to your requirements
+            username: username,
+            email: email,
+            password: hashedPassword,
+            sign_up_date: new Date(),
+            last_login: new Date(), // Adjust according to your requirements
             // Leave Points and Profile default or adjust as needed
         });
 

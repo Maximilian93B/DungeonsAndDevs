@@ -22,8 +22,11 @@ User.init({
     type: DataTypes.STRING(50),
     unique: true,
     allowNull: false,
-    field:'username'
-   
+    field:'username',
+    set(val) {
+      // handle converting usernames to lowercase before storing 
+      this.setDataValue('username', val.toLowerCase());
+    }
   },
   email: {
     type: DataTypes.STRING(50),
