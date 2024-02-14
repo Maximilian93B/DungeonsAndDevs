@@ -10,7 +10,7 @@ CREATE TABLE users (
 );
 
 
-
+-- IS QUESTS --
 CREATE TABLE territories (
     territory_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE territories (
 );
 
 
--- These are 'areas' in 'Territories' -- 
+-- IS CHALLENGE DESCRIPTIONS --
 CREATE TABLE provinces (
     province_id INT AUTO_INCREMENT PRIMARY KEY,
     territory_id INT,
@@ -29,7 +29,7 @@ CREATE TABLE provinces (
 );
 
 
--- These are 'Quests' in 'Areas' -- 
+--THESE ARE RESOURCE LINKS WITHIN QUESTS--  
 CREATE TABLE cities (
     city_id INT AUTO_INCREMENT PRIMARY KEY,
     province_id INT,
@@ -40,7 +40,7 @@ CREATE TABLE cities (
     FOREIGN KEY (province_id) REFERENCES provinces(province_id)
 );
 
--- These are our Challenges in 'Quests' 
+-- These are our Challenges in 'QUESTS'  -- 
 CREATE TABLE challenges (
     challenge_id INT AUTO_INCREMENT PRIMARY KEY,
     city_id INT,
