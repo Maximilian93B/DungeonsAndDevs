@@ -23,13 +23,14 @@ router.post ('/', (req, res, next) => {
       return next(err); // pass error to middlware 
     }
     if(!user) {
+      const message = info && info.message ? info.message : 'Invalid user or password';
       return res.status(401).json({success: false, message: 'Invalid user or password'});
     }
     req.login(user, (err)=> {
       if (err) { 
-        return next(err); // pass error to middleware again 
+        return res.status(500).json({ success: false, message: 'Error establishing session', error: err.toString() });
       }
-
+        // successful auth
       return res.json({ success : true, message: 'Login Successful'});
     });
   })(req, res, next);
