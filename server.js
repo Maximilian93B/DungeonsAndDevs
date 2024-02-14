@@ -8,9 +8,9 @@ const routes = require('./Develop/routes/routes')
 const sequelize = require('./Develop/config/connection');
 const flash = require('connect-flash');
 const mwLogger = require('./Develop/tools/middlewareLogger');
+const userAchievementRoutes = require('./Develop/routes/api/userAchievementroute');
 
-
-
+router.use('/userachievements', userAchievementRoutes);
 // Create Express app
 const app = express();
 const port = process.env.PORT || 3303;
@@ -52,18 +52,19 @@ app.use('/', routes);
 
 //MIDDLE WARE ENDS 
 
-/*
+
 app.use('/register', regieRoutes);// POST 
 app.use('/auth',authRoutes)// POST 
 app.use('/dashboard', dashboardRoutes)// GET 
-*/
 
-/*
+
+
+
 // Use other routes
 app.use('/login', authRoutes);
 app.use('/dashboard',dashboardRoutes);6
 app.use('/users', getUsers);
-*/
+
 
 // Routes
 

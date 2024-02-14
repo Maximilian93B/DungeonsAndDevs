@@ -9,6 +9,9 @@ const getUsers = require('./api/getUsers');
 const regieRoutes = require('./api/regieRoutes')
 const getTerritories = require('./api/getTerritories');
 const getProvince = require('./api/provinceRoutes');
+const userAchievementRoutes = require('./Develop/routes/api/userAchievementroute');
+
+
 
 
 // Add imported routes here  
@@ -18,7 +21,7 @@ router.use('/users', getUsers);
 router.use('/register', regieRoutes);
 router.use('/territories', getTerritories);
 router.use('/provinces', getProvince);
-
+router.use('/userachievements', userAchievementRoutes);
 
 
 module.exports = router; 
