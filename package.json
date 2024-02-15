@@ -20,6 +20,6 @@
     "node": "^21.6.1",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.36.0"
+    "sequelize": "^6.37.0"
   }
 }

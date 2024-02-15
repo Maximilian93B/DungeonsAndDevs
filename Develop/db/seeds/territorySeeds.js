@@ -24,35 +24,29 @@ seedTerritories().then(() => {
 
 const territoryData = [
     {
-    name: 'Territory Name ',
-    description: 'Territory Description',
+    name: 'The Isles of Structure & Styling',
+    description: 'Quest 1-HTML and CSS',
     icon: 'territory Icon',
 },
 {
-    name: 'Territory Name ',
-    description: 'Territory Description',
+    name: 'Handler Highlands',
+    description: 'Quest 2-JavaScript',
     icon: 'territory Icon',
 },
 {
-    name: 'Territory Name ',
-    description: 'Territory Description',
+    name: 'Eerie Express',
+    description: 'Quest 3-Express.js',
     icon: 'territory Icon',
 },
 {
-    name: 'Territory Name ',
-    description: 'Territory Description',
+    name: 'SQL Summit',
+    description: 'Quest 4-SQL',
     icon: 'territory Icon',
 },
 {
-    name: 'Territory Name ',
-    description: 'Territory Description',
+    name: 'Final Quest',
+    description: 'Quest 5-All Topics',
     icon: 'territory Icon',
 },
-{
-    name: 'Territory Name ',
-    description: 'Territory Description',
-    icon: 'territory Icon',
-},
-// Add more if you need
 ]
 
