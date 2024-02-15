@@ -19,7 +19,7 @@ router.use('/users', getUsers);
 router.use('/register', regieRoutes);
 router.use('/territories', getTerritories);
 router.use('/provinces', getProvince);
-router.use('/challenges', getChallenges);
+router.use('/challenges', getChallenge);
 
 
 

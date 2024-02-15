@@ -1,5 +1,5 @@
 // Used to Seed User Data 
-
+// MAKE SURE TO STORE HASHED PASSWORD OR MAKE SEED DATA HASH THE PASSWORD FIRST !!! 
 const { User } = require('../../Models/User');
 
 async function seedUsers(){
