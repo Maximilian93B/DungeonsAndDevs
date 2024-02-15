@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 class User extends Model {
   // Method to verify passwords
   validPassword(password) {
-    return bcrypt.compareSync(password, this.Password);
+    return bcrypt.compareSync(password, this.password);
   }
 }  
 
@@ -60,7 +60,9 @@ User.init({
   sequelize,
   modelName: 'User',
   tableName: 'users',
+  /*
   hooks: {
+    
     beforeCreate: (user) => {
       user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10));
     },
@@ -70,6 +72,7 @@ User.init({
       }
     }
   },
+  */
   timestamps: false,
   underscored: true,
 });

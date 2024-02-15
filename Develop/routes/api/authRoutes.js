@@ -3,40 +3,31 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport')
 //console.log(User)// checking path  this path is correct
-const path = require('path');
 
 
-
-
-// disaply the login page 
-router.get('/', (req, res) => {
-    // Render or send the login page
-    res.sendFile(path.join(__dirname, '..', 'public', 'loginPage.html'));
-});
-
-
-// Handle Login -- Pass to passportConfig
-router.post ('/', (req, res, next) => {
-  // pass authen to passport 
+router.post('/', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
-    if(err) { // Handle error during login 
-      return next(err); // pass error to middlware 
+    if (err) {
+      // Handle error during login
+      return res.status(500).json({ success: false, message: 'Authentication failed', error: err.toString() });
     }
-    if(!user) {
-      const message = info && info.message ? info.message : 'Invalid user or password';
-      return res.status(401).json({success: false, message: 'Invalid user or password'});
+    if (!user) {
+      // Handle case where user is not found or password does not match
+      return res.status(401).json({ success: false, message: info.message });
     }
-    req.login(user, (err)=> {
-      if (err) { 
-        return res.status(500).json({ success: false, message: 'Error establishing session', error: err.toString() });
+    req.login(user, (loginErr) => { // Correct placement of parentheses and callback
+      if (loginErr) {
+        // Handle error establishing session
+        return res.status(500).json({ success: false, message: 'Session could not be established', error: loginErr.toString() });
       }
-        // successful auth
-      return res.json({ success : true, message: 'Login Successful'});
+      // Successful authentication
+      return res.json({ success: true, message: 'Login successful', user: { id: user.id, username: user.username } });
     });
   })(req, res, next);
 });
-  
-  
+
+
+
 
 
 module.exports = router;

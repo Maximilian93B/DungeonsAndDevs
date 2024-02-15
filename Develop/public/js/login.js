@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault(); // Prevent the default form submission
 
             let formData = {
-                username: document.getElementById('username').value,
+                username: document.getElementById('username').value.toLowerCase(),
                 password: document.getElementById('password').value
             };
             //Normalize username to lowercase 
@@ -30,13 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(data)
 
                 if (data.success) {
-                    console.log('User login Successful');
-                    window.location.href = '/dashboard'; // Redirect to the dashboard
+                    window.location.href = '/dashboard';  // Redirect to the dashboard
+               // Redirect to the dashboard
                 } else {
                     alert(data.message); // Display an alert with the failure message
                 }
             } catch (error) {
                 console.error('Fetch error:', error);
+                // error message to user 
                 alert('Login failed. Please try again.'); // Provide a generic error message
             }
         });

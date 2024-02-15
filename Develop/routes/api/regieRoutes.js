@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const {User} = require('../../Models/User');
 const router = express.Router();
 
+
 // Post route 
 router.post('/', async (req, res) => {
     console.log(req.body);
@@ -40,8 +41,7 @@ router.post('/', async (req, res) => {
             email: email,
             password: hashedPassword,
             sign_up_date: new Date(),
-            last_login: new Date(), // Adjust according to your requirements
-            // Leave Points and Profile default or adjust as needed
+            last_login: new Date(),     
         });
 
         res.json({ success: true, message: 'Registration successful' });

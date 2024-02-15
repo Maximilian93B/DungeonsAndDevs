@@ -15,11 +15,11 @@ function initialize(passport) {
     const authenticateUser = async (username, password, done) => {
         // Normalize the username to lowercase for database storage 
         const normalizedUsername = username.toLowerCase();
-        console.log('Attempting to authenticate the user: ${ ')
+        console.log(`Attempting to authenticate the user: ${normalizedUsername} `)
         try {
             // Attempting to find the user in the database (normalizedUsername)
             const user = await User.findOne({ where: { username: normalizedUsername } });
-            console.log( user ? 'User found: ${user.username}' : 'User not found');
+            console.log( user ? `User found: ${user.username}` : `User not found`);
             // If user is not found, return an error message
             if (!user) {
                 return done(null, false, { message: 'Username not found' });
@@ -27,7 +27,7 @@ function initialize(passport) {
 
             // If user is found, compare hashed password
             const match = await bcrypt.compare(password, user.password);
-            console.log(match ? 'Password matches': 'Incorrect Password');
+            console.log(match ? `Password matches`: `Incorrect Password`);
             if (match) {
                 // If passwords match, authent is successful
                 return done(null, user);
@@ -37,7 +37,7 @@ function initialize(passport) {
             }
         } catch (e) {
             // Handle any errors that occur during the process
-            console.error('Error during authent for user: ${normalizedUsername}',e);
+            console.error(`Error during authent for user: ${normalizedUsername}`,e);
             return done(e);
         }
     };
@@ -47,19 +47,19 @@ function initialize(passport) {
     
     // Serialize the user info into the session if successful auth
     passport.serializeUser((user, done)=> {
-        console.log('Serializing user: ${user.user_id}');
+        console.log(`Serializing user: ${user.user_id}`);
         done(null, user.user_id);
     });
     
     // Deserialize the user info from the session in order to identify sub requests  
     passport.deserializeUser((id,done)=> {
-        console.log('Deserializing user: ${id}'); 
+        console.log(`Deserializing user: ${id}`); 
         User.findByPk(id)
         .then(user => {
             done(null,user);
         })
         .catch(e => {
-            console.error('Error during deserialization for user ID: ${id}',e);
+            console.error(`Error during deserialization for user ID: ${id}`,e);
         });
 
         });       
