@@ -7,7 +7,7 @@ class User extends Model {
   validPassword(password) {
     return bcrypt.compareSync(password, this.Password);
   }
-}
+}  
 
 User.init({
   // Define fields/columns of User

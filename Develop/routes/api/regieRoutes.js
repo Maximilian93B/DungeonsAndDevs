@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 
         // Validate input
         if(!username || !email || !password) {
-            return res.status(400).json({ sucess: false, message: 'Please provide username, email and password'});
+            return res.status(400).json({ sucess: false, message: 'provide username, email and password'});
         }
 
         // Email validation 
