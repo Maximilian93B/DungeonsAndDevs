@@ -43,13 +43,13 @@ CREATE TABLE cities (
 -- These are our Challenges in 'QUESTS'  -- 
 CREATE TABLE challenges (
     challenge_id INT AUTO_INCREMENT PRIMARY KEY,
-    city_id INT,
+    province_id INT,
     type ENUM('quiz', 'coding'), -- Example types, adjust as needed
     title VARCHAR(255) NOT NULL,
     description TEXT,
     content TEXT, -- Can store questions, code snippets, etc.
     solution TEXT, -- Optional: solution or answer key
-    FOREIGN KEY (city_id) REFERENCES cities(city_id)
+    FOREIGN KEY (province_id_id) REFERENCES provinces(_id)
 );
 
 
