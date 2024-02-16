@@ -9,42 +9,58 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// Handle Google API 
 document.addEventListener('DOMContentLoaded', () => {
-    // Ensure the search button is correctly hooked up
-    document.getElementById('searchButton').addEventListener('click', async () => {
-        const query = document.getElementById('searchQuery').value; // Get the search query from an input field
-        if (!query) {
-            alert('Please enter a search query.');
-            return;
-        }
-
-        try {
-            // Make the fetch request to your backend route
-            const response = await fetch(`/search?query=${encodeURIComponent(query)}`);
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+    // Get search button and results container 
+    const searchButton = document.getElementById('searchButton');
+    const resultsContainer = document.getElementById('results');
+    // Make sure they are real 
+    if (searchButton) {
+        searchButton.addEventListener('click', async () => {
+            // Retrieve the users search from the input field 
+            const query = document.getElementById('searchQuery').value;
+            // Make sure the search is not empty 
+            if (!query) {
+                alert('Please enter a search query.');
+                return; // exit function if no search input
             }
-            const results = await response.json(); // Parse the JSON results from the backend
 
-            // Select the results container on your HTML page
-            const resultsContainer = document.getElementById('resultsContainer');
-            resultsContainer.innerHTML = ''; // Clear previous results
+            try {
+                // Get request to our googleApi Route '/search' 
+                const response = await fetch(`/search?query=${encodeURIComponent(query)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                // issss no bueno 
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
 
-            // Iterate over each result and create HTML elements for display
-            results.forEach(video => {
-                const videoElement = document.createElement('div');
-                videoElement.innerHTML = `
-                    <h3>${video.title}</h3>
-                    <img src="${video.thumbnail}" alt="${video.title}">
-                    <a href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">Watch</a>
-                `;
-                resultsContainer.appendChild(videoElement); // Append the newly created element to the results container
-            });
-        } catch (error) {
-            console.error('Fetch error:', error);
-            alert('Failed to fetch search results. Please try again.');
-        }
-    });
+                // Parse the JSON response that we recieved from the server 
+                const data = await response.json();
+                // Log the search results because it looks cool...or for errors ofcourse!
+                console.log('Search results:', data);
+
+                // Clear previous results
+                resultsContainer.innerHTML = '';
+
+                // Using a forEach loop we create html elements to display the title,videoId,thumbnail defined in our '/search' route 
+                data.forEach(video => {
+                    const videoElement = document.createElement('div');
+                    videoElement.innerHTML = `
+                        <h3>${video.title}</h3>
+                        <img src="${video.thumbnail}" alt="${video.title}">
+                        <a href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank">Watch</a>
+                    `;
+                    // Using appendChild we can append the new video elements to the results container -- is pretty cool ! 
+                    resultsContainer.appendChild(videoElement);
+                });
+                // As per always with the errors 
+            } catch (error) {
+                console.error('Fetch error:', error);
+                alert('Failed to fetch search results. Please try again.');
+            }
+        });
+    }
 });
-
