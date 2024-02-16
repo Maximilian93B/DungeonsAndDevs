@@ -21,7 +21,7 @@ seedProvinces().then(() => {
 const provinceData = [
 
    {
-    name: "Commemcement Challenge",
+    name: "Open Waters",
     type: "a",
     description: "Repo-Enter Link",
   },
