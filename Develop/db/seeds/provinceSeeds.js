@@ -19,56 +19,75 @@ seedProvinces().then(() => {
 });
 
 const provinceData = [
+
+   {
+    name: "Commemcement Challenge",
+    type: "a",
+    description: "Repo-Enter Link",
+  },
   {
     name: "Semantic Shores",
-    description: "Quiz 1",
+    type: "1",
+    description: "Quiz-True or False",
   },
   {
     name: "Glyphic Glades of Tagcraft",
-    description: "Quiz-2",
+    type: "b",
+    description: "Repo-Refactor",
   },
   {
     name: "Fey Folk of Flexbox",
-    description: "Refactor",
+    type: "6",
+    description: "Quiz-Matching",
   },
   {
     name: "Cascade Canyons",
-    description: "Quiz 3",
+    type: "a",
+    description: "Repo-Enter Link",
   },
   {
     name: "Animation Abyss",
-    description: "Repo",
+    type: "3",
+    description: "Quiz-Fill in the Blank",
   },
   {
     name: "Function Foothills",
-    description: "Repo",
+    type: "2",
+    description: "Quiz-Sequence",
   },
   {
     name: "Domain of Draconic Manipulation",
-    description: "Quiz 1",
+    type: "3",
+    description: "Quiz-Fill in the Blank",
   },
   {
     name: "Promise Peaks",
-    description: "Quiz 2",
+    type: "4",
+    description: "Quiz-Multiple Choice",
   },
   {
     name: "Mystic Mists of Middleware",
-    description: "Quiz 3",
+    type: "3",
+    description: "Quiz-Fill in the Blank",
   },
   {
     name: "Server StrongHold",
-    description: "Repo",
+    type: "c",
+    description: "Repo-Honor System",
   },
   {
     name: "Quag-Mires of Query",
-    description: "Quiz 4",
+    type: "6",
+    description: "Quiz-Matching",
   },
   {
     name: "Tables Tower",
-    description: "Repo",
+    type: "5",
+    description: "Quiz-Sorting",
   },
   {
     name: "Citadel of Syntax",
-    description: "Quiz 5",
+    type: "7",
+    description: "Quiz-20 Questions",
   },
 ];

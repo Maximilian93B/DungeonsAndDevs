@@ -10,7 +10,7 @@ router.get('/', async ( req, res)=> {
         const users = await User.findAll();
         res.status(200).json(users);
     } catch (error) {
-        console.error('Erro fetching users:', error);
+        console.error('Error fetching users:', error);
         res.status(500).json({ success: false, message: 'server error'}); 
     }
 })
