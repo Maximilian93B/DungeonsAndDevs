@@ -24,6 +24,11 @@ seedTerritories().then(() => {
 
 const territoryData = [
     {
+        name: 'Open Waters',
+        description: 'Commencement Challenge',
+        icon: 'rowboat Icon',
+    },
+    {
     name: 'The Isles of Structure & Styling',
     description: 'Quest 1-HTML and CSS',
     icon: 'territory Icon',
