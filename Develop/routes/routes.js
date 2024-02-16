@@ -20,9 +20,10 @@ router.use('/register', regieRoutes);
 router.use('/territories', getTerritories);
 router.use('/provinces', getProvince);
 router.use('/challenges', getChallenge);
-router.use('/search', googleApi);
+
 
 // YouTube API route 
+router.use('/search', googleApi);
 
 
 
