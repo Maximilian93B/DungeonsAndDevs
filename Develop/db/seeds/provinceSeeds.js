@@ -32,8 +32,8 @@ const provinceData = [
   },
   {
     name: "Glyphic Glades of Tagcraft",
-    type: "b",
-    description: "Repo-Refactor",
+    type: "3",
+    description: "Quiz-Fill in the blank",
   },
   {
     name: "Fey Folk of Flexbox",
@@ -43,17 +43,17 @@ const provinceData = [
   {
     name: "Cascade Canyons",
     type: "a",
-    description: "Repo-Enter Link",
+    description: "Repo-Upload Photo",
   },
   {
     name: "Animation Abyss",
-    type: "3",
-    description: "Quiz-Fill in the Blank",
+    type: "4",
+    description: "Quiz-Multiple Choice",
   },
   {
     name: "Function Foothills",
     type: "2",
-    description: "Quiz-Sequence",
+    description: "Quiz-Doesn't Belong",
   },
   {
     name: "Domain of Draconic Manipulation",

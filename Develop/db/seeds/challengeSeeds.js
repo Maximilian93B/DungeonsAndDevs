@@ -77,7 +77,7 @@ const challengeData = [
     },
     {
         province_id: 5,
-        type: '2',
+        type: '4',
         title: 'Challenge 5',
         description: 'The Object Oracle is losing glow thanks to being hidden away so long,  you the right effect in each snippet to to restore the magic and take it to the citadel',
         content: [
