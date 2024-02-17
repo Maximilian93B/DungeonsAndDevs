@@ -1,36 +1,51 @@
-const {Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Challenge extends Model {}
 
-Challenge.init ({
-    // Model attributes 
+Challenge.init({
+    // Model attributes
     challenge_id: {
         type: DataTypes.INTEGER,
-        allowNull: false, 
-        primaryKey:true,
+        allowNull: false,
+        primaryKey: true,
         autoIncrement: true
     },
-
-    name: {
-        type: DataTypes.STRING(50),
+    province_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'provinces', // 
+            key: 'province_id',
+        }
+    },
+    type: {
+        type: DataTypes.ENUM('quiz', 'coding'),
+        allowNull: false
+    },
+    title: {
+        type: DataTypes.STRING(255),
         allowNull: false
     },
     description: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.TEXT,
+        allowNull: true
     },
-    icon: {
-        type: DataTypes.STRING(50), // Ensure this matches the Sequelize DataTypes
-        allowNull: true, // Based on your requirements
-      }
+    content: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    solution: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    }
 }, {
-    // model options 
-    sequelize, // pass connection 
+    // Model options
+    sequelize,
     modelName: 'Challenge',
     tableName: 'challenges',
     timestamps: false,
     underscored: true,
 });
 
-
-module.exports = { Challenge }; 
+module.exports = { Challenge };
