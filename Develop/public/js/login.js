@@ -1,48 +1,49 @@
-// Wait for the DOM to fully load before executing JavaScript
-document.addEventListener('DOMContentLoaded', (event) => {
-    
+document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
 
-    // If the login form exists, set up an event listener for the form submission
     if (loginForm) {
         loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Prevent the form from submitting by default
+            e.preventDefault(); // Prevent the default form submission
 
-            // Collect form data by grabbing the username and password input values
-            const formData = {
-                username: document.getElementById('username').value,
-                password: document.getElementById('password').value,
+            let formData = {
+                username: document.getElementById('username').value.toLowerCase(),
+                password: document.getElementById('password').value
             };
-
+            //Normalize username to lowercase 
+            formData.username = formData.username.toLowerCase();
+           
             try {
-                // Perform an asynchronous fetch request to the login endpoint
                 const response = await fetch('/auth', {
-                   
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(formData),
                 });
-                // Parse JSON response from the server
-                const data = await response.json();
+                
+                console.log(response);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
 
-                // Check if login was successful based on the server's response
+                const data = await response.json();
+                console.log(data)
+
                 if (data.success) {
-                    console.log('User login Successful');
-                    // Redirect the user to the dashboard page upon successful login
-                    window.location.href = '/dashboard';
+                    window.location.href = '/dashboard';  // Redirect to the dashboard
+               // Redirect to the dashboard
                 } else {
-                    // Display an alert if login failed
-                    alert(data.message); // Show login failure message
+                    alert(data.message); // Display an alert with the failure message
                 }
             } catch (error) {
-                // Log any errors that occur during the fetch operation
                 console.error('Fetch error:', error);
+                // error message to user 
+                alert('Login failed. Please try again.'); // Provide a generic error message
             }
         });
     }
 });
+
 
 
 

@@ -18,31 +18,23 @@ const port = process.env.PORT || 3303;
 // Initialize Passport
 initializePassport(passport);
 
-// Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'Develop', 'public')));
+// Session config 
 app.use(session({
     secret: 'session_secret',
     resave: false,
     saveUninitialized: false,
 }));
 
-//Server Traffic logger --> tools/middlewareLogger
-app.use(mwLogger);
-
-// Flash --> for flash messages 
-app.use(flash());
-
-// Passport 
+// Passport Middleware
 app.use(passport.initialize()); // Initialize Passport middleware
 app.use(passport.session()); // Enable session support for Passport
 
-app.post('/auth', passport.authenticate('local', {
-    successRedirect: '/dashboard', // Redirect to dashboard on successful login
-    failureRedirect: '/', // Redirect back to login page on failed login
-    failureFlash: true, // Enable flash messages for feedback
-}));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'Develop', 'public')));
+app.use(flash());
+app.use(mwLogger);// middleware tool written to log requests
+
 
 // Import routes 
 app.use('/', routes);
@@ -52,32 +44,25 @@ app.use('/', routes);
 
 //MIDDLE WARE ENDS 
 
-
+/*
 app.use('/register', regieRoutes);// POST 
 app.use('/auth',authRoutes)// POST 
 app.use('/dashboard', dashboardRoutes)// GET 
+*/
 
-
-
-
+/*
 // Use other routes
 app.use('/login', authRoutes);
 app.use('/dashboard',dashboardRoutes);6
 app.use('/users', getUsers);
-
+*/
 
 // Routes
 
 //GET Routes 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Develop', 'public', 'loginPage.html')); // Serve login page
+    res.sendFile(path.join(__dirname, './Develop/public/loginPage.html',)); // Serve login page
 });
-
-// Serve dahsboard page when endpoint is reached 
-
-app.get('/dashboard', (req ,res) => {
-res.sendFile(path.join(__dirname, '..', 'public', 'mainPage.html'));
-})
 
 // Route error handling 
 app.use((req, res, next) => {
