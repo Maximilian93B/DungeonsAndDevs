@@ -33,5 +33,8 @@ Province.init({
   tableName: 'provinces',
   timestamps: false // No timestamps in tables
 });
+Province.associate = (models) => {
+  Province.hasMany(models.Challenge, { foreignKey: 'provinceId' }); // Use snake_case for foreign key
+}
 
 module.exports =  { Province };

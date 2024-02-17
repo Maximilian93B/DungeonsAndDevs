@@ -79,12 +79,11 @@ User.init({
 
 // Define associations
 User.associate = (models) => {
-  User.hasMany(models.UserProgress, { foreignKey: 'userID' }); // Use snake_case for foreign key
-  User.hasMany(models.UserAchievements, { foreignKey: 'userID' }); // Use snake_case for foreign key
-  User.hasMany(models.UserTerritories, { foreignKey: 'userID' }); // Use snake_case for foreign key
-  User.hasMany(models.UserQuizAttempts, { foreignKey: 'userID' }); // Use snake_case for foreign key
-  User.hasMany(models.Posts, { foreignKey: 'userID' }); // Use snake_case for foreign key
-  User.belongsToMany(models.LearningGroups, { through: models.GroupMembers, foreignKey: 'userID' }); // Use snake_case for foreign key
+  User.hasMany(models.UserProgress, { foreignKey: 'userId' }); // Use snake_case for foreign key
+  User.hasMany(models.UserAchievements, { foreignKey: 'userId' }); // Use snake_case for foreign key
+  User.hasMany(models.UserTerritories, { foreignKey: 'userId' }); // Use snake_case for foreign key
+  User.hasMany(models.Posts, { foreignKey: 'userId' }); // Use snake_case for foreign key
+  User.belongsToMany(models.LearningGroups, { through: models.GroupMembers, foreignKey: 'userId' }); // Use snake_case for foreign key
 };
 
 module.exports = { User };

@@ -42,5 +42,9 @@ Trophy.init({
     underscored: true,
 
 });
+Trophy.associate = (models) => {
+    Trophy.hasMany(models.UserAchievement, { foreignKey: 'trophyId' }); // Use snake_case for foreign key
+  }
+
 
 module.exports = { Trophy }

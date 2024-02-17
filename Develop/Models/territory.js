@@ -32,5 +32,11 @@ Territory.init ({
     underscored: true,
 });
 
+Territory.associate = (models) => {
+    Territory.hasMany(models.Provinces, { foreignKey: 'territoryId' }); // Use snake_case for foreign key
+    Territory.hasMany(models.UserTerritories, { foreignKey: 'territoryId' }); // Use snake_case for foreign key
+    Territory.hasMany(models.Trophy, { foreignKey: 'territoryId' }); // Use snake_case for foreign key
+}
+
 
 module.exports = { Territory }; 
