@@ -30,12 +30,13 @@ CREATE TABLE provinces (
 CREATE TABLE challenges (
     challenge_id INT AUTO_INCREMENT PRIMARY KEY,
     province_id INT,
-    type ENUM('quiz', 'coding'), -- Example types, adjust as needed
+    type ENUM('quiz', 'coding'),
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    content TEXT, -- Can store questions, code snippets, etc.
-    solution TEXT, -- Optional: solution or answer key
-    FOREIGN KEY (province_id) REFERENCES provinces(_id)
+    content TEXT,
+    solution TEXT,
+    FOREIGN KEY (province_id) REFERENCES provinces(province_id) -- Corrected reference to province_id
+);
 );
 
 
