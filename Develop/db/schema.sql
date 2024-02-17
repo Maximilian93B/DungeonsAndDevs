@@ -9,7 +9,6 @@ CREATE TABLE users (
     profile TEXT
 );
 
-
 -- IS QUESTS --
 CREATE TABLE territories (
     territory_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,7 +16,6 @@ CREATE TABLE territories (
     description TEXT,
     icon VARCHAR(50)
 );
-
 
 -- IS CHALLENGE DESCRIPTIONS --
 CREATE TABLE provinces (
@@ -41,7 +39,6 @@ CREATE TABLE challenges (
 );
 
 
-
 CREATE TABLE user_progress (
     progress_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -49,7 +46,7 @@ CREATE TABLE user_progress (
     status VARCHAR(50),
     last_accessed DATETIME,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (challenge_id_id) REFERENCES challenge_id(challenge_id)
+    FOREIGN KEY (challenge_id_id) REFERENCES challenges(challenge_id)
 );
 
 
