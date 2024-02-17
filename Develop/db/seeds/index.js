@@ -18,6 +18,14 @@ const seedAll = async () => {
         await seedProvinces();
         console.log('Province seeding completed.');
 
+        console.log('Starting user_progress seeding...');
+        await seedUserProgress();
+        console.log('user_progress seeding completed.');
+        
+        console.log('Starting Trophies seeding...');
+        await seedTrophies();
+        console.log('Trophies seeding completed.');
+
         // Add more seeding functions as necessary, with corresponding console.log messages
 
         console.log('All seeds planted successfully.');
