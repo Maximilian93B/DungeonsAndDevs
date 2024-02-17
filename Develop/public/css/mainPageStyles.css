@@ -70,7 +70,7 @@ h1 {
 }
 
 .sidebar-content a:hover {
-    background-color: #555;
+    background-color: #a89e92;
 }
 
 /* CSS for sidebar sections */
@@ -98,12 +98,15 @@ h1 {
 
 }
 
+.sidebar-section:hover {
+    background-color:#a89e92;
+}
 /* Set background image for map container */
 #map-container {
     margin-left: 250px; /* Adjust margin to make space for sidebar */
     width: calc(100% - 250px); /* Subtract sidebar width from map container width */
     height: 100vh; /* Make map container full height of viewport */
-    background-image: url('Develop/public/images/map.png'); /* Set background image */
+    background-image: url('./svg/map.svg'); /* Set background image */
     background-size: cover; /* Cover the entire container */
     background-position: center center; /* Center the image */
 }
@@ -163,3 +166,15 @@ h1 {
     background-color: #0056b3;
 }
 
+.state-border {
+    padding: 20px;
+    border-bottom: 1px solid #666; /* Add a border between sections */
+    margin-bottom: 20px;
+    height: 13%;
+    font-family: 'MedievalSharp', cursive;;;
+}
+
+.state-border:hover {
+    fill:#555;
+    opacity: 1;
+}
