@@ -9,7 +9,7 @@ const getUsers = require('./api/getUsers');
 const regieRoutes = require('./api/regieRoutes')
 const getTerritories = require('./api/getTerritories');
 const getProvince = require('./api/provinceRoutes');
-const userAchievementRoutes = require('./Develop/routes/api/userAchievementroute');
+const userAchievementRoutes = require('./api/userAchievementroute');
 
 
 

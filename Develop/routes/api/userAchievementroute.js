@@ -1,24 +1,22 @@
-// Import modules
+// Import necessary modules
 const express = require('express');
-// Import the userachievements model
-const { userAchievements } = require('../../Models/userachievements');
-// Create a new Router instance
 const router = express.Router();
+const UserAchievement = require('../../Models/userachievements'); // Adjust the path as per your file structure
 
-
-// Define a GET route  fetch all userachievements
+// Define a GET route for '/achievements' to fetch all achievements
 router.get('/', async (req, res) => {
-    console.log('Accessing userAchievement route');
+    console.log('Accessing /achievements route');
 
     try {
-        // Use the Sequelize `findAll` method to retrieve userachievements
-        const userAchievements = await userAchievements.findAll();
-        console.log ('Fetched userAchievements: ', userAchievements)
+        // Use the Sequelize `findAll` method to retrieve all achievements
+        const achievements = await UserAchievement.findAll();
+        console.log('Fetched achievements: ', achievements);
         
-        res.json(userAchievements);
+        // Respond with the retrieved achievements as JSON
+        res.json(achievements);
     } catch (error) {
         // If an error occurs
-        console.error('Failed to fetch the Achievements:', error);
+        console.error('Failed to fetch achievements:', error);
         // Send a 500 Server Error
         res.status(500).send('Server Error');
     }
