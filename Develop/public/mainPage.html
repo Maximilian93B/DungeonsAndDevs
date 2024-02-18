@@ -54,14 +54,81 @@
         <object id="map" type="image/svg+xml" data="map.svg">
             <img src="./svg/map.svg">
             <svg >
-                <path id="state-border1" d="M741,619L741,619L733,620L732,620L715,625L716,629L720,635L725,635L731,630L738,635L741,634L746,637L749,637L752,639L753,
-                641L754,647L755,648L756,656L756,656L757,662L761,667L760,670L763,677L768,676L772,679L775,678L780,680L780,680L784,687L781,695L785,700L787,701L787,
-                701L796,703L802,699L809,701L809,703L814,709L818,710L821,713L824,714L830,718L832,718L833,717L840,714L846,717L852,713L855,714L857,713L867,714L870,
-                712L870,711L873,702L872,701L873,699L877,696L888,696L890,699L896,702L901,698L905,698L909,695L911,695L917,699L921,699L924,702L928,701L928,702L936,
-                700L939,696L944,702L950,702L952,703L959,704L960,703L964,702L969,698L969,697L970,696L974,690L975,689L979,682L979,678L981,674L986,672L983,657L981,
-                656L975,658L968,653L959,661L954,656L945,655L942,659L943,667L928,671L928,672L920,679L910,674L905,677L895,673L894,674L886,670L885,658L877,655L872,
-                659L863,657L855,660L848,658L847,657L848,652L847,641L837,640L831,631L830,630L825,630L820,619L808,622L804,621L801,610L794,610L792,608L786,607L783,
-                598L770,603L769,606L758,609L752,604L743,607L741,619" clip-path="url(#state-clip1)" stroke="#478873" class="state-border"/>
+                <g>
+                    <path id="textPath_stateLabel1" class="state-border"/>
+                    <path id="textPath_stateLabel2" class="state-border"/>
+                    <path id="textPath_stateLabel3" class="state-border"/>
+                    <path id="textPath_stateLabel4" class="state-border"/>
+                    <path id="textPath_stateLabel5" class="state-border"/>
+                    <path id="textPath_stateLabel6" class="state-border"/>
+                    <path id="textPath_stateLabel7" class="state-border"/>
+                    <path id="textPath_stateLabel8" class="state-border"/>
+                    <path id="textPath_stateLabel9" class="state-border"/>
+                    <path id="textPath_stateLabel10" class="state-border"/>
+                    <path id="textPath_stateLabel11" class="state-border"/>
+                    <path id="textPath_stateLabel12" class="state-border"/>
+                    <path id="textPath_stateLabel13" class="state-border"/>
+                    <path id="textPath_stateLabel14" class="state-border"/>
+                    <path id="textPath_stateLabel15" class="state-border"/>
+                    <path id="textPath_stateLabel16" class="state-border"/>
+                    <path id="textPath_stateLabel17" class="state-border"/>
+                    <path id="textPath_stateLabel18" class="state-border"/>
+                </g>
+
+                <g id="filters" class="state-border">
+                    
+          
+          
+                    <filter id="blur5" name="Blur 5" x="-1" y="-1" width="100" height="100">
+                      <feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
+                    </filter>
+                    
+                    
+                    
+                    
+                    <filter id="dropShadow" name="Shadow 2">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+                      <feOffset dx="1" dy="2"/>
+                      <feMerge>
+                        <feMergeNode/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                    
+                    
+                    <filter id="outline" name="Outline">
+                      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+                      <feMerge>
+                        <feMergeNode/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                    
+                    
+          
+                    
+          
+                    <filter id="crumpled" name="Crumpled" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                      <feGaussianBlur stdDeviation="2 2" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" edgeMode="none" result="blur"/>
+                      <feTurbulence type="turbulence" baseFrequency="0.05 0.05" numOctaves="4" seed="1" stitchTiles="stitch" result="turbulence"/>
+                      <feDiffuseLighting surfaceScale="2" diffuseConstant="1" lighting-color="#828282" in="turbulence" result="diffuseLighting">
+                        <feDistantLight azimuth="320" elevation="10"/>
+                      </feDiffuseLighting>
+                      <feComposite in="diffuseLighting" in2="blur" operator="lighter" result="composite"/>
+                      <feComposite in="composite" in2="SourceGraphic" operator="in" x="0%" y="0%" width="100%" height="100%" result="composite1"/>
+                    </filter>
+          
+                    <filter id="filter-grayscale" name="Grayscale">
+                      <feColorMatrix values="0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0"/>
+                    </filter>
+                    
+                    <filter id="filter-dingy" name="Dingy">
+                      <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0.3 0.3 0 0 0 0 0 1 0"/>
+                    </filter>
+                    <filter id="filter-tint" name="Tint">
+                      <feColorMatrix values="1.1 0 0 0 0  0 1.1 0 0 0  0 0 0.9 0 0  0 0 0 1 0"/>
+                    </filter>
+                  </g>
             </svg>
         </object>
      
