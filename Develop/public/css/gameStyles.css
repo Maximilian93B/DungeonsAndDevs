@@ -1,16 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 body {
     margin: 0;
     padding: 0;
 }
 
 header {
-    position: relative; /* Make the header a positioning context */
-    background-color: #dfd2c1;;
+    position: relative;
+    background-color: #dfd2c1;
     color: #000000;
     padding: 40px;
     text-align: center;
-    font-family: 'MedievalSharp', cursive;;
+    font-family: 'MedievalSharp', cursive;
 }
 
 h1 {
@@ -18,28 +17,25 @@ h1 {
 }
 
 .logo {
-    position: absolute; /* Position the logo absolutely */
-    top: 50%; /* Align the top of the logo with the middle of the header */
-    right: 10px; /* Adjust as needed */
-    transform: translateY(-50%); /* Center the logo vertically */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
 }
 
 .logo img {
-    max-width: 100px; /* Adjust the max-width as needed */
+    max-width: 100px;
     height: auto;
 }
 
-/* Set background image for map container */
 #map-container {
-    margin-left: 250px; /* Adjust margin to make space for sidebar */
-    width: calc(100% - 250px); /* Subtract sidebar width from map container width */
-    height: 100vh; /* Make map container full height of viewport */
-    background-image: url('./svg/map.svg'); /* Set background image */
-    background-size: cover; /* Cover the entire container */
-    background-position: center center; /* Center the image */
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    height: 100vh;
+    background-image: url('/Develop/public/svg/openwaters.svg');
+    background-size: cover;
+    background-position: center center;
 }
-
-
 
 #map-container img {
     max-width: 100%;
@@ -53,6 +49,20 @@ h1 {
 }
 
 .state-border:hover {
-    fill:#FF0000;
+    fill: #FF0000;
     stroke: #FF0000;
+}
+
+#overlay-object,
+#overlay-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 25%;
+}
+
+#overlay-object:hover image,
+#overlay-svg:hover image {
+    filter: brightness(1.5); /* Adjust the brightness value as needed */
 }
