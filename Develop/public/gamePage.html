@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/gameStyles.css">
+    <title>Dungeons & Devs</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>The AlgoRealm: A Coder's Odyssey</h1>
+        <div class="logo">
+            <img src="./images/DnDevCrest.png">
+        </div>
+    </header>
+
+    <div id="map-container">
+        <img src="./svg/openwaters.svg">
+        <object id="map" type="image/svg+xml" data="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1080' zoomAndPan='magnify' viewBox='0 0 810 809.999993' height='1080' preserveAspectRatio='xMidYMid meet' version='1.0'%3E%3Cdefs%3E%3Cimage x='0' y='0' width='1024' xlink:href='data:image/png;base64,iVBORw...'%3E%3C/image%3E%3C/defs%3E%3C/svg%3E">
+        </object>
+        <!-- Overlay SVG -->
+        <svg id="overlay-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" zoomAndPan="magnify" viewBox="0 0 1440 809.999993" height="1080" preserveAspectRatio="xMidYMid meet" version="1.0">
+            <defs>
+                <filter x="0%" y="0%" width="25%" height="25%" id="99d8403ab3">
+                    <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0" color-interpolation-filters="sRGB" />
+                </filter>
+                <filter x="0%" y="0%" width="25%" height="25%" id="87adfcee37">
+                    <feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.2126 0.7152 0.0722 0 0" color-interpolation-filters="sRGB" />
+                </filter>
+                <clipPath id="8f3b0f6afb">
+                    <path d="M 301.433594 239.144531 L 1138 239.144531 L 1138 570.644531 L 301.433594 570.644531 Z M 301.433594 239.144531 " clip-rule="nonzero" />
+                </clipPath>
+            </defs>
+            <image x="0" y="0" width="1920" xlink:href="./svg/rowboat.svg" />
+        </svg>
+    </div>
+
+    <script src="./js/gamePage.js"></script>
+</body>
+
+</html>
