@@ -167,14 +167,12 @@ h1 {
 }
 
 .state-border {
-    padding: 20px;
-    border-bottom: 1px solid #666; /* Add a border between sections */
-    margin-bottom: 20px;
-    height: 13%;
-    font-family: 'MedievalSharp', cursive;;;
+    fill: #AABBCC;
+    stroke: #000;
+    transition: fill 0.3s, stroke 0.3s;
 }
 
 .state-border:hover {
-    fill:#555;
-    opacity: 1;
+    fill:#FF0000;
+    stroke: #FF0000;
 }
