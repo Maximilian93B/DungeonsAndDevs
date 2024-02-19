@@ -85,12 +85,12 @@ CREATE TABLE user_achievements (
 CREATE TABLE UserProfile (
     profile_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
-    current_territory_id INT,
-    current_challenge_id INT,
+    territory_id INT,
+    challenge_id INT,
     username VARCHAR(50),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (current_territory_id) REFERENCES territories(territory_id),
-    FOREIGN KEY (current_challenge_id) REFERENCES challenges(challenge_id)
+    FOREIGN KEY (territory_id) REFERENCES territories(territory_id),
+    FOREIGN KEY (challenge_id) REFERENCES challenges(challenge_id)
 );
 
 /* MANUALLY RUN THESE QUERIES IN YOUR DB FOR TESTING 
