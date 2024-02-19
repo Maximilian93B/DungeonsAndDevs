@@ -27,16 +27,11 @@
             </ul>
         </div>
         
-        <!--Sections in side bar for quest details etc .. -->
-        <!--Need to dyncamically generate from users Profile-->
-        <div class="sidebar-section">
-            <h3>Current Territory</h3>
-            <p>Placeholder for current territory information...</p>
+        <!-- These divs all contain the generated content from our server-->
+        <div class="sidebar-content" class="sidebar-section">
+            <ul class="provinces-container"></ul>
         </div>
-        <div class="sidebar-section">
-            <h3>Current Quest</h3>
-            <p>Placeholder for current quest information...</p>
-        </div>
+    
         <div class="sidebar-section">
             <h3>Achievements</h3>
             <p>Placeholder for achievements information...</p>
@@ -53,10 +48,9 @@
     <div id="map-container">
         <object id="map" type="image/svg+xml" data="map.svg">
             <div id="svg-container">
-                <DungeonsAndDevs/Develop/public/svg/map.svg/>
                 <img src="./svg/map.svg">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-                    <path d="M757,665L766.2,665C775.4,665,793.7,665,817,665C840.4,665,868.7,665,882.9,665L897,665" id="textPath_stateLabel1" class="state-border">Semantic Shores</path>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" src="./svg/map.svg">
+                    <path x="50" y="50" width="100" height="80" id="textPath_stateLabel1" class="interactive-region border-hover" data-region=""/>
                     <path id="textPath_stateLabel2" class="state-border"/>
                     <path id="textPath_stateLabel3" class="state-border"/>
                     <path id="textPath_stateLabel4" class="state-border"/>
@@ -73,14 +67,11 @@
                     <path id="textPath_stateLabel15" class="state-border"/>
                     <path id="textPath_stateLabel16" class="state-border"/>
                     <path id="textPath_stateLabel17" class="state-border"/>
-                    <path id="textPath_stateLabel18" class="state-border border-hover" data-region="Campaign-Commencement-Challenge"></path>
+                    <path id="textPath_stateLabel18" class="state-border border-hover" data-region="Campaign Commencement Challenge"></path>
                 </svg> 
             </div>
         </object>
-     
-        <!-- EMILIA uncomment this line and add our SVG Map , you will have to adjust the CSS as well. 
-            <object id="map" type="image/svg+xml" data="map.svg"></object>
-        -->
+    
 
         <input type="text" id="searchQuery" placeholder="Dive into the well">
         <button id="searchButton">Search</button>
