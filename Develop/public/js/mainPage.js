@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //SVG Map Manipulation
 
-document.getElementById('textPath_stateLabel18', function () {
+document.getElementById('textPath_stateLabel1', function () {
     // Wait for the document to fully load before executing the script
     document.addEventListener("DOMContentLoaded", function () {
         // Select all elements that have the class 'state-border'
@@ -78,12 +78,14 @@ document.getElementById('textPath_stateLabel18', function () {
             // Add an event listener for mouseover actions on each border
             stateBorder.addEventListener('mouseover', function () {
                 // Change the border's color to red when the mouse hovers over
+                stateBorder.style.fill = 'FF0000';
                 stateBorder.style.stroke = '#FF0000';
             });
         
             // Add an event listener for mouseout actions
             stateBorder.addEventListener('mouseout', function () {
                 // Restore the border's color to black when the mouse leaves
+                stateBorder.style.fill = '#AABBCC';
                 stateBorder.style.stroke = '#000';
             });
         });
