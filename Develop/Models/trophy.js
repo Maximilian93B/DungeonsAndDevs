@@ -1,14 +1,12 @@
-// Import Modules 
-const { Model , DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Trophy extends Model {}
 
 Trophy.init({
-
     trophy_id: {
         type: DataTypes.INTEGER,
-        allowNull: false , 
+        allowNull: false, 
         primaryKey: true,
         autoIncrement: true
     },
@@ -25,27 +23,27 @@ Trophy.init({
         allowNull: false
     },
     territory_id: {
-        tpye: DataTypes.INTEGER,
+        type: DataTypes.INTEGER, // Corrected typo here from 'tpye' to 'type'
         allowNull: false,
         references: {
-            model: 'territories',
+            model: 'territories', // Ensure this matches exactly the table name
             key: 'territory_id',
         }
-
     }
-},{
-    // Model options 
+}, {
     sequelize,
     modelName: 'Trophy',
     tableName: 'trophies',
-    timestamps: false, 
+    timestamps: false,
     underscored: true,
-
 });
+
+/*
+// Associations
 Trophy.associate = (models) => {
     Trophy.belongsTo(models.Territory, { foreignKey: 'territory_id' });
     Trophy.hasMany(models.UserAchievements, { foreignKey: 'trophy_id' });
 };
 
-
-module.exports = { Trophy }
+*/
+module.exports = { Trophy };
