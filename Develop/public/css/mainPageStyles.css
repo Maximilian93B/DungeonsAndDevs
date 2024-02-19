@@ -57,6 +57,7 @@ h1 {
     list-style-type: none;
     padding: 0;
     margin-bottom: 20px;
+    color: #3d3522;
 }
 
 .sidebar-content li {
@@ -80,10 +81,31 @@ h1 {
     margin-bottom: 20px;
     height: 13%;
     font-family: 'MedievalSharp', cursive;;;
+    overflow: auto;
 }
 
-.sidebar-section:last-child {
-    border-bottom: none; /* Remove border for the last section */
+.territory-container, 
+.provinces-container, 
+.challenge-container {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+}
+
+.territory-container li, 
+.provinces-container li, 
+.challenge-container li {
+    padding: 5px 0; /* Add some padding for spacing */
+    border-bottom: 1px solid #ccc; /* Optional: add a separator */
+    cursor: pointer; /* Change cursor to indicate interactivity */
+    color: #000
+}
+
+/* Hover effect for list items */
+.territory-container li:hover, 
+.provinces-container li:hover, 
+.challenge-container li:hover {
+    background-color: #f4f4f4; /* Change background on hover */
 }
 
 .sidebar-section h3 {
@@ -92,15 +114,6 @@ h1 {
   
 }
 
-.sidebar-section p {
-    margin-bottom: 0; /* Remove bottom margin for the paragraph */
-    color: #3d3522;
-
-}
-
-.sidebar-section:hover {
-    background-color:#a89e92;
-}
 /* Set background image for map container */
 #map-container {
     margin-left: 250px; /* Adjust margin to make space for sidebar */

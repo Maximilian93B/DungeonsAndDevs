@@ -65,7 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    // All functions to interact with server
+    fetchTerritories();
     fetchProvinces();
+    fetchChallenges();
+   
 });
 
 //SVG Map Manipulation
@@ -93,10 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // ALL FETCH FUNCTIONS TO GET DATA FROM THE SERVER WILL BE HELD HERE 
 
- // Fetch territories and display in sidebar 
-
-
-
+ // Fetch Provinces and
  async function fetchProvinces() {
     try {
         const response = await fetch('/provinces');
@@ -110,9 +111,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 }
 
+// display provinces 
 function displayProvinces(provinces) {
     const sidebarContent = document.querySelector('.provinces-container'); // Use querySelector for class
-    sidebarContent.innerHTML = ''; // Clear existing content
+    sidebarContent.innerHTML = '';
     provinces.forEach(province => {
         const listItem = document.createElement('li');
         listItem.textContent = province.name;
@@ -120,3 +122,59 @@ function displayProvinces(provinces) {
     });
 }
 
+
+// Fetch and Display Territories 
+
+async function fetchTerritories() {
+    try {
+        const response = await fetch('/territories');
+        if(!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const territories = await response.json();
+        displayTerritories(territories);
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+}
+
+// Display Territories 
+function displayTerritories(territories) {
+    const sidebarContent = document.querySelector('.territory-container'); // Ensure this is the correct class name
+    sidebarContent.innerHTML = ''; // Clear any existing content
+
+    territories.forEach(territory => {
+        const listItem = document.createElement('li');
+        listItem.textContent = territory.name;
+        sidebarContent.appendChild(listItem);
+    });
+}
+
+
+// Fetch Challenge 
+
+async function fetchChallenges() {
+    try {
+        const response = await fetch('/challenges');
+        if (!response.ok) {
+            throw new Error(`HTTP Error! status ${response.status}`);
+        }
+        const challenges = await response.json();
+        displayChallenges(challenges);
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+}
+
+// Display Challenge 
+
+function displayChallenges(challenges) {
+    const sidebarContent = document.querySelector('.challenge-container');
+    sidebarContent.innerHTML = '';
+
+    challenges.forEach(challenge => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<strong>Title:</strong> ${challenge.title} <br> <strong>Type:</strong> ${challenge.type} <br> <strong>Description:</strong> ${challenge.description}`;
+        sidebarContent.appendChild(listItem);
+    });
+}
