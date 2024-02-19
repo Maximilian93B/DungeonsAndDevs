@@ -59,9 +59,6 @@ CREATE TABLE user_progress (
 );
 
 
-
-C
-
 CREATE TABLE trophies (
     trophy_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -167,24 +164,7 @@ INSERT INTO user_achievements (user_id, trophy_id, date_earned) VALUES
 //      user_progress table 
 
 INSERT INTO user_progress (user_id, challenge_id, status, last_accessed) VALUES
-(1, 1, 'Completed', '2023-08-01 10:00:00');
-
-
-
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+(1, 1, 'Completed', '2023-08-01 10:00:                
                     
                     
                     FOR Challenges table 

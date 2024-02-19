@@ -21,7 +21,6 @@ seedTerritories().then(() => {
 });
 
 
-
 const territoryData = [
     {
         name: 'Open Waters',
