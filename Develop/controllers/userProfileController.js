@@ -5,7 +5,7 @@ const { Challenge } = require('../Models/challenge');
 
 const getUserProfile = async (req ,res ) => {
     try {
-        const user_id = parseInt(req.params.user_id, 1); // Need to be able to link to user Auth 
+        const user_id = parseInt(req.params.user_id, 10); 
         if (isNaN(user_id)) {
             return res.status(400).send({error: 'Invalid user ID.'});
         }
@@ -14,10 +14,10 @@ const getUserProfile = async (req ,res ) => {
             where: {user_id: user_id },
             include: [
                 {model: User},
-                /*
+               
                 {model: Territory, as: 'Current Territory'},
                 {model: Challenge, as: 'Current Challenge'}
-                */
+                
             ]
         });
 

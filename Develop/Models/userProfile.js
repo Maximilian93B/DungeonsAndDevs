@@ -1,6 +1,9 @@
 const { Model , DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+// Import other Models
+const User = require('./User');
+
 class UserProfile extends Model{} 
 
 UserProfile.init({
