@@ -64,3 +64,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+//SVG Map Manipulation
+
+document.getElementById('textPath_stateLabel18', function () {
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get all interactive states
+        var interactiveState1 = document.querySelectorAll('.state-border');
+
+        // Add hover event listeners to each border
+        interactiveState1.forEach(function (border) {
+            border.addEventListener('mouseover', function () {
+                border.style.stroke = '#FF0000'; // Change the border colours on hover
+            });
+
+            border.addEventListener('mouseout', function () {
+                region.style.stroke = '#000'; // Restore the default border colour on mouseout
+            });
+        });
+    });
+});

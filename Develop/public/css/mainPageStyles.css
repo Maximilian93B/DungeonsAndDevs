@@ -166,15 +166,38 @@ h1 {
     background-color: #0056b3;
 }
 
-.state-border {
-    padding: 20px;
+/*.state-border {
+    /*padding: 20px;
     border-bottom: 1px solid #666; /* Add a border between sections */
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;
     height: 13%;
-    font-family: 'MedievalSharp', cursive;;;
+    font-family: 'MedievalSharp', cursive;;;*/
+    /*fill: #AABBCC; /* Set the default fill color */
+    /*stroke: #000;   /* Set the default border color */
+    /*stroke-width: 2; /* Set the default border width */
+    /*transition: stroke 0.3s; /* Add a smooth transition effect for the border color change */
+/*} */
+
+/*.state-border:hover {
+    /*fill:#555;
+    opacity: 1;*/
+    /*stroke: #FF0000; /* Change the border color on hover */
+/*}*/
+
+#svg-container {
+    width: 100%;
 }
 
-.state-border:hover {
-    fill:#555;
-    opacity: 1;
+.interactive-region {
+    fill: #AABBCC; /* Set the default fill color */
+    stroke: #000;   /* Set the default border color */
+    transition: stroke 0.3s; /* Add a smooth transition effect for the border color change */ 
+}
+
+.border-hover {
+    stroke-width: 2;
+}
+
+.border-hover {
+    stroke: #FF0000;
 }
