@@ -86,7 +86,8 @@ h1 {
 
 .territory-container, 
 .provinces-container, 
-.challenge-container {
+.challenge-container,
+.trophy-container {
     list-style: none; /* Remove bullet points */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margins */
@@ -94,7 +95,8 @@ h1 {
 
 .territory-container li, 
 .provinces-container li, 
-.challenge-container li {
+.challenge-container li,
+.trophy-container li  {
     padding: 5px 0; /* Add some padding for spacing */
     border-bottom: 1px solid #ccc; /* Optional: add a separator */
     cursor: pointer; /* Change cursor to indicate interactivity */
@@ -104,7 +106,8 @@ h1 {
 /* Hover effect for list items */
 .territory-container li:hover, 
 .provinces-container li:hover, 
-.challenge-container li:hover {
+.challenge-container li:hover,
+.trophy-container li:hover {
     background-color: #f4f4f4; /* Change background on hover */
 }
 

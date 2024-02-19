@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchTerritories();
     fetchProvinces();
     fetchChallenges();
+    fetchTrophies();
    
 });
 
@@ -178,3 +179,32 @@ function displayChallenges(challenges) {
         sidebarContent.appendChild(listItem);
     });
 }
+
+// Fetch Trophies: 
+
+async function fetchTrophies() {
+    try {
+        const response = await fetch('/trophies');
+        if (!response.ok) {
+            throw new Error(`HTTP Error! status ${response.status}`);
+        }
+        const trophies = await response.json();
+        displayTrophies(trophies);
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+}
+
+// display trophes 
+
+function displayTrophies(trophies) {
+    const sidebarContent = document.querySelector('.trophy-container');
+    sidebarContent.innerHTML = '';
+
+    trophies.forEach(trophies => {
+        const listItem = document.createElement('li');
+        listItem.textContent = trophies.name;
+        sidebarContent.appendChild(listItem);
+    });
+}
+
