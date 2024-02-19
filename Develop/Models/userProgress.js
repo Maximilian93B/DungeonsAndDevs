@@ -44,8 +44,10 @@ UserProgress.init({
     underscored: true,
 
 });
+
 UserProgress.associate = (models) => {
-    UserProgress.hasMany(models.UserAchievement, { foreignKey: 'trophyId' }); // Use snake_case for foreign key
-  }
+    UserProgress.belongsTo(models.User, { foreignKey: 'user_id' });
+    UserProgress.belongsTo(models.Challenge, { foreignKey: 'challenge_id' });
+};
 
 module.exports = { UserProgress }

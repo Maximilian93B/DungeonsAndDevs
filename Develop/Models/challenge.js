@@ -49,8 +49,8 @@ Challenge.init({
 });
 
 Challenge.associate = (models) => {
-    Challenge.hasMany(models.UserProgress, { foreignKey: 'challengeId' }); // Use snake_case for foreign key
-    Challenge.hasMany(models.UserTerritories, { foreignKey: 'challengeId' }); // Use snake_case for foreign key
-}
+    Challenge.belongsTo(models.Province, { foreignKey: 'province_id' });
+    Challenge.hasMany(models.UserProgress, { foreignKey: 'challenge_id' });
+};
 
 module.exports = { Challenge };

@@ -1,7 +1,7 @@
 // Import necessary modules
 const express = require('express');
 const router = express.Router();
-const UserAchievement = require('../../Models/achievement'); // Adjust the path as per your file structure
+const { Achievement }  = require('../../Models/achievement'); // Adjust the path as per your file structure
 
 // Define a GET route for '/achievements' to fetch all achievements
 router.get('/', async (req, res) => {
@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 
     try {
         // Use the Sequelize `findAll` method to retrieve all achievements
-        const achievements = await UserAchievement.findAll();
+        const achievements = await Achievement.findAll();
         console.log('Fetched achievements: ', achievements);
         
         // Respond with the retrieved achievements as JSON
