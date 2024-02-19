@@ -15,7 +15,7 @@ Achievement.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'users',
+            model: 'users', // This should match the table name
             key: 'user_id',
         }
     },
@@ -23,7 +23,7 @@ Achievement.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'trophies',
+            model: 'trophies', // This should match the table name
             key: 'trophy_id',
         }
     },
@@ -39,4 +39,10 @@ Achievement.init({
     timestamps: false
 });
 
-module.exports = Achievement;
+// Define associations here, outside the init method
+Achievement.associate = (models) => {
+    Achievement.belongsTo(models.User, { foreignKey: 'user_id' });
+    Achievement.belongsTo(models.Trophies, { foreignKey: 'trophy_id' });
+};
+
+module.exports = { Achievement };

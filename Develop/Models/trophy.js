@@ -43,8 +43,9 @@ Trophy.init({
 
 });
 Trophy.associate = (models) => {
-    Trophy.hasMany(models.UserAchievement, { foreignKey: 'trophyId' }); // Use snake_case for foreign key
-  }
+    Trophy.belongsTo(models.Territory, { foreignKey: 'territory_id' });
+    Trophy.hasMany(models.UserAchievements, { foreignKey: 'trophy_id' });
+};
 
 
 module.exports = { Trophy }
