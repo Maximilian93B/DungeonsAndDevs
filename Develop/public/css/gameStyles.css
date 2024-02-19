@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: relative;
+    background-color: #dfd2c1;
+    color: #000000;
+    padding: 40px;
+    text-align: center;
+    font-family: 'MedievalSharp', cursive;
+}
+
+h1 {
+    margin: 0;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+.logo img {
+    max-width: 100px;
+    height: auto;
+}
+
+#map-container {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    height: 100vh;
+    background-image: url('/Develop/public/svg/openwaters.svg');
+    background-size: cover;
+    background-position: center center;
+}
+
+#map-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.state-border {
+    fill: #AABBCC;
+    stroke: #000;
+    transition: fill 0.3s, stroke 0.3s;
+}
+
+.state-border:hover {
+    fill: #FF0000;
+    stroke: #FF0000;
+}
+
+#overlay-object,
+#overlay-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 25%;
+}
+
+#overlay-object:hover image,
+#overlay-svg:hover image {
+    filter: brightness(1.5); /* Adjust the brightness value as needed */
+}
