@@ -2,6 +2,12 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcryptjs');
 
+
+// Need  to import Othe Models for now 
+
+
+
+
 class User extends Model {
   // Method to verify passwords
   validPassword(password) {
@@ -79,9 +85,9 @@ User.init({
 
 // Define associations
 User.associate = (models) => {
-  User.hasMany(models.UserProgress, { foreignKey: 'user_id' });
-  User.hasMany(models.UserAchievements, { foreignKey: 'user_id' });
-  User.hasMany(models.UserTerritories, { foreignKey: 'user_id' });
+  User.hasMany(UserProgress, { foreignKey: 'user_id' });
+  User.hasMany(UserAchievements, { foreignKey: 'user_id' });
+  User.hasMany(UserTerritories, { foreignKey: 'user_id' });
 };
 
 module.exports = { User };

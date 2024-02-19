@@ -13,6 +13,7 @@ const getChallenge = require('./api/getChallenges')
 const googleApi = require('./api/googleApi');
 const getAchievement = require('./api/getAchievements')
 const userTerritoriesRoute = require('./api/userTerritories');
+const userProfileRoute = require('./api/userProfiles');
 
 
 // Add imported routes here  
@@ -25,7 +26,7 @@ router.use('/provinces', getProvince);
 router.use('/challenges', getChallenge);
 router.use('/achievements', getAchievement);
 router.use('/userTerritories', userTerritoriesRoute);
-
+router.use('/user-profiles/:user_id', userProfileRoute);
 
 // YouTube API route 
 router.use('/search', googleApi);
