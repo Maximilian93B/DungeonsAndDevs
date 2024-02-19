@@ -1,4 +1,6 @@
 // side bar toggle 
+
+/*
 // Event listener to toggle sidebar on click
 document.addEventListener('DOMContentLoaded', function() {
     const map = document.getElementById('map');
@@ -7,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleSidebar();
     });
 });
-
+*/
 
 document.addEventListener('DOMContentLoaded', () => {
     // Get search button and results container 
@@ -63,29 +65,59 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    fetchProvinces();
 });
 
 //SVG Map Manipulation
 
-document.getElementById('textPath_stateLabel18', function () {
-    // Wait for the document to fully load before executing the script
-    document.addEventListener("DOMContentLoaded", function () {
-        // Select all elements that have the class 'state-border'
-        var interactiveStates = document.querySelectorAll('.state-border');
-    
+document.addEventListener('DOMContentLoaded', function () {
+    // Select all elements that have the class 'state-border'
+    var interactiveStates = document.querySelectorAll('.state-border');
+
     // Loop through each 'state-border' element
-        interactiveStates.forEach(function (stateBorder) {
-            // Add an event listener for mouseover actions on each border
-            stateBorder.addEventListener('mouseover', function () {
-                // Change the border's color to red when the mouse hovers over
-                stateBorder.style.stroke = '#FF0000';
-            });
-        
-            // Add an event listener for mouseout actions
-            stateBorder.addEventListener('mouseout', function () {
-                // Restore the border's color to black when the mouse leaves
-                stateBorder.style.stroke = '#000';
-            });
+    interactiveStates.forEach(function (stateBorder) {
+        // Add an event listener for mouseover actions on each border
+        stateBorder.addEventListener('mouseover', function () {
+            // Change the border's color to red when the mouse hovers over
+            stateBorder.style.stroke = '#FF0000';
+        });
+    
+        // Add an event listener for mouseout actions
+        stateBorder.addEventListener('mouseout', function () {
+            // Restore the border's color to black when the mouse leaves
+            stateBorder.style.stroke = '#000';
         });
     });
 });
+
+
+// ALL FETCH FUNCTIONS TO GET DATA FROM THE SERVER WILL BE HELD HERE 
+
+ // Fetch territories and display in sidebar 
+
+
+
+ async function fetchProvinces() {
+    try {
+        const response = await fetch('/provinces');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const provinces = await response.json();
+        displayProvinces(provinces);
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+}
+
+function displayProvinces(provinces) {
+    const sidebarContent = document.querySelector('.provinces-container'); // Use querySelector for class
+    sidebarContent.innerHTML = ''; // Clear existing content
+    provinces.forEach(province => {
+        const listItem = document.createElement('li');
+        listItem.textContent = province.name;
+        sidebarContent.appendChild(listItem);
+    });
+}
+
+

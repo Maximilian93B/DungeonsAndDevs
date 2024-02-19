@@ -178,3 +178,18 @@ h1 {
     fill:#555;
     opacity: 1;
 }
+
+
+.provinces-container {
+    color: #3d3522; /* Match text color */
+    font-family: 'MedievalSharp', cursive; /* Match font family */
+    background-color: #f2e6d5; /* Match background color */
+    padding: 20px; /* Match padding */
+    border-radius: 10px; /* Match border radius */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Match box shadow */
+}
+
+.provinces-container h3 {
+    margin-top: 0; /* Remove top margin for the heading */
+    color: #3d3522; /* Match text color */
+}
