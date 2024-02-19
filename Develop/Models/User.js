@@ -5,9 +5,9 @@ const bcrypt = require('bcryptjs');
 class User extends Model {
   // Method to verify passwords
   validPassword(password) {
-    return bcrypt.compareSync(password, this.Password);
+    return bcrypt.compareSync(password, this.password);
   }
-}
+}  
 
 User.init({
   // Define fields/columns of User
@@ -22,8 +22,11 @@ User.init({
     type: DataTypes.STRING(50),
     unique: true,
     allowNull: false,
-    field:'username'
-   
+    field:'username',
+    set(val) {
+      // handle converting usernames to lowercase before storing 
+      this.setDataValue('username', val.toLowerCase());
+    }
   },
   email: {
     type: DataTypes.STRING(50),
@@ -57,7 +60,9 @@ User.init({
   sequelize,
   modelName: 'User',
   tableName: 'users',
+  /*
   hooks: {
+    
     beforeCreate: (user) => {
       user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10));
     },
@@ -67,18 +72,16 @@ User.init({
       }
     }
   },
+  */
   timestamps: false,
   underscored: true,
 });
 
 // Define associations
 User.associate = (models) => {
-  User.hasMany(models.UserProgress, { foreignKey: 'userID' }); // Use snake_case for foreign key
-  User.hasMany(models.UserAchievements, { foreignKey: 'userID' }); // Use snake_case for foreign key
-  User.hasMany(models.UserTerritories, { foreignKey: 'userID' }); // Use snake_case for foreign key
-  User.hasMany(models.UserQuizAttempts, { foreignKey: 'userID' }); // Use snake_case for foreign key
-  User.hasMany(models.Posts, { foreignKey: 'userID' }); // Use snake_case for foreign key
-  User.belongsToMany(models.LearningGroups, { through: models.GroupMembers, foreignKey: 'userID' }); // Use snake_case for foreign key
+  User.hasMany(models.UserProgress, { foreignKey: 'user_id' });
+  User.hasMany(models.UserAchievements, { foreignKey: 'user_id' });
+  User.hasMany(models.UserTerritories, { foreignKey: 'user_id' });
 };
 
 module.exports = { User };

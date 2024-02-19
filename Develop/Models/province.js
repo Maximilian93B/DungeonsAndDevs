@@ -34,4 +34,9 @@ Province.init({
   timestamps: false // No timestamps in tables
 });
 
+Province.associate = (models) => {
+  Province.belongsTo(models.Territory, { foreignKey: 'territory_id' });
+  Province.hasMany(models.Challenges, { foreignKey: 'province_id' });
+};
+
 module.exports =  { Province };

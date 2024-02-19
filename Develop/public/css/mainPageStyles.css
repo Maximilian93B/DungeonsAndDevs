@@ -70,7 +70,7 @@ h1 {
 }
 
 .sidebar-content a:hover {
-    background-color: #555;
+    background-color: #a89e92;
 }
 
 /* CSS for sidebar sections */
@@ -98,12 +98,15 @@ h1 {
 
 }
 
+.sidebar-section:hover {
+    background-color:#a89e92;
+}
 /* Set background image for map container */
 #map-container {
     margin-left: 250px; /* Adjust margin to make space for sidebar */
     width: calc(100% - 250px); /* Subtract sidebar width from map container width */
     height: 100vh; /* Make map container full height of viewport */
-    background-image: url('../images/LoginBackground.png'); /* Set background image */
+    background-image: url('./svg/map.svg'); /* Set background image */
     background-size: cover; /* Cover the entire container */
     background-position: center center; /* Center the image */
 }
@@ -113,4 +116,65 @@ h1 {
 #map-container img {
     max-width: 100%;
     max-height: 100%;
+}
+
+
+.resultsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: auto;
+    max-width: 800px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.result-item img {
+    width: 120px;
+    height: 68px; /* Assuming 16:9 aspect ratio */
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.result-item h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.result-item a {
+    margin-left: auto;
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.result-item a:hover {
+    background-color: #0056b3;
+}
+
+.state-border {
+    padding: 20px;
+    border-bottom: 1px solid #666; /* Add a border between sections */
+    margin-bottom: 20px;
+    height: 13%;
+    font-family: 'MedievalSharp', cursive;;;
+}
+
+.state-border:hover {
+    fill:#555;
+    opacity: 1;
 }

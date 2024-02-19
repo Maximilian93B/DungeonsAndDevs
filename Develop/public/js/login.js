@@ -5,11 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault(); // Prevent the default form submission
 
-            const formData = {
-                username: document.getElementById('username').value,
-                password: document.getElementById('password').value,
+            let formData = {
+                username: document.getElementById('username').value.toLowerCase(),
+                password: document.getElementById('password').value
             };
-
+            //Normalize username to lowercase 
+            formData.username = formData.username.toLowerCase();
+           
             try {
                 const response = await fetch('/auth', {
                     method: 'POST',
@@ -18,21 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     body: JSON.stringify(formData),
                 });
-
+                
+                console.log(response);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
 
                 const data = await response.json();
+                console.log(data)
 
                 if (data.success) {
-                    console.log('User login Successful');
-                    window.location.href = '/dashboard'; // Redirect to the dashboard
+                    window.location.href = '/dashboard';  // Redirect to the dashboard
+               // Redirect to the dashboard
                 } else {
                     alert(data.message); // Display an alert with the failure message
                 }
             } catch (error) {
                 console.error('Fetch error:', error);
+                // error message to user 
                 alert('Login failed. Please try again.'); // Provide a generic error message
             }
         });

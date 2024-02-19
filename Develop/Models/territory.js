@@ -32,5 +32,11 @@ Territory.init ({
     underscored: true,
 });
 
+Territory.associate = (models) => {
+    Territory.hasMany(models.Provinces, { foreignKey: 'territory_id' });
+    Territory.hasOne(models.Trophies, { foreignKey: 'territory_id' });
+    Territory.hasMany(models.UserTerritories, { foreignKey: 'territory_id' });
+};
+
 
 module.exports = { Territory }; 

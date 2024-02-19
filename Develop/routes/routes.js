@@ -9,6 +9,10 @@ const getUsers = require('./api/getUsers');
 const regieRoutes = require('./api/regieRoutes')
 const getTerritories = require('./api/getTerritories');
 const getProvince = require('./api/provinceRoutes');
+const getChallenge = require('./api/getChallenges')
+const googleApi = require('./api/googleApi');
+const getAchievement = require('./api/getAchievements')
+const userTerritoriesRoute = require('./api/userTerritories');
 
 
 // Add imported routes here  
@@ -18,6 +22,13 @@ router.use('/users', getUsers);
 router.use('/register', regieRoutes);
 router.use('/territories', getTerritories);
 router.use('/provinces', getProvince);
+router.use('/challenges', getChallenge);
+router.use('/achievements', getAchievement);
+router.use('/userTerritories', userTerritoriesRoute);
+
+
+// YouTube API route 
+router.use('/search', googleApi);
 
 
 
