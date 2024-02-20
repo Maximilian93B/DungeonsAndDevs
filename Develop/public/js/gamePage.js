@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    const startButton = document.getElementById('startButton');
+    const quizModal = document.getElementById('quizModal');
+    const submitButton = document.getElementById('submit');
+
+
+
     // Quiz questions
     const questions = [
         "Semantic HTML is only important for visual aesthetics, not for SEO or accessibility. (True/False)",
@@ -63,10 +70,34 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    quizModal.addEventListener('click', function(event) {
+        // Check if the click happened directly on the quizModal (the backdrop),
+        // not on its children (modal content)
+        if (event.target === quizModal) {
+            quizModal.style.display = 'none'; // Hide the modal
+        }
+    });
+
+    // Event listener to start the quiz
+    startButton.addEventListener('click', function() {
+        quizModal.style.display = 'block';
+        updateQuiz(); // Initialize or update the quiz when the modal is shown
+    });
+
+    // Event listener for the "Submit" button inside the modal
+    submitButton.addEventListener('click', checkAnswer);
+    
+    // Initial call to setup the quiz, can be removed or kept based on whether you want to display the first question immediately or only after the modal is shown
+    updateQuiz();
+
     // Initial setup
     updateQuiz();
 
     // Add event listener for the "Submit" button
-    const submitButton = document.getElementById('submit');
-    submitButton.addEventListener('click', checkAnswer);
+        startButton.addEventListener('click', function() {
+            quizModal.style.display = 'block'; 
+            updateQuiz();
+        });
+
+        submitButton.addEventListener('click', checkAnswer);
 });
