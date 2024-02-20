@@ -1,15 +1,3 @@
-// side bar toggle 
-
-/*
-// Event listener to toggle sidebar on click
-document.addEventListener('DOMContentLoaded', function() {
-    const map = document.getElementById('map');
-    map.addEventListener('click', function() {
-        console.log("SVG map clicked!"); // Check if this message appears in the browser console
-        toggleSidebar();
-    });
-});
-*/
 
 document.addEventListener('DOMContentLoaded', () => {
     // Get search button and results container 
@@ -64,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Failed to fetch search results. Please try again.');
             }
         });
+        
     }
     // All functions to interact with server
     fetchTerritories();
@@ -73,31 +62,69 @@ document.addEventListener('DOMContentLoaded', () => {
    
 });
 
-//SVG Map Manipulation
-
-document.getElementById('state18', function () {
-    document.addEventListener('DOMContentLoaded', function () {
-        // Select all elements that have the class 'state-border'
-        var interactiveStates = document.querySelectorAll('.state-border');
-
-        // Loop through each 'state-border' element
-        interactiveStates.forEach(function (stateBorder) {
-            // Add an event listener for mouseover actions on each border
-            stateBorder.addEventListener('mouseover', function () {
-                // Change the border's color to red when the mouse hovers over
-                stateBorder.style.fill = '#FF0000';
-                stateBorder.style.stroke = '#FF0000';
-            });
-        
-            // Add an event listener for mouseout actions
-            stateBorder.addEventListener('mouseout', function () {
-                // Restore the border's color to black when the mouse leaves
-                stateBorder.style.fill = '#AABBCC'
-                stateBorder.style.stroke = '#000';
-            });
+// API Modal --> in Whirlpool Object 
+document.addEventListener('DOMContentLoaded', () => {
+    // Try to attach click event listener to the whirpool-overlay object
+    const whirpoolOverlay = document.getElementById('whirpool-overlay');
+    if (whirpoolOverlay) {
+        whirpoolOverlay.addEventListener('click', function() {
+            const modal = document.getElementById('modal');
+            // Check if modal element exists before trying to display it
+            if (modal) {
+                modal.style.display = 'flex'; // Show the modal
+            } else {
+                console.error("Error: Modal element not found.");
+            }
         });
+    } else {
+        console.error("Error: Whirpool-overlay element not found.");
+    }
+
+    // Attempt to attach click event listener to the close button
+    const closeButton = document.querySelector('.close-button');
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            const modal = document.getElementById('modal');
+            if (modal) {
+                modal.style.display = 'none'; // Hide the modal
+            } else {
+                console.error("Error: Modal element not found when trying to close.");
+            }
+        });
+    } else {
+        console.error("Error: Close button not found.");
+    }
+
+    // Close the modal if the user clicks anywhere outside of the modal content
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('modal');
+        if (modal) {
+            if (event.target == modal) {
+                modal.style.display = 'none'; // Hide the modal
+            }
+        } else {
+            // It's not necessary to log an error here since this is a general listener on the window
+        }
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // ALL FETCH FUNCTIONS TO GET DATA FROM THE SERVER WILL BE HELD HERE 

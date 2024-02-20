@@ -65,8 +65,8 @@
 
         <!--Whirpool Overlay-->
         <object id="whirpool-overlay" type="image/svg+xml" data="./svg/whirpool.svg" class="overlay-object">
-        </object>
 
+        </object>        
         <!-- Quest2 Overlay -->
         <object id="quest2-overlay" type="image/svg+xml" data="./svg/quest2.svg" class="overlay-object quest">
         </object>
@@ -83,11 +83,18 @@
         <object id="quest5-overlay" type="image/svg+xml" data="./svg/quest5.svg" class="overlay-object quest">
         </object>
     
-
-        <input type="text" id="searchQuery" placeholder="Dive into the well">
-        <button id="searchButton">Search</button>
-        <div id="results" class="resultsContainer">
     </div>
+  
+    <!--style="display:none;-->
+    <div id="modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <input type="text" id="searchQuery" placeholder="Dive into the well">
+            <button id="searchButton">Search</button>
+            <div id="results" class="resultsContainer"></div>
+        </div>
+    </div>
+
 
     <!-- Add any scripts or external libraries here -->
 
