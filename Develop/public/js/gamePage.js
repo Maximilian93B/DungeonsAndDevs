@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    const startButton = document.getElementById('startButton');
+    const quizModal = document.getElementById('quizModal');
+    const submitButton = document.getElementById('submit');
+
+
+
     // Quiz questions
     const questions = [
         "Semantic HTML is only important for visual aesthetics, not for SEO or accessibility. (True/False)",
@@ -67,6 +74,10 @@ document.addEventListener('DOMContentLoaded', function () {
     updateQuiz();
 
     // Add event listener for the "Submit" button
-    const submitButton = document.getElementById('submit');
-    submitButton.addEventListener('click', checkAnswer);
+        startButton.addEventListener('click', function() {
+            quizModal.style.display = 'block'; 
+            updateQuiz();
+        });
+
+        submitButton.addEventListener('click', checkAnswer);
 });
