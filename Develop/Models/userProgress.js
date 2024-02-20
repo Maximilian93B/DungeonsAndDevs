@@ -1,22 +1,21 @@
-// Import Modules 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class UserProgress extends Model {}
 
 UserProgress.init({
-    // user_progress Model attributes 
-    progress_id:{
-        types: DataTypes.INTEGER,
-        allowNull:false,
+    // Model attributes
+    progress_id: {
+        type: DataTypes.INTEGER, // Make sure it's `type`, not `types`
+        allowNull: false,
         primaryKey: true,
         autoIncrement: true
     },
-    user_id:{
+    user_id: {
         type: DataTypes.INTEGER,
-        allowNull: false, 
+        allowNull: false,
         references: {
-            model: 'users',// This is the table name not the Model name 
+            model: 'users', // Ensure this is the table name
             key: 'user_id',
         }
     },
@@ -24,12 +23,12 @@ UserProgress.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'challenges',
+            model: 'challenges', // Ensure this is the table name
             key: 'challenge_id',
-        }      
+        }
     },
-    status:{
-        type:DataTypes.STRING(50),
+    status: {
+        type: DataTypes.STRING(50),
         allowNull: false
     },
     last_accessed: {
@@ -42,7 +41,6 @@ UserProgress.init({
     tableName: 'user_progress',
     timestamps: false,
     underscored: true,
-
 });
 
 UserProgress.associate = (models) => {
@@ -50,4 +48,4 @@ UserProgress.associate = (models) => {
     UserProgress.belongsTo(models.Challenge, { foreignKey: 'challenge_id' });
 };
 
-module.exports = { UserProgress }
+module.exports = { UserProgress };
