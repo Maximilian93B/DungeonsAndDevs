@@ -249,3 +249,28 @@ h1 {
 
 
 
+.myModal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black with opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.myModal-content {
+    background: linear-gradient(135deg, #a67c52, #f4e9d8 60%, #a67c52); /* Gradient for a burnt edge effect */
+    color: #3e2c1c; /* Darker text color for an aged ink look */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #7f5f4a; /* Darker border to match the burnt edges theme */
+    border-radius: 5px; /* Maintains slight rounding to corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for added depth */
+    width: 80%;
+    font-family: 'MedievalSharp', cursive; /* Consistent font for the ancient theme */
+}
