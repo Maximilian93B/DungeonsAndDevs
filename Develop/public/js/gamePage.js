@@ -70,6 +70,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    quizModal.addEventListener('click', function(event) {
+        // Check if the click happened directly on the quizModal (the backdrop),
+        // not on its children (modal content)
+        if (event.target === quizModal) {
+            quizModal.style.display = 'none'; // Hide the modal
+        }
+    });
+
+    // Event listener to start the quiz
+    startButton.addEventListener('click', function() {
+        quizModal.style.display = 'block';
+        updateQuiz(); // Initialize or update the quiz when the modal is shown
+    });
+
+    // Event listener for the "Submit" button inside the modal
+    submitButton.addEventListener('click', checkAnswer);
+    
+    // Initial call to setup the quiz, can be removed or kept based on whether you want to display the first question immediately or only after the modal is shown
+    updateQuiz();
+
     // Initial setup
     updateQuiz();
 
