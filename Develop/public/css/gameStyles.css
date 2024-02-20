@@ -33,26 +33,49 @@
 }
 
 #whirlpool-overlay {
-    top: 50%;
-    right: 0;
-    transform: translate(0, -50%);
-    width: 50%;
-    height: 50%;
+    top: 30%; /* Adjusted position */
+    right: 10%; /* Adjusted position */
+    width: 15%;
+    height: 15%;
 }
 
 #whirlpool-overlay:hover {
     filter: brightness(1.5);
 }
-#quest1-overlay,
-#quest2-overlay,
-#quest3-overlay,
-#quest4-overlay,
-#quest5-overlay {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+#quest1-overlay {
+    top: 70%; /* Adjusted position */
+    left: 20%; /* Adjusted position */
     width: 75%;
     height: 75%;
+}
+
+#quest2-overlay {
+    top: 10%; /* Adjusted position */
+    left: 60%; /* Adjusted position */
+    width: 75%;
+    height: 75%;
+}
+
+#quest3-overlay {
+    top: 20%; /* Adjusted position */
+    left: 10%; /* Adjusted position */
+    width: 60%;
+    height: 60%;
+}
+
+#quest4-overlay {
+    top: 80%; /* Adjusted position */
+    left: 50%; /* Adjusted position */
+    width: 50%;
+    height: 50%;
+}
+
+#quest5-overlay {
+    top: 50%; /* Adjusted position */
+    left: 70%; /* Adjusted position */
+    width: 65%;
+    height: 65%;
 }
 
 #rowboat-object:hover,

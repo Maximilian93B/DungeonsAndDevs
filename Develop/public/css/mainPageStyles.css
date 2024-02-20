@@ -117,24 +117,6 @@ h1 {
   
 }
 
-/* Set background image for map container */
-#map-container {
-    margin-left: 250px; /* Adjust margin to make space for sidebar */
-    width: calc(100% - 250px); /* Subtract sidebar width from map container width */
-    height: 100vh; /* Make map container full height of viewport */
-    /*background-image: url('../images//LoginBackground.png'); /* Set background image */
-    background-size: cover; /* Cover the entire container */
-    background-position: center center; /* Center the image */
-}
-
-
-
-#map-container img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-
 .resultsContainer {
     display: flex;
     flex-direction: column;
