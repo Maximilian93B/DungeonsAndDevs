@@ -24,6 +24,26 @@
     filter: brightness(1.5);
 }
 
+#video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 3; /* Ensure the video is on top of other overlays */
+}
+
+/* Hide the video by default */
+#video-overlay {
+    display: none;
+}
+
+/* Show the video when autoplaying */
+#video-overlay.autoplay {
+    display: block;
+}
+
 #rowboat-object {
     top: 65%;
     left: 0;
