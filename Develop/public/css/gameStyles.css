@@ -4,7 +4,6 @@
     width: calc(100% - 250px);
     height: 100vh;
     position: relative;
-    background: rgba(255, 255, 255, 0.8); /* Add an overlay if needed */
 }
 
 #map-container img {
@@ -26,56 +25,58 @@
 }
 
 #rowboat-object {
-    bottom: 0;
+    top: 65%;
     left: 0;
-    width: 25%;
-    height: 25%;
+    width: 20%;
+    height: 20%;
 }
 
-#whirlpool-overlay {
-    top: 30%; /* Adjusted position */
-    right: 10%; /* Adjusted position */
-    width: 15%;
-    height: 15%;
+#whirpool-overlay {
+    top: 44%; /* Adjusted position */
+    left: 65%; /* Adjusted position */
+    width: 20%; /* 80% smaller from 5% */
+    height: 20%; /* 80% smaller from 5% */
+    z-index: 2;
 }
 
-#whirlpool-overlay:hover {
+#whirpool-overlay:hover {
     filter: brightness(1.5);
 }
 
 #quest1-overlay {
-    top: 70%; /* Adjusted position */
-    left: 20%; /* Adjusted position */
-    width: 75%;
-    height: 75%;
+    top: 50%;
+    left: 30%;
+    width: 45%;
+    height: 45%;
 }
 
 #quest2-overlay {
-    top: 10%; /* Adjusted position */
-    left: 60%; /* Adjusted position */
-    width: 75%;
-    height: 75%;
+    top: 20%; /* Adjusted position */
+    left: 65%; /* Adjusted position */
+    width: 30%;
+    height: 30%;
+    z-index: 2;
 }
 
 #quest3-overlay {
-    top: 20%; /* Adjusted position */
-    left: 10%; /* Adjusted position */
-    width: 60%;
-    height: 60%;
+    top: -7%;
+    left: 32%;
+    width: 40%;
+    height: 40%;
 }
 
 #quest4-overlay {
-    top: 80%; /* Adjusted position */
-    left: 50%; /* Adjusted position */
-    width: 50%;
-    height: 50%;
+    top: 10%;
+    left: 8%;
+    width: 30%;
+    height: 30%;
 }
 
 #quest5-overlay {
-    top: 50%; /* Adjusted position */
-    left: 70%; /* Adjusted position */
-    width: 65%;
-    height: 65%;
+    top: 30%;
+    left: 1%;
+    width: 35%;
+    height: 35%;
 }
 
 #rowboat-object:hover,
@@ -83,6 +84,7 @@
 #quest2-overlay:hover,
 #quest3-overlay:hover,
 #quest4-overlay:hover,
-#quest5-overlay:hover {
+#quest5-overlay:hover,
+#whirpool-overlay:hover {
     filter: brightness(1.5);
 }
