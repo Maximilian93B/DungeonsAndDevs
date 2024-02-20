@@ -55,7 +55,7 @@ sequelize.authenticate()
     .then(() => {
         console.log('Connected to the Dungeons..Database: dnddevs_db ');
         app.listen(port, () => {
-            console.log(`Enter " Our worlds name " http://localhost:${port}`);
+            console.log(`Enter " The AlgoRealm: A Coder's Odyssey " http://localhost:${port}`);
         });
     })
     .catch(err => {
