@@ -5,7 +5,7 @@ const sequelize = require('../../config/connection');
 async function seedUserProgress() {
     try {
         // Sync with database first, without forcing to avoid losing other data
-        await sequelize.sync({ force: true }); 
+        await sequelize.sync({ force: false }); 
 
         await UserProgress.bulkCreate([
             { user_id: 1, 
