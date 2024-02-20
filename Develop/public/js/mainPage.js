@@ -168,6 +168,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Quest Modal event listner
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Try to attach click event listener to the quest1-overlay object
+    const quest1Overlay = document.getElementById('quest1-overlay');
+    if (quest1Overlay) {
+        quest1Overlay.addEventListener('load', function() {
+            const svgDoc = quest1Overlay.contentDocument;
+            // Check if modal element exists before trying to display it
+            if (svgDoc) {
+                svgDoc.documentElement.addEventListener('click', function() {
+                    const modal = document.getElementById("questModal");
+                    if (modal) {
+                        modal.style.display = 'flex'; // Show the modal
+                        console.log("Quest1 overlay clicked, modal displayed.");
+                    } else {
+                        console.error("Error: Modal element not found.");
+                    }
+                });
+            } else {
+                console.error("Error: SVG content not accessible for quest1-overlay.");
+            }
+        });
+    } else {
+        console.error("Error: Quest1-overlay element not found.");
+    }
+
+    // Attempt to attach click event listener to the close button
+    const closeButton = document.querySelector('.close-button');
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            const modal = document.getElementById("questModal");
+            if (modal) {
+                modal.style.display = 'none'; // Hide the modal
+                console.log("Modal closed via close button.");
+            } else {
+                console.error("Error: Modal element not found when trying to close.");
+            }
+        });
+    } else {
+        console.error("Error: Close button not found.");
+    }
+
+    // Close the modal if the user clicks anywhere outside of the modal content
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById("questModal");
+        if (event.target == modal) {
+            modal.style.display = 'none'; // Hide the modal
+            console.log("Modal closed by clicking outside.");
+        }
+    });
+});
 
 
 
