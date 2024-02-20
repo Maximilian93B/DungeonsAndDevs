@@ -124,31 +124,44 @@ h1 {
     padding: 20px;
     margin: auto;
     max-width: 800px;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #a67c52, #f3e5cf 60%, #a67c52); /* Gradient for burnt edges */
+    color: #3e2c1c; /* Even darker, reminiscent of ink absorbed into old paper */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for a more pronounced depth */
+    border: 1px solid #7f5f4a; /* Darker border to match the burnt edges */
+    font-family: 'MedievalSharp', cursive;
 }
+
+
 
 .result-item {
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: #ffffff;
+    background-color: #f4e9d8; /* Adjusted to parchment-like color for consistency */
     padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow to add depth */
+    border: 1px solid #c8b997; /* Adds a subtle, aged border effect */
+    color: #5a4a42; /* Text color for an old ink feel */
+    font-family: 'MedievalSharp', cursive; /* Consistent font for ancient theme */
 }
+
 
 .result-item img {
     width: 120px;
-    height: 68px; /* Assuming 16:9 aspect ratio */
-    border-radius: 4px;
-    object-fit: cover;
+    height: 68px; /* Maintained 16:9 aspect ratio for the images */
+    border-radius: 4px; /* Softly rounded corners to match the theme's softness */
+    object-fit: cover; /* Ensures images cover the space well without distortion */
+    border: 1px solid #c8b997; /* Adds a subtle border to blend with the ancient theme */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* A slight shadow for depth, echoing the theme */
 }
+
 
 .result-item h3 {
     margin: 0;
     font-size: 1rem;
+    font-family:'MedievalSharp', cursive ;
 }
 
 .result-item a {
@@ -164,13 +177,75 @@ h1 {
     background-color: #0056b3;
 }
 
-.state-border {
-    fill: #AABBCC;
-    stroke: #000;
-    transition: fill 0.3s, stroke 0.3s;
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black with opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.state-border:hover {
-    fill:#FF0000;
-    stroke: #FF0000;
+.modal-content {
+    background: linear-gradient(135deg, #a67c52, #f4e9d8 60%, #a67c52); /* Gradient for a burnt edge effect */
+    color: #3e2c1c; /* Darker text color for an aged ink look */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #7f5f4a; /* Darker border to match the burnt edges theme */
+    border-radius: 5px; /* Maintains slight rounding to corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for added depth */
+    width: 80%;
+    font-family: 'MedievalSharp', cursive; /* Consistent font for the ancient theme */
 }
+
+#searchQuery {
+    background-color: #e8d0b3; /* Slightly darker to stand out on the lighter background */
+    border: 1px solid #a67c52; /* Burnt edge-like border */
+    border-radius: 4px; /* Soft rounding for a more organic feel */
+    padding: 10px;
+    width: calc(100% - 22px); /* Adjust width based on padding and border */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for depth */
+    color: #5a4a42; /* Dark ink-like text color */
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.4rem;
+    margin-bottom: 10px; /* Space between the input and the button */
+}
+
+#searchButton {
+    background-color: #a67c52; /* Darker, burnt-like color for contrast */
+    color: #ffffff; /* Light color text for readability */
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer; /* Indicates the button is clickable */
+    font-family: 'MedievalSharp', cursive;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds depth */
+    transition: background-color 0.3s ease; /* Smooth transition for interaction */
+}
+
+#searchButton:hover {
+    background-color: #8f6948; /* Slightly lighter on hover for interactive feedback */
+}
+
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
