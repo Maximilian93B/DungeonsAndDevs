@@ -228,6 +228,19 @@ h1 {
     transition: background-color 0.3s ease; /* Smooth transition for interaction */
 }
 
+#startButton {
+    background-color: #a67c52; /* Darker, burnt-like color for contrast */
+    color: #ffffff; /* Light color text for readability */
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer; /* Indicates the button is clickable */
+    font-family: 'MedievalSharp', cursive;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds depth */
+    transition: background-color 0.3s ease; /* Smooth transition for interaction */
+}
+ 
+#startButton:hover,
 #searchButton:hover {
     background-color: #8f6948; /* Slightly lighter on hover for interactive feedback */
 }
