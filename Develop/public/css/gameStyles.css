@@ -114,3 +114,29 @@
     width: 80%;
     font-family: 'MedievalSharp', cursive; /* Consistent font for the ancient theme */
 }
+
+.quizModal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 80%; /* Adjusted top position */
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quizModal-content {
+    background: linear-gradient(135deg, #a67c52, #f4e9d8 60%, #a67c52);
+    color: #3e2c1c;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #7f5f4a;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    font-family: 'MedievalSharp', cursive;
+}

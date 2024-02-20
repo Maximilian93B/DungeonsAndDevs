@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     // Answers to the questions
-    const answers = ["False", "Yay", "False", "Yay", "False"];
+    const answers = ["Nay", "Yay", "Nay", "Yay", "Nay"];
 
     // Counter to keep track of the current question
     let currentQuestion = 0;
@@ -30,12 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Display the options (True/False or Yay/Nay)
         const optionsElement = document.getElementById('options');
         optionsElement.innerHTML = `
-            <label>
-                <input type="radio" name="answer" value="True"> True
-            </label>
-            <label>
-                <input type="radio" name="answer" value="False"> False
-            </label>
             <label>
                 <input type="radio" name="answer" value="Yay"> Yay
             </label>
