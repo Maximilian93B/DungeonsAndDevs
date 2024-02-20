@@ -55,8 +55,13 @@
     <div id="map-container">
         <img src="./images/water.png">
 
+        <!-- Video Overlay -->
+        <video id="video-overlay" class="overlay-object" width="100%" height="100%" autoplay muted loop>
+            <source src="./videos/mapoverlay.mp4" type="video/mp4">
+        </video>
+        </video>
         <!-- Rowboat Overlay -->
-        <object id="rowboat-object" type="image/svg+xml" data="./svg/rowboat.svg" class="overlay-object rowboat">
+        <object id="rowboat-overlay" type="image/svg+xml" data="./svg/rowboat.svg" class="overlay-object rowboat">
         </object>
 
         <!-- Quest1 Overlay -->
@@ -86,20 +91,36 @@
     </div>
   
     <!--style="display:none;-->
-    <div id="modal" class="modal "style="display:none;">
+    <div id="whirpoolmodal" class="modal "style="display:none;">
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <input type="text" id="searchQuery" placeholder="Dive into the well">
             <button id="searchButton">Search</button>
             <div id="results" class="resultsContainer"></div>
         </div>
+        <div id="rowboatmodal" class="modal "style="display:none;">
+            <div class="modal-content">
+            </div>
+            <div id="rowboatmodal" class="modal "style="display:none;">
+                <div class="modal-content">
+            </div>
+         <div id="quest1modal" class="modal "style="display:none;">
+                <div class="modal-content">
+         </div>
+         <div id="quest2modal" class="modal "style="display:none;">
+            <div class="modal-content">
+            </div>
+        <div id="scrollmodal" class="modal "style="display:none;">
+            <div class="modal-content">
+            </div>
+
     </div>
 
 
     <!-- Add any scripts or external libraries here -->
 
     <script src="./js/mainPage.js"></script>
+    <script src="./js/gamePage.js"></script>
 </body>
 </html>
 
-<!---->

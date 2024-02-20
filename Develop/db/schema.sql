@@ -99,7 +99,7 @@ and thne pase the insert querys, this data is just for testing but we can put th
 
 //          territories table 
 
-    INSERT INTO territories (name, description, icon) VALUES
+INSERT INTO territories (name, description, icon) VALUES
 ('Open Waters', 'Commencement Challenge', 'rowboat Icon'),
 ('The Isles of Structure & Styling', 'Quest 1-HTML and CSS', 'territory Icon'),
 ('Handler Highlands', 'Quest 2-JavaScript', 'territory Icon'),
@@ -109,14 +109,14 @@ and thne pase the insert querys, this data is just for testing but we can put th
 
 //          provinces table 
 
-    NSERT INTO provinces (territory_id, name, description) VALUES
+INSERT INTO provinces (territory_id, name, description) VALUES
 (1, 'Open Waters', 'Repo-Enter Link'),
 (2, 'Semantic Shores', 'Quiz-True or False'),
 (2, 'Glyphic Glades of Tagcraft', 'Quiz-Fill in the blank'),
 (3, 'Fey Folk of Flexbox', 'Quiz-Matching'),
 (3, 'Cascade Canyons', 'Repo-Upload Photo'),
 (3, 'Animation Abyss', 'Quiz-Multiple Choice'),
-(4, 'Function Foothills', 'Quiz-Doesn't Belong'),
+(4, 'Function Foothills', 'Quiz-Does not Belong'),
 (4, 'Domain of Draconic Manipulation', 'Quiz-Fill in the Blank'),
 (4, 'Promise Peaks', 'Quiz-Multiple Choice'),
 (5, 'Mystic Mists of Middleware', 'Quiz-Fill in the Blank'),
@@ -134,10 +134,14 @@ INSERT INTO challenges (province_id, type, title, description, content, solution
 (2, 'coding', 'Tagcraft Glyphics', 'Create HTML tags that match the Glyphic Glades requirements.', 'HTML snippet here.', 'Correct HTML tags here.'),
 (3, 'quiz', 'Matching: Fey Folk of Flexbox', 'Match Flexbox properties to their correct descriptions.', 'Matching pairs here.', 'Correct pairs here.'),
 (3, 'coding', 'Styling Cascade Canyons', 'Apply CSS to bring the Cascade Canyons to life.', 'CSS code snippet here.', 'Solution CSS here.'),
-(4, 'quiz', 'Function Foothills Quiz', 'Determine which functions don\'t belong.', 'List of JavaScript functions.', 'Functions that don\'t belong.'),
+(3, 'quiz', 'Animation Quiz', 'Match up the correct anomations with their code', 'CSS Code snippet here', 'Solution CSS here'),
+(4, 'quiz', 'Function Foothills Quiz', 'Determine which functions don\'t belong.', 'List of JavaScript functions.', 'Functions that do not belong.'),
 (4, 'coding', 'Draconic DOM Manipulation', 'Manipulate the DOM as described in the Domain of Draconic Manipulation.', 'DOM manipulation tasks.', 'DOM manipulation solutions.'),
+(4, 'quiz', 'Pick the promises', 'select the correct answer from multiple choice quiz', 'promise questions here', 'Solution promise solutions here'),
 (5, 'quiz', 'Middleware Mystics Quiz', 'Fill in the blanks to complete the middleware definitions.', 'Fill-in-the-blank questions here.', 'Correct answers here.'),
-(6, 'coding', 'Query Quagmire Challenges', 'Solve SQL queries in the Quag-Mires of Query.', 'SQL query challenges here.', 'Correct SQL queries here.'),
+(5, 'coding', 'Server Stronghold', 'Build a server and connect to it', 'fill in your response to localhost here', 'Solution here'),
+(6, 'coding', 'Query Quagmire Challenges', 'Solve SQL queries in the Quag-Mires of Query.', 'SQL query challenges here.', 'Solution Correct SQL queries here.'),
+(6, 'quiz', 'Tables Tower', 'sort the correct tables', 'tables here', 'solution correct order here')
 (7, 'quiz', 'Syntax Citadel Conundrums', 'Answer 20 questions about programming syntax.', 'List of 20 questions.', 'Correct answers here.');
 
 
