@@ -62,20 +62,26 @@ document.addEventListener('DOMContentLoaded', () => {
    
 });
 
+
 // API Modal --> in Whirlpool Object 
 document.addEventListener('DOMContentLoaded', () => {
     // Try to attach click event listener to the whirpool-overlay object
     const whirpoolOverlay = document.getElementById('whirpool-overlay');
     if (whirpoolOverlay) {
-        whirpoolOverlay.addEventListener('click', function() {
-            const modal = document.getElementById('modal');
+        whirpoolOverlay.addEventListener('load', function() {
+            const svgDoc = whirpoolOverlay.contentDocument;
             // Check if modal element exists before trying to display it
-            if (modal) {
-                modal.style.display = 'flex'; // Show the modal
-            } else {
-                console.error("Error: Modal element not found.");
-            }
+            if (svgDoc) {
+                svgDoc.documentElement.addEventListener('click', function() {
+                    const modal = document.getElementById("modal");
+                    if (modal) {
+                        modal.style.display = 'flex'; // Show the modal
+                    } else {
+                        console.error("Error: Modal element not found.");
+                    }
         });
+    }
+});
     } else {
         console.error("Error: Whirpool-overlay element not found.");
     }
@@ -84,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeButton = document.querySelector('.close-button');
     if (closeButton) {
         closeButton.addEventListener('click', function() {
-            const modal = document.getElementById('modal');
+            const modal = document.getElementById("modal");
             if (modal) {
                 modal.style.display = 'none'; // Hide the modal
             } else {
@@ -97,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close the modal if the user clicks anywhere outside of the modal content
     window.addEventListener('click', function(event) {
-        const modal = document.getElementById('modal');
+        const modal = document.getElementById("modal");
         if (modal) {
             if (event.target == modal) {
                 modal.style.display = 'none'; // Hide the modal
