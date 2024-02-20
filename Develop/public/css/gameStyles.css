@@ -32,9 +32,7 @@ h1 {
     margin-left: 250px;
     width: calc(100% - 250px);
     height: 100vh;
-    background-image: url('/Develop/public/svg/openwaters.svg');
-    background-size: cover;
-    background-position: center center;
+    position: relative;
 }
 
 #map-container img {
@@ -42,27 +40,50 @@ h1 {
     max-height: 100%;
 }
 
-.state-border {
-    fill: #AABBCC;
-    stroke: #000;
-    transition: fill 0.3s, stroke 0.3s;
-}
-
-.state-border:hover {
-    fill: #FF0000;
-    stroke: #FF0000;
-}
-
-#overlay-object,
-#overlay-svg {
+.overlay-object {
     position: absolute;
-    top: 0;
+    transition: filter 0.3s;
+}
+
+.overlay-object:hover {
+    filter: brightness(1.5);
+}
+
+#rowboat-object {
+    bottom: 0;
     left: 0;
     width: 25%;
     height: 25%;
 }
 
-#overlay-object:hover image,
-#overlay-svg:hover image {
-    filter: brightness(1.5); /* Adjust the brightness value as needed */
+#whirlpool-overlay {
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    width: 50%;
+    height: 50%;
+}
+
+#whirlpool-overlay:hover {
+    filter: brightness(1.5);
+}
+#quest1-overlay,
+#quest2-overlay,
+#quest3-overlay,
+#quest4-overlay,
+#quest5-overlay {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 75%;
+}
+
+#rowboat-object:hover,
+#quest1-overlay:hover,
+#quest2-overlay:hover,
+#quest3-overlay:hover,
+#quest4-overlay:hover,
+#quest5-overlay:hover {
+    filter: brightness(1.5);
 }
