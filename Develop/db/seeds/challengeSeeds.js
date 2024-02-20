@@ -9,7 +9,7 @@ const { Challenge } = require('../../Models/challenge');
 const sequelize = require('../../config/connection');
 
 const seedChallenges = async () => {
-     await sequelize.sync({force: true }); // Change to false in production to avoid losing data
+     await sequelize.sync({force: false }); // Change to false in production to avoid losing data
         // Call challengeData to seed tables
     const challengeData = [
         {

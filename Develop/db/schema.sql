@@ -38,7 +38,7 @@ CREATE TABLE challenges (
     FOREIGN KEY (province_id) REFERENCES provinces(province_id) -- Corrected reference to province_id
 );
 
-REATE TABLE user_territories (
+CREATE TABLE user_territories (
     user_territory_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     territory_id INT,
@@ -79,7 +79,7 @@ CREATE TABLE user_achievements (
 );
 
 
-CREATE TABLE UserProfile (
+CREATE TABLE user_profile (
     profile_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     territory_id INT,
@@ -180,19 +180,5 @@ INSERT INTO challenges (province_id, type, title, description, content, solution
 (5, 'quiz', 'Middleware Mystics Quiz', 'Fill in the blanks to complete the middleware definitions.', 'Fill-in-the-blank questions here.', 'Correct answers here.'),
 (6, 'coding', 'Query Quagmire Challenges', 'Solve SQL queries in the Quag-Mires of Query.', 'SQL query challenges here.', 'Correct SQL queries here.'),
 (7, 'quiz', 'Syntax Citadel Conundrums', 'Answer 20 questions about programming syntax.', 'List of 20 questions.', 'Correct answers here.');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 */
