@@ -5,7 +5,7 @@ const sequelize = require('../../config/connection');
 async function seedTrophies() {
     try {
         // Ensure the database is in sync before seeding
-        await sequelize.sync({ force: true }); // Set to false to preserve other data
+        await sequelize.sync({ force: false}); // Set to false to preserve other data
         await Trophy.bulkCreate([
             {
                 name: 'Navigators Compass',

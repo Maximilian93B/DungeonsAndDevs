@@ -3,7 +3,7 @@ const sequelize = require('../../config/connection');
 
 async function seedUserAchievement() {
     try {
-        await sequelize.sync({force: true});
+        await sequelize.sync({force: false});
         await Achievement.bulkCreate([
             {
                 user_id:1,

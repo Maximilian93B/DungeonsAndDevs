@@ -66,7 +66,7 @@ const seedProvinces = async () => {
   ];
 
   try {
-    await sequelize.sync({force: true}); 
+    await sequelize.sync({force: false}); 
     await Province.bulkCreate(provinceData);
     console.log('Province Seeded');
   } catch (error) {

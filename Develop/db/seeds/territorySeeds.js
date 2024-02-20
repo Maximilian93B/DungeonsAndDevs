@@ -36,7 +36,7 @@ const seedTerritories = async () => {
     ];
 
     try {
-        await sequelize.sync({ force: true }); // Consider setting to false to preserve data after initial seeding
+        await sequelize.sync({ force: false }); // Consider setting to false to preserve data after initial seeding
         await Territory.bulkCreate(territoryData);
         console.log('Territories Seeded');
     } catch (error) {
