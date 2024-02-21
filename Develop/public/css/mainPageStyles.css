@@ -239,7 +239,20 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds depth */
     transition: background-color 0.3s ease; /* Smooth transition for interaction */
 }
- 
+
+#submit {
+    background-color: #a67c52; /* Darker, burnt-like color for contrast */
+    color: #ffffff; /* Light color text for readability */
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer; /* Indicates the button is clickable */
+    font-family: 'MedievalSharp', cursive;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds depth */
+    transition: background-color 0.3s ease; /* Smooth transition for interaction */
+}
+
+#submit:hover,
 #startButton:hover,
 #searchButton:hover {
     background-color: #8f6948; /* Slightly lighter on hover for interactive feedback */
@@ -287,27 +300,28 @@ h1 {
 }
 
 .questModal {
-    position: fixed;
+    position: absolute;
     z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 80%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4); /* Black with opacity */
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .questModal-content {
-    background: linear-gradient(135deg, #a67c52, #f4e9d8 60%, #a67c52); /* Gradient for a burnt edge effect */
-    color: #3e2c1c; /* Darker text color for an aged ink look */
-    margin: auto;
+    background: linear-gradient(135deg, #a67c52, #f4e9d8 60%, #a67c52);
+    color: #3e2c1c;
     padding: 20px;
-    border: 1px solid #7f5f4a; /* Darker border to match the burnt edges theme */
-    border-radius: 5px; /* Maintains slight rounding to corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for added depth */
+    border: 1px solid #7f5f4a;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 80%;
-    font-family: 'MedievalSharp', cursive; /* Consistent font for the ancient theme */
+    max-width: 600px; /* Adjust max-width as needed */
+    font-family: 'MedievalSharp', cursive;
 }
