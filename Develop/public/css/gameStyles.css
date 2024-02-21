@@ -94,7 +94,7 @@
     z-index: 1;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 50%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.4); /* Black with opacity */
@@ -116,7 +116,7 @@
 }
 
 .quizModal {
-    position: relative;
+    position: absolute;
     z-index: 1;
     left: 50%;
     top: 50%;
@@ -142,17 +142,6 @@
     font-family: 'MedievalSharp', cursive;
 }
 
-#map-container .quizModal {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    width: 50%;
-    height: 80%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
+
+
