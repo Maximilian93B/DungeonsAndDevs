@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Quiz questions
     const questions = [
-        "Semantic HTML is only important for visual aesthetics, not for SEO or accessibility. (True/False)",
+        "Semantic HTML is only important for visual aesthetics, not for SEO or accessibility. (Yay/Nay)",
         "The <main> element should be used to wrap the main content of a webpage, excluding headers, footers, and sidebars. (Yay/Nay)",
         "The <nav> element is used for navigation links, and it's semantically correct to place a list of footer links within it. (Yay/Nay)",
         "The <time> element is used to represent a specific period in time and can include date and time information. (Yay/Nay)",
