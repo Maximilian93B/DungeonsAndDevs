@@ -42,25 +42,27 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to check the user's answer
     function checkAnswer() {
         const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+        const correctnessDisplay = document.getElementById('correctness');
+    
         if (selectedAnswer) {
             const userAnswer = selectedAnswer.value;
             if (userAnswer === answers[currentQuestion]) {
-                alert("Correct!");
+                correctnessDisplay.textContent = "Correct!";
             } else {
-                alert("Incorrect. The correct answer is: " + answers[currentQuestion]);
+                correctnessDisplay.textContent = "Incorrect. The correct answer is: " + answers[currentQuestion];
             }
-
+    
             // Move to the next question
             currentQuestion++;
-
+    
             // Check if the quiz is completed
             if (currentQuestion < questions.length) {
                 updateQuiz();
             } else {
-                alert("Quiz completed!");
+                correctnessDisplay.textContent = "Quiz completed!";
             }
         } else {
-            alert("Please select an answer.");
+            correctnessDisplay.textContent = "Please select an answer.";
         }
     }
 
