@@ -120,10 +120,13 @@
 
     <div id="quizModal" class="modal" style="display:none;">
         <div class="modal-content">
+            <div class="background-image" style="background-image: url('/Develop/public/images/3-Semantic Shores - Quiz.jpg');"></div>
             <div id="question"></div>
             <div id="options"></div>
-            <button id="submit">Submit Answer</button>
+            <button id="submit" onclick="checkAnswer()">Submit Answer</button>
+            <div id="correctness"></div> <!-- Add this element to display correctness -->
         </div>
+    </div>
 
 
     <!-- Add any scripts or external libraries here -->

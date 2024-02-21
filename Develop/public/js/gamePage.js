@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Quiz questions
     const questions = [
-        "Semantic HTML is only important for visual aesthetics, not for SEO or accessibility. (True/False)",
+        "Semantic HTML is only important for visual aesthetics, not for SEO or accessibility. (Yay/Nay)",
         "The <main> element should be used to wrap the main content of a webpage, excluding headers, footers, and sidebars. (Yay/Nay)",
         "The <nav> element is used for navigation links, and it's semantically correct to place a list of footer links within it. (Yay/Nay)",
         "The <time> element is used to represent a specific period in time and can include date and time information. (Yay/Nay)",
@@ -42,25 +42,27 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to check the user's answer
     function checkAnswer() {
         const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+        const correctnessDisplay = document.getElementById('correctness');
+    
         if (selectedAnswer) {
             const userAnswer = selectedAnswer.value;
             if (userAnswer === answers[currentQuestion]) {
-                alert("Correct!");
+                correctnessDisplay.textContent = "Correct!";
             } else {
-                alert("Incorrect. The correct answer is: " + answers[currentQuestion]);
+                correctnessDisplay.textContent = "Incorrect. The correct answer is: " + answers[currentQuestion];
             }
-
+    
             // Move to the next question
             currentQuestion++;
-
+    
             // Check if the quiz is completed
             if (currentQuestion < questions.length) {
                 updateQuiz();
             } else {
-                alert("Quiz completed!");
+                correctnessDisplay.textContent = "Quiz completed!";
             }
         } else {
-            alert("Please select an answer.");
+            correctnessDisplay.textContent = "Please select an answer.";
         }
     }
 
