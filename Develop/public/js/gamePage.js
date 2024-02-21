@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const startButton = document.getElementById('startButton');
     const quizModal = document.getElementById('quizModal');
     const submitButton = document.getElementById('submit');
-
-
+    const correctnessDisplay = document.getElementById('correctness');
+    const questModal = document.getElementById('questModal');
 
     // Quiz questions
     const questions = [
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to check the user's answer
     function checkAnswer() {
         const selectedAnswer = document.querySelector('input[name="answer"]:checked');
-        const correctnessDisplay = document.getElementById('correctness');
+        const quest1Overlay = document.getElementById('quest1-overlay');
     
         if (selectedAnswer) {
             const userAnswer = selectedAnswer.value;
@@ -60,13 +60,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 updateQuiz();
             } else {
                 correctnessDisplay.textContent = "Quiz completed!";
+                // Quiz completed, hide quizModal and hide questModal
+                quizModal.style.display = 'none';
+                questModal.style.display = 'none';
+    
+                // Add the black-and-white class to quest1-overlay
+                quest1Overlay.classList.add('black-and-white');
             }
         } else {
             correctnessDisplay.textContent = "Please select an answer.";
         }
     }
 
-    quizModal.addEventListener('click', function(event) {
+    quizModal.addEventListener('click', function (event) {
         // Check if the click happened directly on the quizModal (the backdrop),
         // not on its children (modal content)
         if (event.target === quizModal) {
@@ -75,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Event listener to start the quiz
-    startButton.addEventListener('click', function() {
+    startButton.addEventListener('click', function () {
         quizModal.style.display = 'block';
         updateQuiz(); // Initialize or update the quiz when the modal is shown
     });
@@ -83,17 +89,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event listener for the "Submit" button inside the modal
     submitButton.addEventListener('click', checkAnswer);
     
-    // Initial call to setup the quiz, can be removed or kept based on whether you want to display the first question immediately or only after the modal is shown
-    updateQuiz();
-
     // Initial setup
     updateQuiz();
-
-    // Add event listener for the "Submit" button
-        startButton.addEventListener('click', function() {
-            quizModal.style.display = 'block'; 
-            updateQuiz();
-        });
-
-        submitButton.addEventListener('click', checkAnswer);
 });
+
+
+
+

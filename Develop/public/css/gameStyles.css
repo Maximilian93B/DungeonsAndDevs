@@ -142,6 +142,9 @@
     font-family: 'MedievalSharp', cursive;
 }
 
+.black-and-white {
+    filter: grayscale(100%);
+}
 
 
 
