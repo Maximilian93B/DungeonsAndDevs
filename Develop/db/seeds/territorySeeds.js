@@ -44,9 +44,5 @@ const seedTerritories = async () => {
     }
 };
 
-// Execute the seed function
-seedTerritories().then(() => {
-    console.log('Seeding complete.');
-    // No process.exit here to allow the process to continue or exit naturally
-});
 
+module.exports = seedTerritories

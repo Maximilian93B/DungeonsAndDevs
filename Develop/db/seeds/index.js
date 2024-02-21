@@ -11,7 +11,7 @@ const seedProvinces = require('./provinceSeeds');
 const seedChallenges = require('./challengeSeeds');
 const seedTrophies = require('./trophySeeds');;
 const seedUserProgress = require('./userProgressSeeds');
-const seedUserProfiles = require('./userProfileSeeds');
+//const seedUserProfiles = require('./userProfileSeeds');
 const seedUserTerritories = require('./userTerritorySeeds');
 const seedUserAchievement = require('./userAchievementSeeds');
 
@@ -22,59 +22,63 @@ const seedUserAchievement = require('./userAchievementSeeds');
 
 
 const seedAll = async () => {
-    await sequelize.sync({force: false}); // cahnge for production 
-    try {
-       
+    try{
+        await sequelize.sync({force: false}); // chang for production 
+        console.log('Database synced');
+
+        // Seed Users
         console.log('Starting user seeding...');
         await seedUsers();
         console.log('User seeding completed.');
-    
+        
+        // Seed Territories 
         console.log('Starting territory seeding...');
         await seedTerritories();
         console.log('Territory seeding completed.');
-    
-        console.log('Starting Challenges seeding...');
-        await seedChallenges();
-        console.log('Challenge seeding completed.');
     
         // Provinces Seed
         console.log('Starting province seeding...');
         await seedProvinces();
         console.log('Province seeding completed.');
+       
+        // Seed Challenges 
+        console.log('Starting Challenges seeding...');
+        await seedChallenges();
+        console.log('Challenge seeding completed.');
     
-        // Trophies Seed 
+        // Trophies Seed 6
         console.log('Starting Trophies seeding...');
         await seedTrophies();
         console.log('Trophies seeding completed.');
-    
-        // Dependant Tables 
-        console.log('Starting User Achievement seeding...');
-        await seedUserAchievement ();
-        console.log('User Achievement seeding completed.');
-    
+
         // User Territories Seed 
         console.log('Starting User Territories seeding...');
         await seedUserTerritories ();
         console.log('User Territories seeding completed.');
     
-        /// User Progress Seed
+        /// Seed User Progress
         console.log('Starting user_progress seeding...');
         await seedUserProgress();
         console.log('user_progress seeding completed.');
-        
-        // User Profile Seed 
+
+        // Seed User Achievements
+        console.log('Starting User Achievement seeding...');
+        await seedUserAchievement ();
+        console.log('User Achievement seeding completed.');
+    
+        /*
+        // Seed User Profile  
         console.log('Starting User Profile seeding...');
         await seedUserProfiles ();
         console.log('User Profile seeding completed.');
-    
+        */
+
+        console.log('Seeding complete.');
         process.exit(0);
-
-    } catch (error){
+    } catch (error) {
         console.error('Seeding failed:', error);
-        process.exit(1)
+        process.exit(1);
     }
-
 };
- 
 
 seedAll();

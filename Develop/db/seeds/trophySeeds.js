@@ -2,11 +2,11 @@
 const { Trophy } = require('../../Models/trophy');
 const sequelize = require('../../config/connection');
 
-async function seedTrophies() {
-    try {
-        // Ensure the database is in sync before seeding
-        await sequelize.sync({ force: false}); // Set to false to preserve other data
-        await Trophy.bulkCreate([
+const seedTrophies = async () => {
+    await sequelize.sync({force: false });
+
+    const trophyData = [
+
             {
                 name: 'Navigators Compass',
                 image_url: '/images/navigators-compass.jpg',
@@ -43,12 +43,14 @@ async function seedTrophies() {
                 description: 'Awarded for completing the Final Quest.',
                 territory_id: 6
             }
-        ]);
-        console.log('Trophies Seeded');
-    } catch (error) {
-        console.error('Error seeding trophies:', error);
-    }
-}
 
-// Invoke seed function
-seedTrophies();
+        ];
+        try {
+            await Trophy.bulkCreate(trophyData);
+            console.log('Trophies Seeded');
+        } catch (error) {
+            console.error('Error Seeding Tropgies:', error);
+        }
+};
+
+module.exports = seedTrophies;

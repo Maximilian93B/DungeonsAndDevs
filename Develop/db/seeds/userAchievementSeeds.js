@@ -1,21 +1,23 @@
 const { Achievement } = require('../../Models/achievement');
 const sequelize = require('../../config/connection');
 
-async function seedUserAchievement() {
-    try {
-        await sequelize.sync({force: false});
-        await Achievement.bulkCreate([
+const seedUserAchievement = async() => {
+  await sequelize.sync({force: false });
+
+  const userAchievementData = [
             {
                 user_id:1,
                 trophy_id:1,
                 date_earned: new Date ('2023-01-15 14:30:00')
             }
-        ]);
-        console.log('Achievements seeded successfully');
-    } catch (error) {
-        console.error('Error seeding achievements', error);
+        ];
+
+        try {
+            await Achievement.bulkCreate(userAchievementData)
+            console.log('User Achievements Seeded')
+        } catch (error) {
+            console.error('Error Seeding User Achievements');
         }
+    };
 
-    }
-
-    seedUserAchievement();
+   module.exports = seedUserAchievement;
