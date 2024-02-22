@@ -29,51 +29,54 @@ const seedAll = async () => {
         // Seed Users
         console.log('Starting user seeding...');
         await seedUsers();
-        console.log('User seeding completed.');
         
         // Seed Territories 
         console.log('Starting territory seeding...');
         await seedTerritories();
-        console.log('Territory seeding completed.');
+     
     
         // Provinces Seed
         console.log('Starting province seeding...');
         await seedProvinces();
-        console.log('Province seeding completed.');
+    
        
         // Seed Challenges 
         console.log('Starting Challenges seeding...');
         await seedChallenges();
-        console.log('Challenge seeding completed.');
+       
     
         // Trophies Seed 6
         console.log('Starting Trophies seeding...');
         await seedTrophies();
-        console.log('Trophies seeding completed.');
+      
 
         // User Territories Seed 
         console.log('Starting User Territories seeding...');
         await seedUserTerritories ();
-        console.log('User Territories seeding completed.');
+   
     
         /// Seed User Progress
         console.log('Starting user_progress seeding...');
         await seedUserProgress();
-        console.log('user_progress seeding completed.');
+       
 
         // Seed User Achievements
         console.log('Starting User Achievement seeding...');
         await seedUserAchievement ();
-        console.log('User Achievement seeding completed.');
-    
-        /*
-        // Seed User Profile  
-        console.log('Starting User Profile seeding...');
-        await seedUserProfiles ();
-        console.log('User Profile seeding completed.');
-        */
-
+        
+        console.log('User seeded.');
+        console.log('Territories seeded.');
+        console.log('Provinces seeded.');
+        console.log('Challenges seeded.');
+        console.log('Trophies seeded.');
+        console.log('User Territories seeded.');
+        console.log('user_progress seeded.');
+        console.log('User Achievements seeded.');
         console.log('Seeding complete.');
+
+        console.log('Let the games begin....')
+        
+        
         process.exit(0);
     } catch (error) {
         console.error('Seeding failed:', error);
