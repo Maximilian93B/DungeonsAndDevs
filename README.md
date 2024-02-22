@@ -20,18 +20,17 @@ I WANT to track my progress as I go along as well as save my “CAMPAIGN” so I
 ## Usage
 
 ```text
-GIVEN I am taking a quiz
-WHEN I Click Let's Get Started button 
-THEN first question modal will populate
-WHEN I make my selection(s)
-THEN five more question modals will populate after clicking forward arrow each time 
-WHEN I do not make a selection and try to go to next question
-THEN I will be alerted to make a selection in order to advance
-WHEN all the selections are made and the Submit button is pressed
-THEN my next Christmas Movie will be revealed on the next page
-WHEN I have reviewed my selection movie card with Image, Title, Description, Stream Availibility, Rating and Release Date
-THEN I will be able to click Next Movie to review other selections
-within the chosen criteria or click Start Over to redo the quiz
+GIVEN I am at the Dungeons & Devs login page
+WHEN I Click the Register button 
+THEN I need to fill out registration page
+WHEN I Click the Register button
+THEN I am taken to the main Dashboard page 
+WHEN I Click on the rowboat
+THEN A prompt to verify a URL will show up
+WHEN I click on the island
+THEN A quiz prompt will show up
+WHEN I Click on Begin
+THEN the quiz will start
 ```
 
 ## Mockup
