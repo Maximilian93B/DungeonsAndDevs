@@ -1,7 +1,10 @@
+// Import Model and Modules
 const { Territory } = require('../../Models/territory');
 const sequelize = require('../../config/connection');
 
+// Declare async 
 const seedTerritories = async () => {
+    // Seed Data 
     const territoryData = [
         {
             name: 'Open Waters',
@@ -34,7 +37,7 @@ const seedTerritories = async () => {
             icon: 'territory Icon',
         },
     ];
-
+    // await Table and Error Handle 
     try {
         await sequelize.sync({ force: false }); // Consider setting to false to preserve data after initial seeding
         await Territory.bulkCreate(territoryData);
@@ -44,5 +47,5 @@ const seedTerritories = async () => {
     }
 };
 
-
+// Export Function 
 module.exports = seedTerritories

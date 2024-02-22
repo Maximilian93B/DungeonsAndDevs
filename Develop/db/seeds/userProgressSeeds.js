@@ -2,18 +2,19 @@
 const { UserProgress } = require('../../Models/userProgress');
 const sequelize = require('../../config/connection');
 
+// Decalre aysnc 
 const seedUserProgress = async() => {
     await sequelize.sync({force: false });
-
+    // Seed Data 
     const userProgressData = [
             { user_id: 1, 
                 challenge_id: 1, 
                 status: 'Completed', 
-                last_accessed: new Date('2023-08-01T10:00:00Z') 
+                last_accessed: new Date() 
             },
-            // Add more records as needed
+            
         ];
-
+        // await Table and Error Handle 
         try {
             await UserProgress.bulkCreate(userProgressData)
             console.log('User Progress seeded successfully');
@@ -22,5 +23,5 @@ const seedUserProgress = async() => {
         }
 };
 
-
+// Export function 
  module.exports = seedUserProgress;

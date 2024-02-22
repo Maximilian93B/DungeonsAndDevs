@@ -4,14 +4,15 @@
 
 // We might want to look at re structing the data. 
 
-
+// Import MOdels and Modules 
 const { Challenge } = require('../../Models/challenge');
 const sequelize = require('../../config/connection');
-const { Province } = require('../../Models/province');
+// const { Province } = require('../../Models/province');
 
+// Decalre async
 const seedChallenges = async () => {
      await sequelize.sync({force: false }); // Change to false in production to avoid losing data
-
+        // Seed Data 
     const challengeData = [
         {
             province_id: 1,
@@ -90,6 +91,7 @@ const seedChallenges = async () => {
         },
         
     ];
+    // await table and Error Handle 
      try {
         await Challenge.bulkCreate(challengeData);
         console.log('Challenge seeeded Successfully!');
@@ -98,4 +100,6 @@ const seedChallenges = async () => {
      }
 };
 
+
+// Export Function
 module.exports = seedChallenges;
