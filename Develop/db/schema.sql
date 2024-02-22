@@ -1,3 +1,7 @@
+-- This is the scheme we used to base our Databse off of --
+-- These tables are foundation of our Models
+
+
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -108,7 +112,7 @@ CREATE TABLE user_trophies (
 
 // Always run USE 'your db name ' ;
 
-and thne pase the insert querys, this data is just for testing but we can put the data where it needs to be later. 
+and thnen pass the insert querys, this data is just for testing but we can put the data where it needs to be later. 
 
 
 //          territories table 

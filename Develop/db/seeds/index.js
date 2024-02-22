@@ -1,8 +1,6 @@
 // This will control the execution of the seeding
-
 require('dotenv').config({path: '../../../.env'});
 const sequelize = require('../../config/connection');
-
 
 // Import seed functions 
 const seedUsers = require('./userSeeds');
@@ -17,9 +15,7 @@ const seedUserAchievement = require('./userAchievementSeeds');
 const seedUserTrophies = require('./userTrophySeeds');
 
 
-
 // Async seed function to call all seed functions 
-
 
 const seedAll = async () => {
     try{
@@ -91,12 +87,12 @@ const seedAll = async () => {
 
         console.log('Let the games begin....')
     
-        
+        // initially exit all functions 
         process.exit(0);
     } catch (error) {
         console.error('Seeding failed:', error);
-        process.exit(1);
+        process.exit(1); // close out look and end seeding 
     }
 };
 
-seedAll();
+seedAll(); // Run seeds 
