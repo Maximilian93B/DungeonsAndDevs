@@ -1,23 +1,25 @@
+/*
 const { UserProfile } = require('../../Models/userProfile');
 const sequelize = require('../../config/connection');
 
-async function seedUserProfiles() {
-    try {
-        await sequelize.sync({force: false}); 
-        await UserProfile.bulkCreate([
+const seedUserProfiles = async() => {
+ await sequelize.sync({force: false });
+    const userProfileData = [
             {
                 user_id: 1,
                 current_territory_id: 1,
                 current_challenge_id: 1,
                 username: 'Joe Daily'
             },
-
-
-        ]);
-        console.log('User Profiles seeded successfully');
+        ];
+    
+    try {
+        await UserProfile.bulkCreate(userProfileData);
+        console.log('User Profile Seeded')
     } catch (error) {
-        console.error('Error seeding user profiles', error);
+        console.error('Error seeding User Profiles', error);
     }
-}
+};
 
-seedUserProfiles();
+module.exports = seedUserProfiles;
+*/
