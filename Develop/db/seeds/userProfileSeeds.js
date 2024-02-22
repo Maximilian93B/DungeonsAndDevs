@@ -1,4 +1,4 @@
-/*
+
 const { UserProfile } = require('../../Models/userProfile');
 const sequelize = require('../../config/connection');
 
@@ -22,4 +22,3 @@ const seedUserProfiles = async() => {
 };
 
 module.exports = seedUserProfiles;
-*/

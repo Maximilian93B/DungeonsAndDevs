@@ -11,10 +11,10 @@ const seedProvinces = require('./provinceSeeds');
 const seedChallenges = require('./challengeSeeds');
 const seedTrophies = require('./trophySeeds');;
 const seedUserProgress = require('./userProgressSeeds');
-//const seedUserProfiles = require('./userProfileSeeds');
+const seedUserProfiles = require('./userProfileSeeds');
 const seedUserTerritories = require('./userTerritorySeeds');
 const seedUserAchievement = require('./userAchievementSeeds');
-
+const seedUserTrophies = require('./userTrophySeeds');
 
 
 
@@ -62,20 +62,35 @@ const seedAll = async () => {
 
         // Seed User Achievements
         console.log('Starting User Achievement seeding...');
-        await seedUserAchievement ();
+        await seedUserAchievement();
+
+        // Seed User Profile 
+        console.log('Starting User Profile Seeding...');
+        await seedUserProfiles();
         
-        console.log('User seeded.');
-        console.log('Territories seeded.');
-        console.log('Provinces seeded.');
-        console.log('Challenges seeded.');
-        console.log('Trophies seeded.');
-        console.log('User Territories seeded.');
-        console.log('user_progress seeded.');
-        console.log('User Achievements seeded.');
-        console.log('Seeding complete.');
+        // Seed User Trophies 
+        console.log('Starting User Trophies Seeding...');
+        await seedUserTrophies();
+
+
+
+        console.log('User seeded...');
+        console.log('Territories seeded...');
+        console.log('Provinces seeded...');
+        console.log('Challenges seeded...');
+        console.log('Trophies seeded...');
+        console.log('User Territories seeded...');
+        console.log('user_progress seeded...');
+        console.log('user_achievements seeded...');
+        console.log('user_profile seeded...');
+        console.log('user_trophies Seeded...');
+        
+        
+        console.log('Seeding complete...');
+      
 
         console.log('Let the games begin....')
-        
+    
         
         process.exit(0);
     } catch (error) {
