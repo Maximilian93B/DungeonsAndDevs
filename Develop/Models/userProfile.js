@@ -1,9 +1,8 @@
 const { Model , DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// Import other Models
-const User = require('./User');
 
+//UserProfile Class 
 class UserProfile extends Model{} 
 
 UserProfile.init({
@@ -20,14 +19,14 @@ UserProfile.init({
           key: 'user_id'
         }
       },
-      current_territory_id: {
+      territory_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'territories', // name of the Territories table
           key: 'territory_id'
         }
       },
-      current_challenge_id: {
+     challenge_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'challenges', // name of the Challenges table
@@ -41,9 +40,19 @@ UserProfile.init({
     }, {
       sequelize,
       modelName: 'UserProfile',
-      tableName: 'UserProfile',
-      timestamps: false // Assuming you don't have createdAt and updatedAt fields
+      tableName: 'user_profile',
+      timestamps: false,
+      underscored: true // Assuming you don't have createdAt and updatedAt fields
 });
+
+UserProfile.associate = (models) => {
+ 
+  // For example, if a UserProfile belongs to a User
+  UserProfile.belongsTo(models.User, { foreignKey: 'user_id' });
+
+  // Assuming you have a Trophies model and a many-to-many relationship through user_trophies
+  UserProfile.belongsToMany(models.Trophy, { through: 'user_trophies', foreignKey: 'user_profile_id', otherKey: 'trophy_id' });
+};
 
 
 module.exports =  { UserProfile };

@@ -66,19 +66,6 @@ User.init({
   sequelize,
   modelName: 'User',
   tableName: 'users',
-  /*
-  hooks: {
-    
-    beforeCreate: (user) => {
-      user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10));
-    },
-    beforeUpdate: (user) => {
-      if (user.changed('password')) {
-        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10));
-      }
-    }
-  },
-  */
   timestamps: false,
   underscored: true,
 });

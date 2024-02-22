@@ -38,6 +38,7 @@ CREATE TABLE challenges (
     FOREIGN KEY (province_id) REFERENCES provinces(province_id) -- Corrected reference to province_id
 );
 
+
 CREATE TABLE user_territories (
     user_territory_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -55,6 +56,18 @@ CREATE TABLE user_progress (
     status VARCHAR(50),
     last_accessed DATETIME,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (challenge_id) REFERENCES challenges(challenge_id)
+);
+
+
+CREATE TABLE user_profile (
+    profile_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    territory_id INT,
+    challenge_id INT,
+    username VARCHAR(50),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (territory_id) REFERENCES territories(territory_id),
     FOREIGN KEY (challenge_id) REFERENCES challenges(challenge_id)
 );
 
@@ -79,16 +92,17 @@ CREATE TABLE user_achievements (
 );
 
 
-CREATE TABLE user_profile (
-    profile_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    territory_id INT,
-    challenge_id INT,
-    username VARCHAR(50),
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (territory_id) REFERENCES territories(territory_id),
-    FOREIGN KEY (challenge_id) REFERENCES challenges(challenge_id)
+CREATE TABLE user_trophies (
+    user_profile_id INT,
+    trophy_id INT,
+    awarded_on DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_profile_id, trophy_id),
+    FOREIGN KEY (user_profile_id) REFERENCES user_profile(profile_id),
+    FOREIGN KEY (trophy_id) REFERENCES trophies(trophy_id)
 );
+
+
+
 
 /* MANUALLY RUN THESE QUERIES IN YOUR DB FOR TESTING 
 
