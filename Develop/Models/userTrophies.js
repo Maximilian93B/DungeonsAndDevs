@@ -24,7 +24,7 @@ UserTrophies.init({
         },
         primaryKey: true 
     },
-    awarder_on: {
+    awarded_on: {
         type: DataTypes.DATE,
         allowNull: false, 
         defaultValue: DataTypes.NOW
@@ -45,5 +45,5 @@ UserTrophies.associate = (models) => {
     UserTrophies.belongsTo(models.Trophy, { foreignKey: 'trophy_id' });
 };
 
-
+module.exports = { UserTrophies };
 
