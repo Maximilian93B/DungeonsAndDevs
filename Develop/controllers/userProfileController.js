@@ -29,6 +29,29 @@ const getUserProfile = async (req, res) => {
     }
 };
 
+const getAllUserProfiles = async (req , res) => {
+    try {
+        const userProfiles = await UserProfile.findAll({
+            include: [
+                {model: User},
+                { model: Territory},
+                {model:Challenge}
+            ]
+        });
+
+        if(!userProfiles || userProfiles.length === 0) {
+            return res.status(404).send('User Profiles not found')
+        }
+        res.json(userProfiles);
+    } catch (error) {
+        console.error('Failed to fetch user Profiles:', error);
+        res.status(500).send({error:'Failed to fetch UserProfiles'});
+    }
+}
+
+
+
 module.exports = {
-    getUserProfile
+    getUserProfile,
+    getAllUserProfiles
 };
