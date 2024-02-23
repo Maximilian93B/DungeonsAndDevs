@@ -1,8 +1,13 @@
 # DungeonsAndDevs
 
-* Second Team Project
+Welcome to **DungeonsAndDevs**, where the realms of coding and fantasy merge to offer a unique learning experience for coding enthusiasts and gamers alike. Embark on an adventurous journey through coding challenges and quests to test your knowledge and celebrate your successes with fantasy-themed rewards.
 
-by Sam Greenwood, Gurvir Singh, Emilia Stewart & Max Bosch
+## Team Members
+
+- **Sam Greenwood**: Presentation & Design, Backend & Frontend Development, Interactive Map Design, Story Content Creation
+- **Gurvir Singh**: Backend Development, Database Connectivity, Debugging & Testing
+- **Emilia Stewart**: Frontend Development, Research, Documentation
+- **Max Bosch**: Project Conceptualization, Lead Developer, Backend Development, Database Design, Debugging & Testing, Frontend Design
 
 ## User Story
 
@@ -16,34 +21,38 @@ I WANT to participate in themed quests and collect fantasy items along the way t
 AS A STUDENT it is important to be able to track my progress
 I WANT to track my progress as I go along as well as save my “CAMPAIGN” so I can return to my results
 ```
+## Features
 
-## Usage
+- **Interactive Learning**: Engage in coding challenges and quizzes within a captivating fantasy-themed environment.
+- **Progress Tracking**: Monitor your learning journey with detailed progress tracking and the ability to save and resume your campaign.
+- **Fantasy Rewards**: Earn fantasy items and achievements as you advance through your coding quests.
 
-```text
-GIVEN I am at the Dungeons & Devs login page
-WHEN I Click the Register button 
-THEN I need to fill out registration page
-WHEN I Click the Register button
-THEN I am taken to the main Dashboard page 
-WHEN I Click on the rowboat
-THEN A prompt to verify a URL will show up
-WHEN I click on the island
-THEN A quiz prompt will show up
-WHEN I Click on Begin
-THEN the quiz will start
+## How to Use
+
+1. **Registration**: Start by registering an account from the Dungeons & Devs login page.
+2. **Dashboard Access**: Upon registration, access the main dashboard to navigate through the learning journey.
+3. **Embark on Quests**: Interact with elements like rowboats and islands to unlock coding challenges and quizzes.
+4. **Test Your Knowledge**: Begin quizzes to test and reinforce your coding knowledge.
+
+## Mockups
+
+Here's a sneak peek at what awaits you in Dungeons & Devs:
+
+![Login Page](Develop/public/images/loginPage.png)
+*Login pop-up with an island background.*
+
+![Main Dashboard](Develop/public/images/mainPage.png)
+*Dashboard page featuring islands, water, and a rowboat.*
+
+## Getting Started
+
+To get started with DungeonsAndDevs, clone the repository and follow the setup instructions provided in the documentation. Ensure you have Node.js and a suitable database system installed to run the application locally.
+
+## Contributing
+
+We welcome contributions to DungeonsAndDevs! 
+
+
 ```
 
-## Mockup
 
-![Login pop-up with an island background](Develop/public/images/loginPage.png)
-![Dashboard page with islands, water and a rowboat](Develop/public/images/mainPage.png)
-
-## Roles
-
-Max: Concept, Lead Developer, Delegation, Backend Developement, Database & Table Design, Debugging & Testing, Frontend Design, and Implementation.
-
-Gurvir: Backend Development, Database Connection, Debugging & Testing, and Frontend Implementation.
-
-Emilia: Frontend Development & Implementation, Research, Debugging & Testing, and Generating README.md.
-
-Sam: Presentation & Design, Backend & Frontend Design & Development, Custom SVG Interactive Map Design, Story Content, Quest, Challenge & Achievement Content & Design, and Debugging & Testing.
