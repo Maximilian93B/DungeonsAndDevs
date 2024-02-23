@@ -84,6 +84,7 @@ h1 {
     overflow: auto;
 }
 
+.userProfile-container
 .territory-container, 
 .provinces-container, 
 .challenge-container,
@@ -104,12 +105,22 @@ h1 {
 }
 
 /* Hover effect for list items */
+.userProfile-container li:hpver,
 .territory-container li:hover, 
 .provinces-container li:hover, 
 .challenge-container li:hover,
 .trophy-container li:hover {
     background-color: #f4f4f4; /* Change background on hover */
 }
+
+.userProfile-container li{
+    padding: 10px 0; /* Add some padding for spacing */
+    border-bottom: 1px solid #ccc; /* Optional: add a separator */
+    cursor: pointer; /* Change cursor to indicate interactivity */
+    color: #000
+}
+
+
 
 .sidebar-section h3 {
     margin-top: 0; /* Remove top margin for the heading */

@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchProvinces();
     fetchChallenges();
     fetchTrophies();
+    fetchUserProfile();
 
 });
 
@@ -360,3 +361,34 @@ function displayTrophies(trophies) {
     });
 }
 
+
+
+
+// Display User Profile 
+
+async function fetchUserProfile() {
+    try {
+        const response = await fetch('/user-profiles/1');
+        if (!response.ok) {
+            throw new Error(`HTTP Error! status ${response.status}`);
+        }
+        const userProfile = await response.json();
+        displayUserProfile(userProfile);
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+}
+
+function displayUserProfile(userProfile) {
+    const sidebarContent = document.querySelector('.userProfile-container');
+    sidebarContent.innerHTML = '';
+
+    // Assuming userProfile is a single object and not an array
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `<strong>Username:</strong> ${userProfile.username} <br> 
+                          <strong>Territory ID:</strong> ${userProfile.territory?.id} <br> 
+                          <strong>Challenge ID:</strong> ${userProfile.challenge?.id}`;
+    sidebarContent.appendChild(listItem);
+}
+
+    
