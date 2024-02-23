@@ -10,10 +10,10 @@
 
 Here's a sneak peek at what awaits you in Dungeons & Devs:
 
-![Login Page](Develop/public/images/LoginPage.png)
+![Login Page](./Develop/public//images/loginPage.png)
 *Login pop-up with an island background.*
 
-![Main Dashboard](Develop/public/images/Dashboard.png)
+![Main Dashboard](./Develop/public/images/Dashboard.png)
 *Dashboard page featuring islands, water, and a rowboat.*
 
 
