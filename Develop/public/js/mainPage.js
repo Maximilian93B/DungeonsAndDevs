@@ -129,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const modal = document.getElementById("myModal");
                     if (modal) {
                         modal.style.display = 'flex'; // Show the modal
+                        rowboatObject.classList.add('black-and-white');
                         console.log("Rowboat object clicked, modal displayed.");
                     } else {
                         console.error("Error: Modal element not found.");
