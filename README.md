@@ -28,13 +28,13 @@ Here's a sneak peek at what awaits you in Dungeons & Devs:
 
 ## Team Members🧑‍💻
 
-- **Sam Greenwood**:🎨🔧
+- `Sam Greenwood`:🎨🔧
 Presentation & Design, Backend & Frontend Development, Interactive Map Design, Story Content Creation
-- **Gurvir Singh**:🔧 
+- `Gurvir Singh`:🔧 
 Backend Development, Database Connectivity, Debugging & Testing
-- **Emilia Stewart**:🎨 
+- `Emilia Stewart`:🎨 
 Frontend Development, Research, Documentation
-- **Max Bosch**:🎨🔧🔧
+- `Max Bosch`:🎨🔧🔧
  Project Conceptualization, Lead Developer, Backend Development, Database Design, Debugging & Testing, Frontend Design
 
 ## User Story📖
