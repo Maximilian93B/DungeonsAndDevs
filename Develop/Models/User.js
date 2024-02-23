@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const bcrypt = require('bcryptjs');
 
 
+
 // Need  to import Othe Models for now 
 
 
@@ -72,9 +73,12 @@ User.init({
 
 // Define associations
 User.associate = (models) => {
-  User.hasMany(UserProgress, { foreignKey: 'user_id' });
-  User.hasMany(UserAchievements, { foreignKey: 'user_id' });
-  User.hasMany(UserTerritories, { foreignKey: 'user_id' });
+  // Assuming `models` contains all your model classes indexed by name
+  User.hasMany(models.UserProfile, { foreignKey: 'user_id' });
+  User.hasMany(models.UserProgress, { foreignKey: 'user_id' });
+  User.hasMany(models.UserAchievements, { foreignKey: 'user_id' });
+  User.hasMany(models.UserTerritories, { foreignKey: 'user_id' });
 };
+
 
 module.exports = { User };

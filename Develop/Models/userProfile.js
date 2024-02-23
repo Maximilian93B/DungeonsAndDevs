@@ -45,14 +45,18 @@ UserProfile.init({
       underscored: true // Assuming you don't have createdAt and updatedAt fields
 });
 
-UserProfile.associate = (models) => {
- 
-  // For example, if a UserProfile belongs to a User
-  UserProfile.belongsTo(models.User, { foreignKey: 'user_id' });
 
-  // Assuming you have a Trophies model and a many-to-many relationship through user_trophies
-  UserProfile.belongsToMany(models.Trophy, { through: 'user_trophies', foreignKey: 'user_profile_id', otherKey: 'trophy_id' });
-};
+  // Association to User 
+  UserProfile.associate = (models) => {
+    // Association back to User
+    UserProfile.belongsTo(models.User, { foreignKey: 'user_id' });
+   //  Trophy association 
+    UserProfile.belongsTo(models.Trophy, {through: 'user_trophies', foreignKey: 'profile_id', otherKey: 'trophy_id' });
+    // Your other associations can remain as defined
+  };
+  
+
+
 
 
 module.exports =  { UserProfile };
