@@ -1,4 +1,4 @@
-# `DungeonsAndDevs`
+# `Dungeons And Devs`
 
 **Welcome** to **DungeonsAndDevs** 🏰👨‍💻, where coding and fantasy merge in an epic learning adventure.
 
