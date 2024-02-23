@@ -1,8 +1,9 @@
 # `Dungeons&Devs`
 
-![Crest](./Develop//public//images//DnDevCrest.png)
-
 **Welcome** to **DungeonsAndDevs** 🏰👨‍💻, where coding and fantasy merge in an epic learning adventure.
+
+## D&Devs
+![Crest](./Develop//public//images//DnDevCrest.png)
 
 
 ## Mockups🎨
