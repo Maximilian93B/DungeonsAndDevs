@@ -163,12 +163,12 @@ INSERT INTO challenges (province_id, type, title, description, content, solution
 //          trophies table 
 
 INSERT INTO trophies (name, image_url, description, territory_id) VALUES
-('Navigator’s Compass', '/images/navigators-compass.jpg', 'Awarded for mastering the Open Waters.', 1),
-('Builder’s Hammer', '/images/builders-hammer.jpg', 'Awarded for constructing the most resilient structures in The Isles of Structure & Styling.', 2),
-('Scripter’s Scroll', '/images/scripters-scroll.jpg', 'Awarded for excellence in JavaScript at the Handler Highlands.', 3),
-('Express Pioneer Medal', '/images/express-pioneer-medal.jpg', 'Awarded for rapid development in Eerie Express.', 4),
-('SQL Sage Badge', '/images/sql-sage-badge.jpg', 'Awarded for advanced query crafting at SQL Summit.', 5),
-('Ultimate Quest Crown', '/images/ultimate-quest-crown.jpg', 'Awarded for completing the Final Quest.', 6);
+('Scroll of Structure', '/svg/', 'Awarded for mastering the Open Waters.', 1),
+('Object Oracle', '/svg', 'Awarded for constructing the most resilient structures in The Isles of Structure & Styling.', 2),
+('Err-roa Amulet', '/svg', 'Awarded for excellence in JavaScript at the Handler Highlands.', 3),
+('Hourglass of Scriptcraft', '/svg', 'Awarded for rapid development in Eerie Express.', 4),
+('The ByteGate Key', '/svg', 'Awarded for advanced query crafting at SQL Summit.', 5),
+('Staff of the All seeing AP-EYE', '/svg', 'Awarded for completing the Final Quest. Can help you in the next campaign!', 6);
 
 
 //      user_achievements table 
