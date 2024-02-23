@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+module.exports = (sequelize, DataTypes) => {
+    const { Model } = require('sequelize');
 
 class Trophy extends Model {}
 
@@ -45,5 +45,6 @@ Trophy.associate = (models) => {
     Trophy.hasMany(models.UserAchievements, { foreignKey: 'trophy_id' });
 };
 
+return Trophy
 
-module.exports = { Trophy };
+};

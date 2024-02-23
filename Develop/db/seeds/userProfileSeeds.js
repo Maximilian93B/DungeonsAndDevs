@@ -1,5 +1,5 @@
 // Import Modules and Models 
-const { UserProfile } = require('../../Models/userProfile');
+const { UserProfile } = require('../../Models/models');
 const sequelize = require('../../config/connection');
 
 // Declare async 

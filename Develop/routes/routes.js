@@ -27,7 +27,7 @@ router.use('/provinces', getProvince);
 router.use('/challenges', getChallenge);
 router.use('/achievements', getAchievement);
 router.use('/userTerritories', userTerritoriesRoute);
-router.use('/user-profiles/:user_id', userProfileRoute);
+router.use('/user-profiles', userProfileRoute);
 router.use('/trophies', trophyRoute);
 
 // YouTube API route 

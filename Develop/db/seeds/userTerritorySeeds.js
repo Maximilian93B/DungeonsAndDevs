@@ -1,6 +1,6 @@
 
 // Import Models and sequelize config
-const { UserTerritory } = require('../../Models/userTerritory');
+const { UserTerritory } = require('../../Models/models');
 const sequelize = require('../../config/connection');
 
 // Decalre asyn function 

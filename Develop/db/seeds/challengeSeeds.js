@@ -5,7 +5,7 @@
 // We might want to look at re structing the data. 
 
 // Import MOdels and Modules 
-const { Challenge } = require('../../Models/challenge');
+const { Challenge } = require('../../Models/models');
 const sequelize = require('../../config/connection');
 // const { Province } = require('../../Models/province');
 

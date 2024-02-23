@@ -1,5 +1,5 @@
 // Import Trophy Model and Modules 
-const { Trophy } = require('../../Models/trophy');
+const { Trophy } = require('../../Models/models');
 const sequelize = require('../../config/connection');
 
 // Decalre async 

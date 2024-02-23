@@ -1,8 +1,8 @@
 // Import Modules
 
-const { Province } = require("../../Models/province");
+const { Province , Territory } = require("../../Models/models");
 const sequelize = require("../../config/connection");
-const { Territory } = require('../../Models/territory');
+
 
 // Decalre async 
 const seedProvinces = async () => {

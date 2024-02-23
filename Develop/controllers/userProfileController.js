@@ -1,23 +1,20 @@
-const { User } = require('../Models/User');
-const { UserProfile } = require('../Models/userProfile')
-const { Territory } = require('../Models/territory');
-const { Challenge } = require('../Models/challenge');
 
-const getUserProfile = async (req ,res ) => {
+const { UserProfile, User, Territory, Challenge } = require('../Models/models');
+
+
+const getUserProfile = async (req, res) => {
     try {
-        const user_id = parseInt(req.params.user_id, 10); 
+        const user_id = parseInt(req.params.id, 10); // Corrected to use "id"
         if (isNaN(user_id)) {
             return res.status(400).send({error: 'Invalid user ID.'});
         }
 
         const userProfile = await UserProfile.findOne({
-            where: {user_id: user_id },
+            where: {user_id: user_id},
             include: [
                 {model: User},
-               
-                {model: Territory, as: 'Current Territory'},
-                {model: Challenge, as: 'Current Challenge'}
-                
+                {model: Territory,},
+                {model: Challenge,}
             ]
         });
 
@@ -28,9 +25,8 @@ const getUserProfile = async (req ,res ) => {
         res.json(userProfile);
     } catch (error) {
         console.error('Failed to fetch user profile:', error);
-        res.status(500).send({error: 'Failed to fetch user Profile '});
-    };  
-
+        res.status(500).send({error: 'Failed to fetch user Profile'});
+    }
 };
 
 module.exports = {

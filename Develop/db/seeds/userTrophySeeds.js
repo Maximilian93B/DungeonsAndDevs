@@ -1,5 +1,5 @@
 
-const { UserTrophies } = require('../../Models/userTrophies'); 
+const { UserTrophies } = require('../../Models/models'); 
 const sequelize = require('../../config/connection');
 
 // Decalre async function 

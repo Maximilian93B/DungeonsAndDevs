@@ -1,7 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
 
-class UserProgress extends Model {}
+module.exports = (sequelize, DataTypes) => {
+const { Model } = require('sequelize');
+    class UserProgress extends Model {}
 
 UserProgress.init({
     // Model attributes
@@ -43,9 +43,11 @@ UserProgress.init({
     underscored: true,
 });
 
-UserProgress.associate = (models) => {
-    UserProgress.belongsTo(models.User, { foreignKey: 'user_id' });
-    UserProgress.belongsTo(models.Challenge, { foreignKey: 'challenge_id' });
+UserProgress.associate = (Model) => {
+    UserProgress.belongsTo(Model.User, { foreignKey: 'user_id' });
+    UserProgress.belongsTo(Model.Challenge, { foreignKey: 'challenge_id' });
 };
 
-module.exports = { UserProgress };
+return UserProgress;
+
+};
