@@ -38,12 +38,12 @@ Trophy.init({
     underscored: true,
 });
 
-/*
+
 // Associations
 Trophy.associate = (models) => {
     Trophy.belongsTo(models.Territory, { foreignKey: 'territory_id' });
     Trophy.hasMany(models.UserAchievements, { foreignKey: 'trophy_id' });
 };
 
-*/
+
 module.exports = { Trophy };
