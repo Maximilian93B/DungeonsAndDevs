@@ -1,42 +1,43 @@
-const {Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-
-class Territory extends Model {}
-
-Territory.init ({
-    // Model attributes 
-    territory_id: {
+module.exports = (sequelize, DataTypes) => {
+    const { Model } = require('sequelize');
+  
+    class Territory extends Model {}
+  
+    Territory.init({
+      // Model attributes
+      territory_id: {
         type: DataTypes.INTEGER,
-        allowNull: false, 
-        primaryKey:true,
+        allowNull: false,
+        primaryKey: true,
         autoIncrement: true
-    },
-
-    name: {
+      },
+      name: {
         type: DataTypes.STRING(50),
         allowNull: false
-    },
-    description: {
-        type: DataTypes.STRING(50),
-    },
-    icon: {
-        type: DataTypes.STRING(50), // Ensure this matches the Sequelize DataTypes
-        allowNull: true, // Based on your requirements
+      },
+      description: {
+        type: DataTypes.STRING(255), // Adjusted length for potential longer descriptions
+      },
+      icon: {
+        type: DataTypes.STRING(255), // Adjusted length for potential file paths or URLs
+        allowNull: true,
       }
-}, {
-    // model options 
-    sequelize, // pass connection 
-    modelName: 'Territory',
-    tableName: 'territories',
-    timestamps: false,
-    underscored: true,
-});
-
-Territory.associate = (models) => {
-    Territory.hasMany(models.Provinces, { foreignKey: 'territory_id' });
-    Territory.hasOne(models.Trophies, { foreignKey: 'territory_id' });
-    Territory.hasMany(models.UserTerritories, { foreignKey: 'territory_id' });
-};
-
-
-module.exports = { Territory }; 
+    }, {
+      // Model options
+      sequelize,
+      modelName: 'Territory',
+      tableName: 'territories',
+      timestamps: false,
+      underscored: true,
+    });
+  
+    Territory.associate = (models) => {
+      // Associations can be defined here
+      Territory.hasMany(models.Province, { foreignKey: 'territory_id' });
+      Territory.hasOne(models.Trophy, { foreignKey: 'territory_id' });
+      Territory.hasMany(models.UserTerritory, { foreignKey: 'territory_id' });
+    };
+  
+    return Territory;
+  };
+  

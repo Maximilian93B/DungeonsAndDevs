@@ -7,7 +7,7 @@
 // Import Modules 
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
-const { User } = require('../Models/User');
+const { User } = require('../Models/models');
 
 // Init passport auth
 function initialize(passport) {

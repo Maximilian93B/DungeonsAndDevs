@@ -1,6 +1,6 @@
 // Writting this route in order to test the db 
 const express = require('express')
-const { User } = require('../../Models/User')
+const { User } = require('../../Models/models');
 const router = express.Router()
 
 // Get route to fetch all users 

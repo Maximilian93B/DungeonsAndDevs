@@ -1,6 +1,7 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 
+module.exports = (sequelize, DataTypes) => { 
+const { Model } = require('sequelize')
 
 class UserTrophies extends Model {}
 
@@ -39,11 +40,13 @@ UserTrophies.init({
 
 });
 
-UserTrophies.associate = (models) => {
+UserTrophies.associate = (Model) => {
     
-    UserTrophies.belongsTo(models.UserProfile, { foreignKey: 'user_profile_id' });
-    UserTrophies.belongsTo(models.Trophy, { foreignKey: 'trophy_id' });
+    UserTrophies.belongsTo(Model.UserProfile, { foreignKey: 'user_profile_id' });
+    UserTrophies.belongsTo(Model.Trophy, { foreignKey: 'trophy_id' });
 };
 
-module.exports = { UserTrophies };
+return UserTrophies;
+
+};
 

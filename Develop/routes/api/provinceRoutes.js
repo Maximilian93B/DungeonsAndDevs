@@ -1,7 +1,7 @@
 // Import modules
 const express = require('express');
 // Import the Territory model
-const { Province, Territory } = require('../../Models/province');
+const { Province, Territory } = require('../../Models/models');
 // Create a new Router instance
 const router = express.Router();
 

@@ -1,48 +1,50 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-
-class Achievement extends Model {}
-
-Achievement.init({
-    // Model attributes
-    achievement_id: {
+module.exports = (sequelize, DataTypes) => {
+    const { Model } = require('sequelize');
+  
+    class Achievement extends Model {}
+  
+    Achievement.init({
+      // Model attributes
+      achievement_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
-    },
-    user_id: {
+      },
+      user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'users', // This should match the table name
-            key: 'user_id',
+          model: 'users', // This should match the table name exactly as it is in the database.
+          key: 'user_id',
         }
-    },
-    trophy_id: {
+      },
+      trophy_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'trophies', // This should match the table name
-            key: 'trophy_id',
+          model: 'trophies', // This should match the table name exactly as it is in the database.
+          key: 'trophy_id',
         }
-    },
-    date_earned: {
+      },
+      date_earned: {
         type: DataTypes.DATE,
         allowNull: false
-    }
-}, {
-    // Model options
-    sequelize,
-    modelName: 'Achievement',
-    tableName: 'user_achievements',
-    timestamps: false
-});
-
-// Define associations here, outside the init method
-Achievement.associate = (models) => {
-    Achievement.belongsTo(models.User, { foreignKey: 'user_id' });
-    Achievement.belongsTo(models.Trophies, { foreignKey: 'trophy_id' });
-};
-
-module.exports = { Achievement };
+      }
+    }, {
+      // Model options
+      sequelize,
+      modelName: 'Achievement',
+      tableName: 'user_achievements',
+      timestamps: false,
+      underscored: true,
+    });
+  
+    Achievement.associate = (models) => {
+      Achievement.belongsTo(models.User, { foreignKey: 'user_id' });
+      Achievement.belongsTo(models.Trophy, { foreignKey: 'trophy_id' });
+    };
+  
+    return Achievement;
+  };
+  

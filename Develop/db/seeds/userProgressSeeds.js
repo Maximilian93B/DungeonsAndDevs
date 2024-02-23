@@ -1,5 +1,5 @@
 // Import UserProgress Model
-const { UserProgress } = require('../../Models/userProgress');
+const { UserProgress } = require('../../Models/models');
 const sequelize = require('../../config/connection');
 
 // Decalre aysnc 

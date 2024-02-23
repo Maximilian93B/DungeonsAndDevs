@@ -1,9 +1,8 @@
-const { Model , DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
 
-
-//UserProfile Class 
-class UserProfile extends Model{} 
+module.exports = (sequelize, DataTypes) => {
+ const { Model } = require('sequelize');
+  
+ class UserProfile extends Model{} 
 
 UserProfile.init({
     profile_id: {
@@ -50,15 +49,16 @@ UserProfile.init({
   UserProfile.associate = (models) => {
     // Association back to User
     UserProfile.belongsTo(models.User, { foreignKey: 'user_id' });
+   /*
+    UserProfile.belongsTo(Model.User, { foreignKey: 'user_id' });
    //  Trophy association 
-    UserProfile.belongsTo(models.Trophy, {through: 'user_trophies', foreignKey: 'profile_id', otherKey: 'trophy_id' });
+    UserProfile.belongsTo(Model.Trophy, {through: 'user_trophies', foreignKey: 'profile_id', otherKey: 'trophy_id' });
     // Your other associations can remain as defined
+    */
   };
   
+  return UserProfile;
+};
 
-
-
-
-module.exports =  { UserProfile };
 
 

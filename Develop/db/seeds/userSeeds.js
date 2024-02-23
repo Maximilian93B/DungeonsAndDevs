@@ -1,5 +1,5 @@
 // Import Models and Modules 
-const { User } = require('../../Models/User');
+const { User } = require('../../Models/models');
 const bcrypt = require('bcryptjs');
 const sequelize = require('../../config/connection');
 

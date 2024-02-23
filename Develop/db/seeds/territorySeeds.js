@@ -1,5 +1,5 @@
 // Import Model and Modules
-const { Territory } = require('../../Models/territory');
+const { Territory } = require('../../Models/models');
 const sequelize = require('../../config/connection');
 
 // Declare async 

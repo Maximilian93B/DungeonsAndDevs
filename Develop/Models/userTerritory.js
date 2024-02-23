@@ -1,7 +1,6 @@
-const { Model , DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
 
-
+module.exports = (sequelize, DataTypes) => {
+    const { Model } = require('sequelize');
 class UserTerritory extends Model {}
 
     UserTerritory.init({
@@ -39,15 +38,14 @@ class UserTerritory extends Model {}
     });
     
     
-    UserTerritory.associate = (models) => {
-        UserTerritory.belongsTo(models.User, { foreignKey: 'user_id' });
-        UserTerritory.belongsTo(models.Territory, { foreignKey: 'territory_id' });
-    };
-    
-    module.exports = { UserTerritory } ;
+    UserTerritory.associate = (Model) => {
+        UserTerritory.belongsTo(Model.User, { foreignKey: 'user_id' });
+        UserTerritory.belongsTo(Model.Territory, { foreignKey: 'territory_id' });
+    };    
 
+    return UserTerritory;
 
-      
+};      
 
 
 

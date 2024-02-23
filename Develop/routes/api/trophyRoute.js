@@ -1,6 +1,6 @@
 const express = require('express');
 // Import the Trophy model
-const { Trophy } = require('../../Models/trophy'); // Adjust the path as necessary to match your file structure
+const { Trophy } = require('../../Models/models'); // Adjust the path as necessary to match your file structure
 // Create a new Router instance
 const router = express.Router();
 

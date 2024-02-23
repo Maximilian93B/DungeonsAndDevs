@@ -1,7 +1,7 @@
 // Import modules
 const express = require('express');
 // Import the Territory model
-const { Territory } = require('../../Models/territory'); // Ensure this path correctly matches your file structure
+const { Territory } = require('../../Models/models'); // Ensure this path correctly matches your file structure
 // Create a new Router instance
 const router = express.Router();
 
