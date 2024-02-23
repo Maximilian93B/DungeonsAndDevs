@@ -1,13 +1,36 @@
 # DungeonsAndDevs
 
-Welcome to **DungeonsAndDevs**, where the realms of coding and fantasy merge to offer a unique learning experience for coding enthusiasts and gamers alike. Embark on an adventurous journey through coding challenges and quests to test your knowledge and celebrate your successes with fantasy-themed rewards.
+Welcome to **DungeonsAndDevs** 🏰👨‍💻, where coding and fantasy merge in an epic learning adventure.
+
+## Table of Contents
+- [Team Members](#team-members)
+- [User Story](#user-story)
+- [Features](#features)
+- [How to Use](#how-to-use)
+- [Mockups](#mockups)
+- [Getting Started](#getting-started)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+
+## Mockups
+
+Here's a sneak peek at what awaits you in Dungeons & Devs:
+
+![Login Page](Develop/public/images/loginPage.png)
+*Login pop-up with an island background.*
+
+![Main Dashboard](Develop/public/images/mainPage.png)
+*Dashboard page featuring islands, water, and a rowboat.*
+
 
 ## Team Members
 
-- **Sam Greenwood**: Presentation & Design, Backend & Frontend Development, Interactive Map Design, Story Content Creation
-- **Gurvir Singh**: Backend Development, Database Connectivity, Debugging & Testing
-- **Emilia Stewart**: Frontend Development, Research, Documentation
-- **Max Bosch**: Project Conceptualization, Lead Developer, Backend Development, Database Design, Debugging & Testing, Frontend Design
+- **Sam Greenwood**:🎨🔧Presentation & Design, Backend & Frontend Development, Interactive Map Design, Story Content Creation
+- **Gurvir Singh**:🔧 Backend Development, Database Connectivity, Debugging & Testing
+- **Emilia Stewart**:🎨 Frontend Development, Research, Documentation
+- **Max Bosch**:🎨🔧🔧 Project Conceptualization, Lead Developer, Backend Development, Database Design, Debugging & Testing, Frontend Design
 
 ## User Story
 
@@ -23,7 +46,7 @@ I WANT to track my progress as I go along as well as save my “CAMPAIGN” so I
 ```
 ## Features
 
-- **Interactive Learning**: Engage in coding challenges and quizzes within a captivating fantasy-themed environment.
+- **Interactive Learning** 🎮: Engage in coding challenges and quizzes within a captivating fantasy-themed environment.
 - **Progress Tracking**: Monitor your learning journey with detailed progress tracking and the ability to save and resume your campaign.
 - **Fantasy Rewards**: Earn fantasy items and achievements as you advance through your coding quests.
 
@@ -34,25 +57,55 @@ I WANT to track my progress as I go along as well as save my “CAMPAIGN” so I
 3. **Embark on Quests**: Interact with elements like rowboats and islands to unlock coding challenges and quizzes.
 4. **Test Your Knowledge**: Begin quizzes to test and reinforce your coding knowledge.
 
-## Mockups
-
-Here's a sneak peek at what awaits you in Dungeons & Devs:
-
-![Login Page](Develop/public/images/loginPage.png)
-*Login pop-up with an island background.*
-
-![Main Dashboard](Develop/public/images/mainPage.png)
-*Dashboard page featuring islands, water, and a rowboat.*
 
 ## Getting Started
 
-To get started with DungeonsAndDevs, clone the repository and follow the setup instructions provided in the documentation. Ensure you have Node.js and a suitable database system installed to run the application locally.
+To get started with DungeonsAndDevs, you'll need to clone the repository and install its dependencies. Follow these steps:
+
+```bash
+# Clone the repository
+git clone https://github.com/Maximilian93B/DungeonsAndDevs.git
+
+# Navigate into the project directory
+cd DungeonsAndDevs
+
+# Install dependencies
+npm install
+
+# Navigate to Develop/db/seeds to run seed files 
+node index.js 
+
+# You will require a MySQL Databse and add a .env to the project 
+MySQL 
+.env 
+
+```
 
 ## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+Project Link: [https://github.com/Maximilian93B/DungeonsAndDevs](https://github.com/yourGitHubUsername/DungeonsAndDevs)
+
+
 
 We welcome contributions to DungeonsAndDevs! 
 
 
-```
+
 
 
