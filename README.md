@@ -3,7 +3,7 @@
 **Welcome** to **DungeonsAndDevs** 🏰👨‍💻, where coding and fantasy merge in an epic learning adventure.
 
 
-## Mockups🎨
+`Mockups🎨`
 
 Here's a sneak peek at what awaits you in Dungeons & Devs:
 
@@ -14,7 +14,7 @@ Here's a sneak peek at what awaits you in Dungeons & Devs:
 *Dashboard page featuring islands, water, and a rowboat.*
 
 
-## Table of Contents
+`Table of Contents`
 . [Team Members](#team-members)
 . [User Story](#user-story)
 . [Features](#features)
@@ -26,7 +26,7 @@ Here's a sneak peek at what awaits you in Dungeons & Devs:
 . [Contact](#contact)
 
 
-## Team Members🧑‍💻
+`Team Members🧑‍💻`
 
 - `Sam Greenwood`:🎨🔧
 Presentation & Design, Backend & Frontend Development, Interactive Map Design, Story Content Creation
@@ -37,7 +37,7 @@ Frontend Development, Research, Documentation
 - `Max Bosch`:🎨🔧🔧
  Project Conceptualization, Lead Developer, Backend Development, Database Design, Debugging & Testing, Frontend Design
 
-## User Story📖
+`User Story📖`
 
 ```text
 AS A STUDENT new to coding and development
@@ -49,21 +49,21 @@ I WANT to participate in themed quests and collect fantasy items along the way t
 AS A STUDENT it is important to be able to track my progress
 I WANT to track my progress as I go along as well as save my “CAMPAIGN” so I can return to my results
 ```
-## Features✨
+`Features✨`
 
-- **Interactive Learning** 🎮: Engage in coding challenges and quizzes within a captivating fantasy-themed environment.
-- **Progress Tracking**: Monitor your learning journey with detailed progress tracking and the ability to save and resume your campaign.
-- **Fantasy Rewards**: Earn fantasy items and achievements as you advance through your coding quests.
+- `Interactive Learning` 🎮: Engage in coding challenges and quizzes within a captivating fantasy-themed environment.
+- `Progress Tracking`: Monitor your learning journey with detailed progress tracking and the ability to save and resume your campaign.
+- `Fantasy Rewards`: Earn fantasy items and achievements as you advance through your coding quests.
 
-## How to Use🚀
+`How to Use🚀`
 
-1. **Registration**: Start by registering an account from the Dungeons & Devs login page.
-2. **Dashboard Access**: Upon registration, access the main dashboard to navigate through the learning journey.
-3. **Embark on Quests**: Interact with elements like rowboats and islands to unlock coding challenges and quizzes.
-4. **Test Your Knowledge**: Begin quizzes to test and reinforce your coding knowledge.
+1. `Registration`: Start by registering an account from the Dungeons & Devs login page.
+2. `Dashboard Access`: Upon registration, access the main dashboard to navigate through the learning journey.
+3. `Embark on Quests`: Interact with elements like rowboats and islands to unlock coding challenges and quizzes.
+4. `Test Your Knowledge`: Begin quizzes to test and reinforce your coding knowledge.
 
 
-## Getting Started 🛠️
+`Getting Started🛠️`
 
 To get started with DungeonsAndDevs, you'll need to clone the repository and install its dependencies. Follow these steps:
 
@@ -86,7 +86,7 @@ MySQL
 
 ```
 
-## Contributing 🤝
+`Contributing🤝`
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -98,11 +98,11 @@ If you have a suggestion that would make this better, please fork the repo and c
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License 🔒
+`License🔒`
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## Contact 📬
+`Contact📬`
 
 Project Link: [https://github.com/Maximilian93B/DungeonsAndDevs]
 
