@@ -158,6 +158,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//      Territory Modal 
+
+/*
+// Event listener for SVG object 
+document.getElementById('rowboat-object').addEventListener('click', function() {
+    // Open the modal with the territory description
+
+function openModalterritoryModal() {
+    const territoryModalmodal = document.getElementById("territoryModal");
+    modal.style.display = "block";
+
+    const closeButton = document.querySelector(".close-button");
+    closeButton.onclick = function() {
+        territoryModalmodal.style.display = "none";
+    }
+}
+
+    openModalterritoryModal();
+});
+*/
 
 
 
