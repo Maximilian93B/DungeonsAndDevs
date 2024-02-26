@@ -52,17 +52,16 @@ function initialize(passport) {
     });
     
     // Deserialize the user info from the session in order to identify sub requests  
-    passport.deserializeUser((id,done)=> {
-        console.log(`Deserializing user: ${id}`); 
-        User.findByPk(id)
-        .then(user => {
+    passport.deserializeUser((user_id,done)=> {
+        console.log(`Deserializing user: ${user_id}`); 
+        User.findByPk(user_id).then(user => {
             done(null,user);
-        })
-        .catch(e => {
-            console.error(`Error during deserialization for user ID: ${id}`,e);
+        }).catch(e => {
+            console.error(`Error during deserialization for user ID: ${user_id}`,e);
+            done(e);
         });
 
-        });       
+    });       
 
 }
 
