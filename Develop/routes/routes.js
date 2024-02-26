@@ -16,11 +16,13 @@ const userTerritoriesRoute = require('./api/userTerritories');
 const userProfileRoute = require('./api/userProfiles');
 const trophyRoute =require('./api/trophyRoute')
 const updateUserTerritory  = require('./api/update-api/updateUserTerritory');
+const getAuthUser = require('./api/getAuthUser');
+
 
 // Add imported routes here  
 router.use('/auth', authRoutes);
 router.use('/dashboard', dashboardRoute);
-router.use('/users', getUsers);
+router.use('/users', getUsers,);
 router.use('/register', regieRoutes);
 router.use('/territories', getTerritories);
 router.use('/provinces', getProvince);
@@ -30,6 +32,7 @@ router.use('/userTerritories', userTerritoriesRoute);
 router.use('/user-profiles', userProfileRoute);
 router.use('/trophies', trophyRoute);
 router.use('/update-user-territory', updateUserTerritory);
+router.use('/getUserId', getAuthUser);
 
 
 
