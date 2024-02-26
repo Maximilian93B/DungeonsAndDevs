@@ -40,7 +40,11 @@ class UserTerritory extends Model {}
     
     UserTerritory.associate = (Model) => {
         UserTerritory.belongsTo(Model.User, { foreignKey: 'user_id' });
-        UserTerritory.belongsTo(Model.Territory, { foreignKey: 'territory_id' });
+        UserTerritory.belongsTo(Model.Territory, {
+             foreignKey: 'territory_id',
+             onDelete:'CASCADE' // cascading deletes  
+            
+            });
     };    
 
     return UserTerritory;

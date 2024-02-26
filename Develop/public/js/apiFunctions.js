@@ -198,7 +198,7 @@ function displayUserProfile(userProfile) {
 }
 
     
-
+// Update current territory in user_territories and then update user profile 
 
 
 

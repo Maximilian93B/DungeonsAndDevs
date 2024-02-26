@@ -15,7 +15,7 @@ const getAchievement = require('./api/getAchievements')
 const userTerritoriesRoute = require('./api/userTerritories');
 const userProfileRoute = require('./api/userProfiles');
 const trophyRoute =require('./api/trophyRoute')
-
+const updateUserTerritory  = require('./api/update-api/updateUserTerritory');
 
 // Add imported routes here  
 router.use('/auth', authRoutes);
@@ -29,6 +29,12 @@ router.use('/achievements', getAchievement);
 router.use('/userTerritories', userTerritoriesRoute);
 router.use('/user-profiles', userProfileRoute);
 router.use('/trophies', trophyRoute);
+router.use('/update-user-territory', updateUserTerritory);
+
+
+
+
+
 
 // YouTube API route 
 router.use('/search', googleApi);
