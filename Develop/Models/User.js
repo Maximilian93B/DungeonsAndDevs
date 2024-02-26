@@ -60,6 +60,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.UserProgress, { foreignKey: 'user_id' });
     User.hasMany(models.UserAchievement, { foreignKey: 'user_id' }); // Ensure the model name is singular if that's how you've defined it
     User.hasMany(models.UserTerritory, { foreignKey: 'user_id' });
+    User.hasMany(models.UserProfile, { foreignKey: 'user_id'})
     // Add other associations as necessary, ensuring model names are correctly referenced
   };
 
